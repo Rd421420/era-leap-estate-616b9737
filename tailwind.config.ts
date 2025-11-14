@@ -22,6 +22,8 @@ export default {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+          light: "hsl(var(--era-red-light))",
+          dark: "hsl(var(--era-red-dark))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -47,16 +49,15 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        sidebar: {
-          DEFAULT: "hsl(var(--sidebar-background))",
-          foreground: "hsl(var(--sidebar-foreground))",
-          primary: "hsl(var(--sidebar-primary))",
-          "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
-          accent: "hsl(var(--sidebar-accent))",
-          "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
-          border: "hsl(var(--sidebar-border))",
-          ring: "hsl(var(--sidebar-ring))",
+        era: {
+          red: "hsl(var(--era-red))",
+          "red-light": "hsl(var(--era-red-light))",
+          "red-dark": "hsl(var(--era-red-dark))",
         },
+      },
+      fontFamily: {
+        sans: ['Open Sans', 'sans-serif'],
+        heading: ['Montserrat', 'sans-serif'],
       },
       borderRadius: {
         lg: "var(--radius)",
