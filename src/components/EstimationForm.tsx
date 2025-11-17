@@ -30,6 +30,10 @@ interface FormData {
   ville: string;
   nbLogements: string;
   typesLogements: string;
+  meuble: string;
+  parkingExterieur: string;
+  parkingInterieur: string;
+  garage: string;
   // Owner details
   nom: string;
   prenom: string;
@@ -58,6 +62,10 @@ const EstimationForm = () => {
     ville: "",
     nbLogements: "",
     typesLogements: "",
+    meuble: "",
+    parkingExterieur: "",
+    parkingInterieur: "",
+    garage: "",
     nom: "",
     prenom: "",
     telephone: "",
@@ -333,6 +341,55 @@ const EstimationForm = () => {
                         <SelectItem value="jardin">Jardin</SelectItem>
                       </SelectContent>
                     </Select>
+                  </div>
+                </div>
+
+                <div>
+                  <Label htmlFor="meuble">Meublé</Label>
+                  <Select value={formData.meuble} onValueChange={(val) => handleInputChange('meuble', val)}>
+                    <SelectTrigger>
+                      <SelectValue placeholder="Choisir" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="oui">Oui</SelectItem>
+                      <SelectItem value="non">Non</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+
+                <div>
+                  <Label className="text-base font-semibold mb-3 block">Stationnement</Label>
+                  <div className="grid md:grid-cols-3 gap-4">
+                    <div>
+                      <Label htmlFor="parkingExterieur" className="text-sm">Parking extérieur</Label>
+                      <Input
+                        type="number"
+                        min="0"
+                        value={formData.parkingExterieur}
+                        onChange={(e) => handleInputChange('parkingExterieur', e.target.value)}
+                        placeholder="0"
+                      />
+                    </div>
+                    <div>
+                      <Label htmlFor="parkingInterieur" className="text-sm">Parking intérieur</Label>
+                      <Input
+                        type="number"
+                        min="0"
+                        value={formData.parkingInterieur}
+                        onChange={(e) => handleInputChange('parkingInterieur', e.target.value)}
+                        placeholder="0"
+                      />
+                    </div>
+                    <div>
+                      <Label htmlFor="garage" className="text-sm">Garage</Label>
+                      <Input
+                        type="number"
+                        min="0"
+                        value={formData.garage}
+                        onChange={(e) => handleInputChange('garage', e.target.value)}
+                        placeholder="0"
+                      />
+                    </div>
                   </div>
                 </div>
 
