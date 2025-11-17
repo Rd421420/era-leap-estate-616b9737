@@ -63,26 +63,13 @@ const Hero = ({ onScrollToForm }: HeroProps) => {
           {/* Right Column - Video */}
           <div className="relative">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-video bg-muted">
-              <video
-                autoPlay
-                muted
-                loop
-                playsInline
-                className="w-full h-full object-cover"
-                poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Crect fill='%23E9E9E9' width='800' height='450'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='48' fill='%23C8102E'%3EERA%3C/text%3E%3C/svg%3E"
-              >
-                <source 
-                  src="https://drive.google.com/uc?export=download&id=1NgQ10xsKDB5pej_PRY097haVtnsf3k_s" 
-                  type="video/mp4" 
-                />
-                Votre navigateur ne supporte pas la lecture de vidéos.
-              </video>
-              
-              <div className="absolute inset-0 flex items-center justify-center bg-black/20 opacity-0 hover:opacity-100 transition-opacity">
-                <div className="w-16 h-16 rounded-full bg-white/90 flex items-center justify-center">
-                  <Play className="w-8 h-8 text-primary ml-1" />
-                </div>
-              </div>
+              <iframe
+                className="w-full h-full"
+                src="https://www.youtube.com/embed/UlXohzlvmMc?controls=1&rel=0&modestbranding=1"
+                title="ERA DUPONT ROMAIN IMMOBILIER - Gestion Locative à Perpignan"
+                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
             </div>
           </div>
         </div>
