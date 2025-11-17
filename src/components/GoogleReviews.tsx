@@ -16,47 +16,59 @@ const GoogleReviews = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Mock reviews for demo - in production, this would call Google Places API
-    // Note: Direct API calls from frontend won't work due to CORS
-    // You'll need to set up a backend proxy or use Google's official widget
-    const mockReviews: Review[] = [
-      {
-        author_name: "Marie Dubois",
-        rating: 5,
-        text: "Excellent service ! L'équipe ERA a été très professionnelle pour l'estimation de mon appartement. Je recommande vivement.",
-        time: Date.now() / 1000 - 86400 * 5
-      },
-      {
-        author_name: "Jean-Pierre Martin",
-        rating: 5,
-        text: "Très satisfait de la gestion locative. Réactifs et à l'écoute. Mon bien est loué depuis 3 ans sans souci.",
-        time: Date.now() / 1000 - 86400 * 12
-      },
-      {
-        author_name: "Sophie Laurent",
-        rating: 5,
-        text: "Estimation gratuite très précise, proche du loyer réel obtenu. Merci pour votre expertise !",
-        time: Date.now() / 1000 - 86400 * 20
-      },
-      {
-        author_name: "Thomas Rousseau",
-        rating: 4,
-        text: "Bon accompagnement dans la mise en location de ma maison à Canet. Équipe sympathique.",
-        time: Date.now() / 1000 - 86400 * 30
-      },
-      {
-        author_name: "Isabelle Petit",
-        rating: 5,
-        text: "Service impeccable ! La garantie loyers impayés est un vrai plus. Je me sens sereine.",
-        time: Date.now() / 1000 - 86400 * 45
-      }
-    ];
+    const fetchReviews = async () => {
+      try {
+        const response = await fetch(
+          'https://docs.google.com/spreadsheets/d/1MAO3oaJgKkAU-0RsyXgRSOKp_-Yi-wZaNDR7q3NEGJQ/gviz/tq?tqx=out:csv'
+        );
+        const csvText = await response.text();
+        
+        // Parse CSV (skip header)
+        const lines = csvText.split('\n').slice(1);
+        const parsed = lines
+          .map(line => {
+            const values = line.split(',').map(v => v.replace(/"/g, '').trim());
+            return {
+              author_name: values[0] || '',
+              rating: parseInt(values[3]) || 5,
+              text: values[2] || '',
+              time: values[1] ? new Date(values[1]).getTime() / 1000 : Date.now() / 1000
+            };
+          })
+          .filter(r => r.author_name && r.text);
 
-    setTimeout(() => {
-      setReviews(mockReviews);
-      setLoading(false);
-    }, 500);
+        setReviews(parsed.length > 0 ? parsed : getMockReviews());
+      } catch (error) {
+        console.error('Erreur chargement avis Google:', error);
+        setReviews(getMockReviews());
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchReviews();
   }, []);
+
+  const getMockReviews = (): Review[] => [
+    {
+      author_name: "Marie Dubois",
+      rating: 5,
+      text: "Excellent service ! L'équipe ERA a été très professionnelle pour l'estimation de mon appartement. Je recommande vivement.",
+      time: Date.now() / 1000 - 86400 * 5
+    },
+    {
+      author_name: "Jean-Pierre Martin",
+      rating: 5,
+      text: "Très satisfait de la gestion locative. Réactifs et à l'écoute. Mon bien est loué depuis 3 ans sans souci.",
+      time: Date.now() / 1000 - 86400 * 12
+    },
+    {
+      author_name: "Sophie Laurent",
+      rating: 5,
+      text: "Estimation gratuite très précise, proche du loyer réel obtenu. Merci pour votre expertise !",
+      time: Date.now() / 1000 - 86400 * 20
+    }
+  ];
 
   const formatDate = (timestamp: number) => {
     return new Date(timestamp * 1000).toLocaleDateString('fr-FR', {
