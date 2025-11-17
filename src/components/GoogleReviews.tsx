@@ -1,7 +1,14 @@
 import { useEffect, useState } from "react";
 import { Card } from "@/components/ui/card";
-import { Star, ExternalLink } from "lucide-react";
+import { Star, ExternalLink, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 interface Review {
   author_name: string;
@@ -14,6 +21,7 @@ interface Review {
 const GoogleReviews = () => {
   const [reviews, setReviews] = useState<Review[]>([]);
   const [loading, setLoading] = useState(true);
+  const [expandedReviews, setExpandedReviews] = useState<Set<number>>(new Set());
 
   useEffect(() => {
     const fetchReviews = async () => {
@@ -77,6 +85,21 @@ const GoogleReviews = () => {
     });
   };
 
+  const toggleExpanded = (index: number) => {
+    const newExpanded = new Set(expandedReviews);
+    if (newExpanded.has(index)) {
+      newExpanded.delete(index);
+    } else {
+      newExpanded.add(index);
+    }
+    setExpandedReviews(newExpanded);
+  };
+
+  const truncateText = (text: string, maxLength: number = 150) => {
+    if (text.length <= maxLength) return text;
+    return text.substring(0, maxLength) + '...';
+  };
+
   const renderStars = (rating: number) => {
     return Array.from({ length: 5 }, (_, i) => (
       <Star
@@ -116,31 +139,56 @@ const GoogleReviews = () => {
         </p>
 
         {/* Reviews Carousel */}
-        <div className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide">
-          {reviews.map((review, index) => (
-            <Card
-              key={index}
-              className="snap-center bg-card rounded-xl shadow-md hover:shadow-lg transition-shadow min-w-[280px] md:min-w-[320px] flex-shrink-0 p-5"
-            >
-              <div className="flex justify-between items-start mb-3">
-                <div>
-                  <p className="font-semibold text-foreground text-sm">
-                    {review.author_name}
-                  </p>
-                  <p className="text-xs text-muted-foreground">
-                    {formatDate(review.time)}
-                  </p>
-                </div>
-                <div className="flex gap-0.5">
-                  {renderStars(review.rating)}
-                </div>
-              </div>
-              <p className="text-sm text-muted-foreground italic leading-relaxed">
-                "{review.text}"
-              </p>
-            </Card>
-          ))}
-        </div>
+        <Carousel
+          opts={{
+            align: "start",
+            loop: true,
+          }}
+          className="w-full max-w-6xl mx-auto"
+        >
+          <CarouselContent>
+            {reviews.map((review, index) => {
+              const isExpanded = expandedReviews.has(index);
+              const shouldTruncate = review.text.length > 150;
+              
+              return (
+                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                  <Card className="bg-card rounded-xl shadow-md hover:shadow-lg transition-shadow h-full p-5">
+                    <div className="flex justify-between items-start mb-3">
+                      <div>
+                        <p className="font-semibold text-foreground text-sm">
+                          {review.author_name}
+                        </p>
+                        <p className="text-xs text-muted-foreground">
+                          {formatDate(review.time)}
+                        </p>
+                      </div>
+                      <div className="flex gap-0.5">
+                        {renderStars(review.rating)}
+                      </div>
+                    </div>
+                    <div>
+                      <p className="text-sm text-muted-foreground italic leading-relaxed">
+                        "{isExpanded ? review.text : truncateText(review.text)}"
+                      </p>
+                      {shouldTruncate && (
+                        <button
+                          onClick={() => toggleExpanded(index)}
+                          className="text-primary text-xs mt-2 hover:underline flex items-center gap-1"
+                        >
+                          {isExpanded ? "Voir moins" : "Voir plus"}
+                          <ChevronDown className={`w-3 h-3 transition-transform ${isExpanded ? 'rotate-180' : ''}`} />
+                        </button>
+                      )}
+                    </div>
+                  </Card>
+                </CarouselItem>
+              );
+            })}
+          </CarouselContent>
+          <CarouselPrevious className="hidden md:flex" />
+          <CarouselNext className="hidden md:flex" />
+        </Carousel>
 
         {/* CTA to leave review */}
         <div className="text-center mt-8">
@@ -163,16 +211,6 @@ const GoogleReviews = () => {
           </Button>
         </div>
       </div>
-
-      <style>{`
-        .scrollbar-hide::-webkit-scrollbar {
-          display: none;
-        }
-        .scrollbar-hide {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-      `}</style>
     </section>
   );
 };

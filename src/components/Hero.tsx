@@ -1,3 +1,4 @@
+import eraLogo from "@/assets/era-logo.png";
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Play } from "lucide-react";
 
@@ -20,12 +21,9 @@ const Hero = ({ onScrollToForm }: HeroProps) => {
           <div className="text-center lg:text-left space-y-6">
             <div className="inline-block mb-4">
               <img
-                src="https://drive.google.com/uc?export=view&id=1i2cANrQpr6_eKXrR98tZF6RwRYXJ3Q-R"
+                src={eraLogo}
                 alt="ERA DUPONT ROMAIN IMMOBILIER"
                 className="h-16 md:h-20 object-contain"
-                onError={(e) => {
-                  e.currentTarget.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 60'%3E%3Ctext x='10' y='40' font-family='Arial' font-size='24' fill='%23C8102E' font-weight='bold'%3EERA%3C/text%3E%3C/svg%3E";
-                }}
               />
             </div>
 
