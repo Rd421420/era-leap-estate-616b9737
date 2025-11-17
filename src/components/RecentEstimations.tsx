@@ -1,6 +1,14 @@
 import { useEffect, useState } from "react";
 import { Card } from "@/components/ui/card";
 import { MapPin, Home, Maximize2, BedDouble, Calendar } from "lucide-react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 
 interface Estimation {
   date: string;
@@ -122,52 +130,66 @@ const RecentEstimations = () => {
           Des propriétaires nous ont fait confiance récemment
         </p>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 max-w-7xl mx-auto">
-          {estimations.map((est, index) => (
-            <Card
-              key={index}
-              className="p-5 hover:shadow-lg transition-shadow bg-gradient-to-br from-card to-muted/20"
-            >
-              <div className="flex items-center gap-2 text-xs text-muted-foreground mb-3">
-                <Calendar className="w-3 h-3" />
-                {est.date}
-              </div>
-
-              <div className="space-y-2">
-                <div className="flex items-center gap-2">
-                  <MapPin className="w-4 h-4 text-primary flex-shrink-0" />
-                  <span className="font-semibold text-sm text-foreground truncate">
-                    {est.ville}
-                  </span>
-                </div>
-
-                <div className="flex items-center gap-2">
-                  <Home className="w-4 h-4 text-muted-foreground flex-shrink-0" />
-                  <span className="text-sm text-muted-foreground">
-                    {est.type}
-                  </span>
-                </div>
-
-                <div className="flex items-center gap-4 text-xs">
-                  <div className="flex items-center gap-1">
-                    <BedDouble className="w-3 h-3 text-muted-foreground" />
-                    <span>{est.pieces}</span>
+        <Carousel
+          opts={{
+            align: "start",
+            loop: true,
+          }}
+          plugins={[
+            Autoplay({
+              delay: 3000,
+            }),
+          ]}
+          className="w-full max-w-6xl mx-auto"
+        >
+          <CarouselContent>
+            {estimations.map((est, index) => (
+              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                <Card className="p-5 hover:shadow-lg transition-shadow bg-gradient-to-br from-card to-muted/20">
+                  <div className="flex items-center gap-2 text-xs text-muted-foreground mb-3">
+                    <Calendar className="w-3 h-3" />
+                    {est.date}
                   </div>
-                  <div className="flex items-center gap-1">
-                    <Maximize2 className="w-3 h-3 text-muted-foreground" />
-                    <span>{est.surface}m²</span>
-                  </div>
-                </div>
 
-                <div className="pt-2 border-t border-border">
-                  <div className="text-lg font-heading font-bold text-primary">
-                    {est.loyer} €<span className="text-xs text-muted-foreground">/mois</span>
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-2">
+                      <MapPin className="w-4 h-4 text-primary flex-shrink-0" />
+                      <span className="font-semibold text-sm text-foreground truncate">
+                        {est.ville}
+                      </span>
+                    </div>
+
+                    <div className="flex items-center gap-2">
+                      <Home className="w-4 h-4 text-muted-foreground flex-shrink-0" />
+                      <span className="text-sm text-muted-foreground">
+                        {est.type}
+                      </span>
+                    </div>
+
+                    <div className="flex items-center gap-4 text-xs">
+                      <div className="flex items-center gap-1">
+                        <BedDouble className="w-3 h-3 text-muted-foreground" />
+                        <span>{est.pieces}</span>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <Maximize2 className="w-3 h-3 text-muted-foreground" />
+                        <span>{est.surface}m²</span>
+                      </div>
+                    </div>
+
+                    <div className="pt-2 border-t border-border">
+                      <div className="text-lg font-heading font-bold text-primary">
+                        {est.loyer} €<span className="text-xs text-muted-foreground">/mois</span>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-            </Card>
-          ))}
-        </div>
+                </Card>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious />
+          <CarouselNext />
+        </Carousel>
 
         <p className="text-center text-xs text-muted-foreground mt-6 max-w-2xl mx-auto">
           💡 Ces estimations sont indicatives et basées sur les données du marché local. 
