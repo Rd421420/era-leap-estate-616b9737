@@ -125,7 +125,6 @@ const EstimationForm = () => {
   const handleNext = () => {
     if (step === 1 && validateStep1()) {
       setStep(2);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
 
