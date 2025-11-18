@@ -28,6 +28,7 @@ interface FormData {
   chauffage: string;
   exterieur: string;
   ville: string;
+  codePostal: string;
   nbLogements: string;
   typesLogements: string;
   meuble: string;
@@ -60,6 +61,7 @@ const EstimationForm = () => {
     chauffage: "",
     exterieur: "",
     ville: "",
+    codePostal: "",
     nbLogements: "",
     typesLogements: "",
     meuble: "",
@@ -81,7 +83,7 @@ const EstimationForm = () => {
   };
 
   const validateStep1 = () => {
-    const required = ['adresse', 'type', 'surface', 'pieces', 'ville'];
+    const required = ['adresse', 'type', 'surface', 'pieces', 'ville', 'codePostal'];
     const missing = required.filter(field => !formData[field as keyof FormData]);
     
     if (missing.length > 0) {
@@ -255,7 +257,7 @@ const EstimationForm = () => {
                   />
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-4">
+                <div className="grid md:grid-cols-3 gap-4">
                   <div className="group">
                     <Label htmlFor="ville" className="flex items-center gap-2">
                       <MapPin className="h-4 w-4 text-primary" />
@@ -265,6 +267,20 @@ const EstimationForm = () => {
                       value={formData.ville}
                       onChange={(e) => handleInputChange('ville', e.target.value)}
                       placeholder="Perpignan"
+                      className="transition-all focus:ring-2 focus:ring-primary/20"
+                    />
+                  </div>
+                  <div className="group">
+                    <Label htmlFor="codePostal" className="flex items-center gap-2">
+                      <MapPin className="h-4 w-4 text-primary" />
+                      Code postal *
+                    </Label>
+                    <Input
+                      type="text"
+                      value={formData.codePostal}
+                      onChange={(e) => handleInputChange('codePostal', e.target.value)}
+                      placeholder="66000"
+                      maxLength={5}
                       className="transition-all focus:ring-2 focus:ring-primary/20"
                     />
                   </div>
