@@ -6,7 +6,7 @@ import { Label } from "@/components/ui/label";
 import { Card } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { useToast } from "@/hooks/use-toast";
-import { ChevronRight, ChevronLeft, Home, Building2, Send } from "lucide-react";
+import { ChevronRight, ChevronLeft, Home, Building2, Send, MapPin, Square, Bed, Calendar, Thermometer, Trees, Armchair, Car } from "lucide-react";
 import {
   Select,
   SelectContent,
@@ -169,30 +169,43 @@ const EstimationForm = () => {
   };
 
   return (
-    <section id="estimation-form" className="py-16 bg-background">
+    <section id="estimation-form" className="py-16 bg-gradient-to-b from-background to-muted/20">
       <div className="container mx-auto px-4 max-w-3xl">
-        <Card className="p-6 md:p-10 shadow-era">
+        <Card className="p-6 md:p-10 shadow-era border-2 border-primary/10 transition-all duration-500 hover:shadow-xl">
           <div className="mb-8">
-            <div className="flex items-center justify-between mb-4">
-              <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground">
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground flex items-center gap-3">
                 {step === 1 ? (
-                  <><Home className="inline mr-2 h-7 w-7 text-primary" />Votre bien</>
+                  <>
+                    <div className="p-2 bg-primary/10 rounded-lg">
+                      <Home className="h-7 w-7 text-primary" />
+                    </div>
+                    <span className="animate-fade-in">Votre bien</span>
+                  </>
                 ) : (
-                  <><Building2 className="inline mr-2 h-7 w-7 text-primary" />Vos coordonnées</>
+                  <>
+                    <div className="p-2 bg-primary/10 rounded-lg">
+                      <Building2 className="h-7 w-7 text-primary" />
+                    </div>
+                    <span className="animate-fade-in">Vos coordonnées</span>
+                  </>
                 )}
               </h2>
-              <span className="text-sm text-muted-foreground">
+              <span className="text-sm font-semibold text-muted-foreground bg-muted px-4 py-2 rounded-full">
                 Étape {step}/2
               </span>
             </div>
-            <Progress value={progress} className="h-2" />
+            <Progress value={progress} className="h-3 transition-all duration-500" />
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-6">
             {step === 1 && (
-              <div className="space-y-5">
-                <div>
-                  <Label htmlFor="type" className="text-sm font-semibold">Type de bien *</Label>
+              <div className="space-y-5 animate-fade-in">
+                <div className="group">
+                  <Label htmlFor="type" className="text-sm font-semibold flex items-center gap-2">
+                    <Home className="h-4 w-4 text-primary" />
+                    Type de bien *
+                  </Label>
                   <Select value={formData.type} onValueChange={(val) => handleInputChange('type', val)}>
                     <SelectTrigger>
                       <SelectValue placeholder="Sélectionner" />
@@ -229,40 +242,55 @@ const EstimationForm = () => {
                   </>
                 )}
 
-                <div>
-                  <Label htmlFor="adresse">Adresse complète *</Label>
+                <div className="group">
+                  <Label htmlFor="adresse" className="flex items-center gap-2">
+                    <MapPin className="h-4 w-4 text-primary" />
+                    Adresse complète *
+                  </Label>
                   <Input
                     value={formData.adresse}
                     onChange={(e) => handleInputChange('adresse', e.target.value)}
                     placeholder="12 rue de la République"
+                    className="transition-all focus:ring-2 focus:ring-primary/20"
                   />
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-4">
-                  <div>
-                    <Label htmlFor="ville">Ville *</Label>
+                  <div className="group">
+                    <Label htmlFor="ville" className="flex items-center gap-2">
+                      <MapPin className="h-4 w-4 text-primary" />
+                      Ville *
+                    </Label>
                     <Input
                       value={formData.ville}
                       onChange={(e) => handleInputChange('ville', e.target.value)}
                       placeholder="Perpignan"
+                      className="transition-all focus:ring-2 focus:ring-primary/20"
                     />
                   </div>
-                  <div>
-                    <Label htmlFor="surface">Surface (m²) *</Label>
+                  <div className="group">
+                    <Label htmlFor="surface" className="flex items-center gap-2">
+                      <Square className="h-4 w-4 text-primary" />
+                      Surface (m²) *
+                    </Label>
                     <Input
                       type="number"
                       value={formData.surface}
                       onChange={(e) => handleInputChange('surface', e.target.value)}
                       placeholder="75"
+                      className="transition-all focus:ring-2 focus:ring-primary/20"
                     />
                   </div>
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-4">
-                  <div>
-                    <Label htmlFor="pieces">Nombre de pièces *</Label>
+                  <div className="group">
+                    <Label htmlFor="pieces" className="flex items-center gap-2">
+                      <Home className="h-4 w-4 text-primary" />
+                      Nombre de pièces *
+                    </Label>
                     <Select value={formData.pieces} onValueChange={(val) => handleInputChange('pieces', val)}>
-                      <SelectTrigger>
+                      <SelectTrigger className="transition-all focus:ring-2 focus:ring-primary/20">
                         <SelectValue placeholder="Choisir" />
                       </SelectTrigger>
                       <SelectContent>
@@ -272,10 +300,13 @@ const EstimationForm = () => {
                       </SelectContent>
                     </Select>
                   </div>
-                  <div>
-                    <Label htmlFor="chambres">Chambres</Label>
+                  <div className="group">
+                    <Label htmlFor="chambres" className="flex items-center gap-2">
+                      <Bed className="h-4 w-4 text-primary" />
+                      Chambres
+                    </Label>
                     <Select value={formData.chambres} onValueChange={(val) => handleInputChange('chambres', val)}>
-                      <SelectTrigger>
+                      <SelectTrigger className="transition-all focus:ring-2 focus:ring-primary/20">
                         <SelectValue placeholder="Choisir" />
                       </SelectTrigger>
                       <SelectContent>
@@ -288,10 +319,10 @@ const EstimationForm = () => {
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-4">
-                  <div>
+                  <div className="group">
                     <Label htmlFor="etat">État général</Label>
                     <Select value={formData.etat} onValueChange={(val) => handleInputChange('etat', val)}>
-                      <SelectTrigger>
+                      <SelectTrigger className="transition-all focus:ring-2 focus:ring-primary/20">
                         <SelectValue placeholder="Choisir" />
                       </SelectTrigger>
                       <SelectContent>
@@ -302,22 +333,29 @@ const EstimationForm = () => {
                       </SelectContent>
                     </Select>
                   </div>
-                  <div>
-                    <Label htmlFor="annee">Année de construction</Label>
+                  <div className="group">
+                    <Label htmlFor="annee" className="flex items-center gap-2">
+                      <Calendar className="h-4 w-4 text-primary" />
+                      Année de construction
+                    </Label>
                     <Input
                       type="number"
                       value={formData.annee}
                       onChange={(e) => handleInputChange('annee', e.target.value)}
                       placeholder="2010"
+                      className="transition-all focus:ring-2 focus:ring-primary/20"
                     />
                   </div>
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-4">
-                  <div>
-                    <Label htmlFor="chauffage">Chauffage</Label>
+                  <div className="group">
+                    <Label htmlFor="chauffage" className="flex items-center gap-2">
+                      <Thermometer className="h-4 w-4 text-primary" />
+                      Chauffage
+                    </Label>
                     <Select value={formData.chauffage} onValueChange={(val) => handleInputChange('chauffage', val)}>
-                      <SelectTrigger>
+                      <SelectTrigger className="transition-all focus:ring-2 focus:ring-primary/20">
                         <SelectValue placeholder="Choisir" />
                       </SelectTrigger>
                       <SelectContent>
@@ -328,10 +366,13 @@ const EstimationForm = () => {
                       </SelectContent>
                     </Select>
                   </div>
-                  <div>
-                    <Label htmlFor="exterieur">Extérieurs</Label>
+                  <div className="group">
+                    <Label htmlFor="exterieur" className="flex items-center gap-2">
+                      <Trees className="h-4 w-4 text-primary" />
+                      Extérieurs
+                    </Label>
                     <Select value={formData.exterieur} onValueChange={(val) => handleInputChange('exterieur', val)}>
-                      <SelectTrigger>
+                      <SelectTrigger className="transition-all focus:ring-2 focus:ring-primary/20">
                         <SelectValue placeholder="Choisir" />
                       </SelectTrigger>
                       <SelectContent>
@@ -344,10 +385,13 @@ const EstimationForm = () => {
                   </div>
                 </div>
 
-                <div>
-                  <Label htmlFor="meuble">Meublé</Label>
+                <div className="group">
+                  <Label htmlFor="meuble" className="flex items-center gap-2">
+                    <Armchair className="h-4 w-4 text-primary" />
+                    Meublé
+                  </Label>
                   <Select value={formData.meuble} onValueChange={(val) => handleInputChange('meuble', val)}>
-                    <SelectTrigger>
+                    <SelectTrigger className="transition-all focus:ring-2 focus:ring-primary/20">
                       <SelectValue placeholder="Choisir" />
                     </SelectTrigger>
                     <SelectContent>
@@ -357,37 +401,43 @@ const EstimationForm = () => {
                   </Select>
                 </div>
 
-                <div>
-                  <Label className="text-base font-semibold mb-3 block">Stationnement</Label>
+                <div className="bg-muted/30 p-5 rounded-lg border border-primary/10">
+                  <Label className="text-base font-semibold mb-4 flex items-center gap-2">
+                    <Car className="h-5 w-5 text-primary" />
+                    Stationnement
+                  </Label>
                   <div className="grid md:grid-cols-3 gap-4">
-                    <div>
-                      <Label htmlFor="parkingExterieur" className="text-sm">Parking extérieur</Label>
+                    <div className="group">
+                      <Label htmlFor="parkingExterieur" className="text-sm text-muted-foreground">Parking extérieur</Label>
                       <Input
                         type="number"
                         min="0"
                         value={formData.parkingExterieur}
                         onChange={(e) => handleInputChange('parkingExterieur', e.target.value)}
                         placeholder="0"
+                        className="transition-all focus:ring-2 focus:ring-primary/20"
                       />
                     </div>
-                    <div>
-                      <Label htmlFor="parkingInterieur" className="text-sm">Parking intérieur</Label>
+                    <div className="group">
+                      <Label htmlFor="parkingInterieur" className="text-sm text-muted-foreground">Parking intérieur</Label>
                       <Input
                         type="number"
                         min="0"
                         value={formData.parkingInterieur}
                         onChange={(e) => handleInputChange('parkingInterieur', e.target.value)}
                         placeholder="0"
+                        className="transition-all focus:ring-2 focus:ring-primary/20"
                       />
                     </div>
-                    <div>
-                      <Label htmlFor="garage" className="text-sm">Garage</Label>
+                    <div className="group">
+                      <Label htmlFor="garage" className="text-sm text-muted-foreground">Garage</Label>
                       <Input
                         type="number"
                         min="0"
                         value={formData.garage}
                         onChange={(e) => handleInputChange('garage', e.target.value)}
                         placeholder="0"
+                        className="transition-all focus:ring-2 focus:ring-primary/20"
                       />
                     </div>
                   </div>
@@ -397,7 +447,7 @@ const EstimationForm = () => {
                   type="button"
                   onClick={handleNext}
                   size="lg"
-                  className="w-full bg-primary hover:bg-primary-dark text-primary-foreground font-semibold"
+                  className="w-full bg-primary hover:bg-primary-dark text-primary-foreground font-semibold shadow-lg hover:shadow-xl transition-all hover:scale-[1.02]"
                 >
                   Suivant
                   <ChevronRight className="ml-2 h-5 w-5" />
@@ -406,7 +456,7 @@ const EstimationForm = () => {
             )}
 
             {step === 2 && (
-              <div className="space-y-5">
+              <div className="space-y-5 animate-fade-in">
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
                     <Label htmlFor="nom">Nom *</Label>
@@ -490,7 +540,7 @@ const EstimationForm = () => {
                     type="submit"
                     disabled={loading}
                     size="lg"
-                    className="flex-1 bg-primary hover:bg-primary-dark text-primary-foreground font-semibold"
+                    className="flex-1 bg-primary hover:bg-primary-dark text-primary-foreground font-semibold shadow-lg hover:shadow-xl transition-all hover:scale-[1.02]"
                   >
                     {loading ? "Envoi..." : "Recevoir mon estimation"}
                     <Send className="ml-2 h-5 w-5" />

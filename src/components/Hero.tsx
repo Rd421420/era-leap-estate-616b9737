@@ -1,6 +1,6 @@
 import eraLogo from "@/assets/era-logo.png";
 import { Button } from "@/components/ui/button";
-import { ArrowDown, Play } from "lucide-react";
+import { ArrowDown, Phone } from "lucide-react";
 
 interface HeroProps {
   onScrollToForm: () => void;
@@ -48,10 +48,21 @@ const Hero = ({ onScrollToForm }: HeroProps) => {
               <Button
                 size="lg"
                 onClick={onScrollToForm}
-                className="bg-primary hover:bg-primary-dark text-primary-foreground font-semibold shadow-lg hover:shadow-xl transition-all text-base md:text-lg px-8 py-6"
+                className="bg-primary hover:bg-primary-dark text-primary-foreground font-semibold shadow-lg hover:shadow-xl transition-all text-base md:text-lg px-8 py-6 hover:scale-[1.02]"
               >
                 Recevoir mon estimation gratuite
                 <ArrowDown className="ml-2 h-5 w-5 animate-bounce" />
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                asChild
+                className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground font-semibold shadow-md hover:shadow-lg transition-all text-base md:text-lg px-8 py-6 hover:scale-[1.02]"
+              >
+                <a href="tel:0468665718" className="flex items-center gap-2">
+                  <Phone className="h-5 w-5" />
+                  04 68 66 57 18
+                </a>
               </Button>
             </div>
 
