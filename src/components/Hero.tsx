@@ -29,7 +29,7 @@ const Hero = ({ onScrollToForm }: HeroProps) => {
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-foreground leading-tight">
               Estimation locative{" "}
-              <span className="text-gradient">gratuite</span> à Perpignan
+              <span className="text-gradient">offerte</span> à Perpignan
             </h1>
 
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto lg:mx-0">
