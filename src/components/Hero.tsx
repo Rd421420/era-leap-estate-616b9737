@@ -50,7 +50,7 @@ const Hero = ({ onScrollToForm }: HeroProps) => {
                 onClick={onScrollToForm}
                 className="bg-primary hover:bg-primary-dark text-primary-foreground font-semibold shadow-lg hover:shadow-xl transition-all text-base md:text-lg px-8 py-6 hover:scale-[1.02]"
               >
-                Recevoir mon estimation gratuite
+                Recevoir mon estimation offerte
                 <ArrowDown className="ml-2 h-5 w-5 animate-bounce" />
               </Button>
               <Button

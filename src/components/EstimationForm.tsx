@@ -6,7 +6,8 @@ import { Label } from "@/components/ui/label";
 import { Card } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { useToast } from "@/hooks/use-toast";
-import { ChevronRight, ChevronLeft, Home, Building2, Send, MapPin, Square, Bed, Calendar, Thermometer, Trees, Armchair, Car } from "lucide-react";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { ChevronRight, ChevronLeft, Home, Building2, Send, MapPin, Square, Bed, Calendar, Thermometer, Trees, Armchair, Car, Zap, AlertTriangle } from "lucide-react";
 import {
   Select,
   SelectContent,
@@ -35,6 +36,7 @@ interface FormData {
   parkingExterieur: string;
   parkingInterieur: string;
   garage: string;
+  dpe: string;
   // Owner details
   nom: string;
   prenom: string;
@@ -68,6 +70,7 @@ const EstimationForm = () => {
     parkingExterieur: "",
     parkingInterieur: "",
     garage: "",
+    dpe: "",
     nom: "",
     prenom: "",
     telephone: "",
@@ -414,6 +417,39 @@ const EstimationForm = () => {
                       <SelectItem value="non">Non</SelectItem>
                     </SelectContent>
                   </Select>
+                </div>
+
+                <div className="group">
+                  <Label htmlFor="dpe" className="flex items-center gap-2">
+                    <Zap className="h-4 w-4 text-primary" />
+                    Diagnostic de Performance Énergétique (DPE)
+                  </Label>
+                  <Select value={formData.dpe} onValueChange={(val) => handleInputChange('dpe', val)}>
+                    <SelectTrigger className="transition-all focus:ring-2 focus:ring-primary/20">
+                      <SelectValue placeholder="Choisir la note DPE" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="A">A - Excellent</SelectItem>
+                      <SelectItem value="B">B - Très bon</SelectItem>
+                      <SelectItem value="C">C - Bon</SelectItem>
+                      <SelectItem value="D">D - Moyen</SelectItem>
+                      <SelectItem value="E">E - Passable</SelectItem>
+                      <SelectItem value="F">F - Mauvais</SelectItem>
+                      <SelectItem value="G">G - Très mauvais</SelectItem>
+                      <SelectItem value="non-renseigne">Non renseigné</SelectItem>
+                    </SelectContent>
+                  </Select>
+                  
+                  {(formData.dpe === 'F' || formData.dpe === 'G') && (
+                    <Alert className="mt-3 border-destructive/50 bg-destructive/10">
+                      <AlertTriangle className="h-4 w-4 text-destructive" />
+                      <AlertDescription className="text-sm">
+                        <strong>Attention :</strong> Les logements classés F et G sont progressivement interdits à la location. 
+                        Nous vous proposons un <strong>rendez-vous gratuit</strong> pour faire le point sur les travaux nécessaires 
+                        et vous accompagner dans l'amélioration de votre note DPE à moindre frais grâce à une étude personnalisée.
+                      </AlertDescription>
+                    </Alert>
+                  )}
                 </div>
 
                 <div className="bg-muted/30 p-5 rounded-lg border border-primary/10">
