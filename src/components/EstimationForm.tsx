@@ -429,13 +429,13 @@ const EstimationForm = () => {
                       <SelectValue placeholder="Choisir la note DPE" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="A">A - Excellent</SelectItem>
-                      <SelectItem value="B">B - Très bon</SelectItem>
-                      <SelectItem value="C">C - Bon</SelectItem>
-                      <SelectItem value="D">D - Moyen</SelectItem>
-                      <SelectItem value="E">E - Passable</SelectItem>
-                      <SelectItem value="F">F - Mauvais</SelectItem>
-                      <SelectItem value="G">G - Très mauvais</SelectItem>
+                      <SelectItem value="A">A</SelectItem>
+                      <SelectItem value="B">B</SelectItem>
+                      <SelectItem value="C">C</SelectItem>
+                      <SelectItem value="D">D</SelectItem>
+                      <SelectItem value="E">E</SelectItem>
+                      <SelectItem value="F">F</SelectItem>
+                      <SelectItem value="G">G</SelectItem>
                       <SelectItem value="non-renseigne">Non renseigné</SelectItem>
                     </SelectContent>
                   </Select>
@@ -445,8 +445,16 @@ const EstimationForm = () => {
                       <AlertTriangle className="h-4 w-4 text-destructive" />
                       <AlertDescription className="text-sm">
                         <strong>Attention :</strong> Les logements classés F et G sont progressivement interdits à la location. 
-                        Nous vous proposons un <strong>rendez-vous gratuit</strong> pour faire le point sur les travaux nécessaires 
-                        et vous accompagner dans l'amélioration de votre note DPE à moindre frais grâce à une étude personnalisée.
+                        Nous vous proposons une <strong>étude personnalisée gratuite</strong> pour faire le point sur les travaux nécessaires 
+                        et vous accompagner dans l'amélioration de votre note DPE à moindre frais.
+                        <a 
+                          href="https://calendar.app.google/viMBcNbADyEeM4de6" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="block mt-2 text-primary font-semibold hover:underline"
+                        >
+                          📅 Prendre rendez-vous
+                        </a>
                       </AlertDescription>
                     </Alert>
                   )}
