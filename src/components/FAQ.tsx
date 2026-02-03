@@ -1,12 +1,16 @@
+import { useState } from "react";
 import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { ChevronDown, ChevronUp } from "lucide-react";
 
 const FAQ = () => {
+  const [showAll, setShowAll] = useState(false);
   const faqData = [
     {
       question: "Comment obtenir une estimation locative gratuite à Perpignan ?",
@@ -142,7 +146,7 @@ const FAQ = () => {
 
         <Card className="p-6 shadow-md">
           <Accordion type="single" collapsible className="w-full">
-            {faqData.map((faq, index) => (
+            {(showAll ? faqData : faqData.slice(0, 5)).map((faq, index) => (
               <AccordionItem key={index} value={`item-${index}`}>
                 <AccordionTrigger className="text-left text-base font-semibold hover:text-primary">
                   {faq.question}
@@ -153,6 +157,28 @@ const FAQ = () => {
               </AccordionItem>
             ))}
           </Accordion>
+          
+          {faqData.length > 5 && (
+            <div className="mt-6 text-center">
+              <Button
+                variant="outline"
+                onClick={() => setShowAll(!showAll)}
+                className="gap-2"
+              >
+                {showAll ? (
+                  <>
+                    Voir moins
+                    <ChevronUp className="h-4 w-4" />
+                  </>
+                ) : (
+                  <>
+                    Voir les {faqData.length - 5} autres questions
+                    <ChevronDown className="h-4 w-4" />
+                  </>
+                )}
+              </Button>
+            </div>
+          )}
         </Card>
 
         <script type="application/ld+json">
