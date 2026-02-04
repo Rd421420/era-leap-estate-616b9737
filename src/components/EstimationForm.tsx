@@ -7,7 +7,7 @@ import { Card } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { useToast } from "@/hooks/use-toast";
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import { ChevronRight, ChevronLeft, Home, Building2, Send, MapPin, Square, Bed, Calendar, Thermometer, Trees, Armchair, Car, Zap, AlertTriangle } from "lucide-react";
+import { ChevronRight, ChevronLeft, Home, Building2, Send, MapPin, Square, Bed, Calendar, Thermometer, Trees, Armchair, Car, Zap, AlertTriangle, Clock } from "lucide-react";
 import {
   Select,
   SelectContent,
@@ -16,6 +16,8 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
+import { useRateLimit } from "@/hooks/useRateLimit";
+import { validateStep1, validateStep2, sanitizeString } from "@/lib/formValidation";
 
 interface FormData {
   // Property details
@@ -46,11 +48,21 @@ interface FormData {
   rgpd: boolean;
 }
 
+// Rate limit: 3 submissions per hour
+const RATE_LIMIT_CONFIG = {
+  maxAttempts: 3,
+  windowMs: 60 * 60 * 1000, // 1 hour
+  storageKey: "era_estimation_rate_limit",
+};
+
 const EstimationForm = () => {
   const [step, setStep] = useState(1);
   const [loading, setLoading] = useState(false);
+  const [validationErrors, setValidationErrors] = useState<Record<string, string>>({});
   const navigate = useNavigate();
   const { toast } = useToast();
+  
+  const { checkRateLimit, recordAttempt, isBlocked, remainingTime, getRemainingAttempts } = useRateLimit(RATE_LIMIT_CONFIG);
   
   const [formData, setFormData] = useState<FormData>({
     adresse: "",
@@ -82,51 +94,69 @@ const EstimationForm = () => {
   const progress = (step / 2) * 100;
 
   const handleInputChange = (field: keyof FormData, value: string | boolean) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
+    // Sanitize string inputs
+    const sanitizedValue = typeof value === "string" ? sanitizeString(value) : value;
+    setFormData(prev => ({ ...prev, [field]: sanitizedValue }));
+    // Clear validation error for this field
+    if (validationErrors[field]) {
+      setValidationErrors(prev => {
+        const updated = { ...prev };
+        delete updated[field];
+        return updated;
+      });
+    }
   };
 
-  const validateStep1 = () => {
-    const required = ['adresse', 'type', 'surface', 'pieces', 'ville', 'codePostal'];
-    const missing = required.filter(field => !formData[field as keyof FormData]);
+  const handleValidateStep1 = () => {
+    const result = validateStep1(formData as unknown as Record<string, unknown>);
     
-    if (missing.length > 0) {
+    if (!result.success) {
+      const errors: Record<string, string> = {};
+      result.error.errors.forEach((err) => {
+        if (err.path[0]) {
+          errors[err.path[0] as string] = err.message;
+        }
+      });
+      setValidationErrors(errors);
+      
       toast({
-        title: "Champs manquants",
-        description: "Veuillez remplir tous les champs obligatoires.",
+        title: "Champs invalides",
+        description: "Veuillez corriger les erreurs dans le formulaire.",
         variant: "destructive",
       });
       return false;
     }
+    
+    setValidationErrors({});
     return true;
   };
 
-  const validateStep2 = () => {
-    const required = ['nom', 'prenom', 'telephone', 'email'];
-    const missing = required.filter(field => !formData[field as keyof FormData]);
+  const handleValidateStep2 = () => {
+    const result = validateStep2(formData as unknown as Record<string, unknown>);
     
-    if (missing.length > 0) {
+    if (!result.success) {
+      const errors: Record<string, string> = {};
+      result.error.errors.forEach((err) => {
+        if (err.path[0]) {
+          errors[err.path[0] as string] = err.message;
+        }
+      });
+      setValidationErrors(errors);
+      
       toast({
-        title: "Champs manquants",
-        description: "Veuillez remplir tous vos coordonnées.",
+        title: "Champs invalides",
+        description: "Veuillez corriger les erreurs dans le formulaire.",
         variant: "destructive",
       });
       return false;
     }
-
-    if (!formData.rgpd) {
-      toast({
-        title: "Consentement requis",
-        description: "Veuillez accepter la politique de confidentialité.",
-        variant: "destructive",
-      });
-      return false;
-    }
-
+    
+    setValidationErrors({});
     return true;
   };
 
   const handleNext = () => {
-    if (step === 1 && validateStep1()) {
+    if (step === 1 && handleValidateStep1()) {
       setStep(2);
     }
   };
@@ -134,24 +164,62 @@ const EstimationForm = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!validateStep2()) return;
+    if (!handleValidateStep2()) return;
+
+    // Check rate limit before submission
+    if (!checkRateLimit()) {
+      toast({
+        title: "Trop de demandes",
+        description: `Vous avez atteint la limite de soumissions. Veuillez réessayer dans ${remainingTime} minute(s).`,
+        variant: "destructive",
+      });
+      return;
+    }
 
     setLoading(true);
 
     try {
+      // Prepare sanitized data for submission
+      const sanitizedData = {
+        adresse: sanitizeString(formData.adresse),
+        type: formData.type,
+        surface: formData.surface,
+        pieces: formData.pieces,
+        chambres: formData.chambres,
+        etat: formData.etat,
+        annee: formData.annee,
+        chauffage: formData.chauffage,
+        exterieur: formData.exterieur,
+        ville: sanitizeString(formData.ville),
+        codePostal: formData.codePostal,
+        nbLogements: formData.nbLogements,
+        typesLogements: formData.typesLogements ? sanitizeString(formData.typesLogements) : "",
+        meuble: formData.meuble,
+        parkingExterieur: formData.parkingExterieur,
+        parkingInterieur: formData.parkingInterieur,
+        garage: formData.garage,
+        dpe: formData.dpe,
+        nom: sanitizeString(formData.nom),
+        prenom: sanitizeString(formData.prenom),
+        telephone: formData.telephone.replace(/\s/g, ""),
+        email: formData.email.toLowerCase().trim(),
+        gestion: formData.gestion,
+        timestamp: new Date().toISOString(),
+        source: 'estimation-form'
+      };
+
       const response = await fetch('https://n8n.srv864634.hstgr.cloud/webhook/c15fe03b-332b-405e-b285-3c660fb06c0e', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          ...formData,
-          timestamp: new Date().toISOString(),
-          source: 'estimation-form'
-        }),
+        body: JSON.stringify(sanitizedData),
       });
 
       if (response.ok) {
+        // Record successful attempt for rate limiting
+        recordAttempt();
+        
         toast({
           title: "✅ Demande envoyée !",
           description: "Votre estimation arrive dans quelques instants par email.",
@@ -171,6 +239,9 @@ const EstimationForm = () => {
       setLoading(false);
     }
   };
+
+  // Show rate limit warning
+  const remainingAttempts = getRemainingAttempts();
 
   return (
     <section id="estimation-form" className="py-16 bg-gradient-to-b from-background to-muted/20">
@@ -201,6 +272,26 @@ const EstimationForm = () => {
             </div>
             <Progress value={progress} className="h-3 transition-all duration-500" />
           </div>
+
+          {/* Rate limit warning */}
+          {isBlocked && (
+            <Alert className="border-destructive/50 bg-destructive/10">
+              <Clock className="h-4 w-4 text-destructive" />
+              <AlertDescription className="text-sm">
+                <strong>Limite atteinte :</strong> Vous avez effectué trop de demandes. 
+                Veuillez réessayer dans {remainingTime} minute(s).
+              </AlertDescription>
+            </Alert>
+          )}
+          
+          {remainingAttempts <= 1 && remainingAttempts > 0 && (
+            <Alert className="border-amber-500/50 bg-amber-50 dark:bg-amber-900/10">
+              <AlertTriangle className="h-4 w-4 text-amber-600 dark:text-amber-400" />
+              <AlertDescription className="text-sm text-amber-800 dark:text-amber-200">
+                <strong>Attention :</strong> Il vous reste {remainingAttempts} demande(s) disponible(s) cette heure.
+              </AlertDescription>
+            </Alert>
+          )}
 
           <form onSubmit={handleSubmit} className="space-y-6">
             {step === 1 && (
@@ -523,7 +614,11 @@ const EstimationForm = () => {
                       value={formData.nom}
                       onChange={(e) => handleInputChange('nom', e.target.value)}
                       placeholder="Dupont"
+                      className={validationErrors.nom ? "border-destructive" : ""}
                     />
+                    {validationErrors.nom && (
+                      <p className="text-xs text-destructive mt-1">{validationErrors.nom}</p>
+                    )}
                   </div>
                   <div>
                     <Label htmlFor="prenom">Prénom *</Label>
@@ -531,7 +626,11 @@ const EstimationForm = () => {
                       value={formData.prenom}
                       onChange={(e) => handleInputChange('prenom', e.target.value)}
                       placeholder="Marie"
+                      className={validationErrors.prenom ? "border-destructive" : ""}
                     />
+                    {validationErrors.prenom && (
+                      <p className="text-xs text-destructive mt-1">{validationErrors.prenom}</p>
+                    )}
                   </div>
                 </div>
 
@@ -542,7 +641,11 @@ const EstimationForm = () => {
                     value={formData.telephone}
                     onChange={(e) => handleInputChange('telephone', e.target.value)}
                     placeholder="06 XX XX XX XX"
+                    className={validationErrors.telephone ? "border-destructive" : ""}
                   />
+                  {validationErrors.telephone && (
+                    <p className="text-xs text-destructive mt-1">{validationErrors.telephone}</p>
+                  )}
                 </div>
 
                 <div>
@@ -552,7 +655,11 @@ const EstimationForm = () => {
                     value={formData.email}
                     onChange={(e) => handleInputChange('email', e.target.value)}
                     placeholder="votre@email.fr"
+                    className={validationErrors.email ? "border-destructive" : ""}
                   />
+                  {validationErrors.email && (
+                    <p className="text-xs text-destructive mt-1">{validationErrors.email}</p>
+                  )}
                 </div>
 
                 <div>
@@ -583,6 +690,9 @@ const EstimationForm = () => {
                     J'accepte que mes données soient utilisées par ERA DUPONT ROMAIN IMMOBILIER pour me recontacter au sujet de ma demande d'estimation. Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression de vos données. *
                   </label>
                 </div>
+                {validationErrors.rgpd && (
+                  <p className="text-xs text-destructive mt-1">{validationErrors.rgpd}</p>
+                )}
 
                 <div className="flex gap-3">
                   <Button
