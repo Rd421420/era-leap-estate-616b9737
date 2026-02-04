@@ -41,7 +41,8 @@ const Index = () => {
           <p className="text-xs opacity-75">
             © {new Date().getFullYear()} Tous droits réservés | 
             <a href="/mentions-legales" className="hover:underline ml-1">Mentions légales</a> | 
-            <a href="/confidentialite" className="hover:underline ml-1">Politique de confidentialité</a>
+            <a href="/confidentialite" className="hover:underline ml-1">Politique de confidentialité</a> |
+            <a href="https://media.immo-facile.com/segments/immo/catalog/images/manufacturers_bareme/265286.pdf" className="hover:underline ml-1" target="_blank" rel="noopener noreferrer">Honoraires</a>
           </p>
         </div>
       </footer>
