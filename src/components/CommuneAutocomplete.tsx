@@ -79,13 +79,13 @@
    };
  
    const selectVille = (commune: Commune) => {
-     onVilleChange(commune.nom);
+    onVilleChange(commune.nom.toUpperCase());
      onCodePostalChange(commune.codePostal);
      setShowVilleSuggestions(false);
    };
  
    const selectCodePostal = (commune: Commune) => {
-     onVilleChange(commune.nom);
+    onVilleChange(commune.nom.toUpperCase());
      onCodePostalChange(commune.codePostal);
      setShowCodePostalSuggestions(false);
    };
@@ -138,7 +138,7 @@
                  className="w-full px-3 py-2 text-left hover:bg-muted flex items-center justify-between text-sm"
                  onMouseDown={() => selectVille(commune)}
                >
-                 <span className="font-medium">{commune.nom}</span>
+                <span className="font-medium uppercase">{commune.nom}</span>
                  <span className="text-muted-foreground">{commune.codePostal}</span>
                </button>
              ))}
@@ -180,7 +180,7 @@
                  className="w-full px-3 py-2 text-left hover:bg-muted flex items-center justify-between text-sm"
                  onMouseDown={() => selectCodePostal(commune)}
                >
-                 <span className="font-medium">{commune.nom}</span>
+                <span className="font-medium uppercase">{commune.nom}</span>
                  <span className="text-muted-foreground">{commune.codePostal}</span>
                </button>
              ))}
