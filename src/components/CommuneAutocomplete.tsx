@@ -69,7 +69,7 @@
        
        // Auto-fill if only one commune matches
        if (suggestions.length === 1 && !ville) {
-         onVilleChange(suggestions[0].nom);
+          onVilleChange(suggestions[0].nom.toUpperCase());
          setShowCodePostalSuggestions(false);
        }
      } else {
