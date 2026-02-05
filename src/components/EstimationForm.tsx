@@ -8,6 +8,7 @@ import { Progress } from "@/components/ui/progress";
 import { useToast } from "@/hooks/use-toast";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { ChevronRight, ChevronLeft, Home, Building2, Send, MapPin, Square, Bed, Calendar, Thermometer, Trees, Armchair, Car, Zap, AlertTriangle, Clock } from "lucide-react";
+import { CommuneAutocomplete } from "@/components/CommuneAutocomplete";
 import {
   Select,
   SelectContent,
@@ -351,32 +352,14 @@ const EstimationForm = () => {
                 </div>
 
                 <div className="grid md:grid-cols-3 gap-4">
-                  <div className="group">
-                    <Label htmlFor="ville" className="flex items-center gap-2">
-                      <MapPin className="h-4 w-4 text-primary" />
-                      Ville *
-                    </Label>
-                    <Input
-                      value={formData.ville}
-                      onChange={(e) => handleInputChange('ville', e.target.value)}
-                      placeholder="Perpignan"
-                      className="transition-all focus:ring-2 focus:ring-primary/20"
-                    />
-                  </div>
-                  <div className="group">
-                    <Label htmlFor="codePostal" className="flex items-center gap-2">
-                      <MapPin className="h-4 w-4 text-primary" />
-                      Code postal *
-                    </Label>
-                    <Input
-                      type="text"
-                      value={formData.codePostal}
-                      onChange={(e) => handleInputChange('codePostal', e.target.value)}
-                      placeholder="66000"
-                      maxLength={5}
-                      className="transition-all focus:ring-2 focus:ring-primary/20"
-                    />
-                  </div>
+                  <CommuneAutocomplete
+                    ville={formData.ville}
+                    codePostal={formData.codePostal}
+                    onVilleChange={(val) => handleInputChange('ville', val)}
+                    onCodePostalChange={(val) => handleInputChange('codePostal', val)}
+                    villeError={validationErrors.ville}
+                    codePostalError={validationErrors.codePostal}
+                  />
                   <div className="group">
                     <Label htmlFor="surface" className="flex items-center gap-2">
                       <Square className="h-4 w-4 text-primary" />
