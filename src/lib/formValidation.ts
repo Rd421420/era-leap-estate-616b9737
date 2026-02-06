@@ -5,8 +5,12 @@ export const sanitizeString = (input: string): string => {
   return input
     .replace(/[<>]/g, "") // Remove < and >
     .replace(/javascript:/gi, "") // Remove javascript: protocol
-    .replace(/on\w+=/gi, "") // Remove event handlers
-    .trim();
+    .replace(/on\w+=/gi, ""); // Remove event handlers (no trim to allow spaces during typing)
+};
+
+// Sanitize and trim for final validation (used in Zod transforms)
+const sanitizeAndTrim = (input: string): string => {
+  return sanitizeString(input).trim();
 };
 
 // French phone number regex
@@ -24,7 +28,7 @@ export const step1Schema = z.object({
     .string()
     .min(5, "L'adresse doit contenir au moins 5 caractères")
     .max(200, "L'adresse ne peut pas dépasser 200 caractères")
-    .transform(sanitizeString),
+    .transform(sanitizeAndTrim),
   type: z.enum(["appartement", "maison", "immeuble", "studio", "local"], {
     errorMap: () => ({ message: "Veuillez sélectionner un type de bien" }),
   }),
@@ -52,12 +56,12 @@ export const step1Schema = z.object({
     .string()
     .min(2, "La ville doit contenir au moins 2 caractères")
     .max(100, "La ville ne peut pas dépasser 100 caractères")
-    .transform(sanitizeString),
+    .transform(sanitizeAndTrim),
   codePostal: z
     .string()
     .regex(postalCodeRegex, "Le code postal doit contenir 5 chiffres"),
   nbLogements: z.string().optional(),
-  typesLogements: z.string().optional().transform((val) => val ? sanitizeString(val) : val),
+  typesLogements: z.string().optional().transform((val) => val ? sanitizeAndTrim(val) : val),
   meuble: z.string().optional(),
   parkingExterieur: z.string().optional(),
   parkingInterieur: z.string().optional(),
@@ -71,12 +75,12 @@ export const step2Schema = z.object({
     .string()
     .min(2, "Le nom doit contenir au moins 2 caractères")
     .max(50, "Le nom ne peut pas dépasser 50 caractères")
-    .transform(sanitizeString),
+    .transform(sanitizeAndTrim),
   prenom: z
     .string()
     .min(2, "Le prénom doit contenir au moins 2 caractères")
     .max(50, "Le prénom ne peut pas dépasser 50 caractères")
-    .transform(sanitizeString),
+    .transform(sanitizeAndTrim),
   telephone: z
     .string()
     .min(1, "Le téléphone est requis")
