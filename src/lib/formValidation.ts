@@ -116,14 +116,17 @@ export type Step2Data = z.infer<typeof step2Schema>;
 export type EstimationFormData = z.infer<typeof estimationFormSchema>;
 
 // Validation helper functions
-export const validateStep1 = (data: Record<string, unknown>) => {
-  return step1Schema.safeParse(data);
-};
+export const validateStepA = (data: Record<string, unknown>) =>
+  stepASchema.safeParse(data);
 
-export const validateStep2 = (data: Record<string, unknown>) => {
-  return step2Schema.safeParse(data);
-};
+export const validateStepB = (data: Record<string, unknown>) =>
+  stepBSchema.safeParse(data);
 
-export const validateFullForm = (data: Record<string, unknown>) => {
-  return estimationFormSchema.safeParse(data);
-};
+export const validateStep1 = (data: Record<string, unknown>) =>
+  step1Schema.safeParse(data);
+
+export const validateStep2 = (data: Record<string, unknown>) =>
+  step2Schema.safeParse(data);
+
+export const validateFullForm = (data: Record<string, unknown>) =>
+  estimationFormSchema.safeParse(data);
