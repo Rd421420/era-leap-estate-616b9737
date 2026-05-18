@@ -49,7 +49,7 @@ import {
 } from "@/lib/formValidation";
 import { trackEvent } from "@/lib/analytics";
 
-interface FormData {
+interface FormData extends Record<string, unknown> {
   // Étape 1
   type: string;
   ville: string;
