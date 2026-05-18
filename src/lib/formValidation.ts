@@ -22,16 +22,19 @@ const postalCodeRegex = /^[0-9]{5}$/;
 // Email validation with more strict rules
 const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-// Step 1 validation schema
-export const step1Schema = z.object({
-  adresse: z
-    .string()
-    .min(5, "L'adresse doit contenir au moins 5 caractères")
-    .max(200, "L'adresse ne peut pas dépasser 200 caractères")
-    .transform(sanitizeAndTrim),
+// Étape A : champs essentiels (type, localisation, surface, pièces)
+export const stepASchema = z.object({
   type: z.enum(["appartement", "maison", "immeuble", "studio", "local"], {
     errorMap: () => ({ message: "Veuillez sélectionner un type de bien" }),
   }),
+  ville: z
+    .string()
+    .min(2, "La ville doit contenir au moins 2 caractères")
+    .max(100, "La ville ne peut pas dépasser 100 caractères")
+    .transform(sanitizeAndTrim),
+  codePostal: z
+    .string()
+    .regex(postalCodeRegex, "Le code postal doit contenir 5 chiffres"),
   surface: z
     .string()
     .min(1, "La surface est requise")
@@ -40,6 +43,17 @@ export const step1Schema = z.object({
       return !isNaN(num) && num > 0 && num < 10000;
     }, "La surface doit être entre 1 et 10000 m²"),
   pieces: z.string().min(1, "Le nombre de pièces est requis"),
+  nbLogements: z.string().optional(),
+  typesLogements: z.string().optional().transform((val) => val ? sanitizeAndTrim(val) : val),
+});
+
+// Étape B : détails complémentaires (adresse + caractéristiques optionnelles)
+export const stepBSchema = z.object({
+  adresse: z
+    .string()
+    .min(5, "L'adresse doit contenir au moins 5 caractères")
+    .max(200, "L'adresse ne peut pas dépasser 200 caractères")
+    .transform(sanitizeAndTrim),
   chambres: z.string().optional(),
   etat: z.string().optional(),
   annee: z
@@ -52,22 +66,15 @@ export const step1Schema = z.object({
     }, "L'année doit être valide"),
   chauffage: z.string().optional(),
   exterieur: z.string().optional(),
-  ville: z
-    .string()
-    .min(2, "La ville doit contenir au moins 2 caractères")
-    .max(100, "La ville ne peut pas dépasser 100 caractères")
-    .transform(sanitizeAndTrim),
-  codePostal: z
-    .string()
-    .regex(postalCodeRegex, "Le code postal doit contenir 5 chiffres"),
-  nbLogements: z.string().optional(),
-  typesLogements: z.string().optional().transform((val) => val ? sanitizeAndTrim(val) : val),
   meuble: z.string().optional(),
   parkingExterieur: z.string().optional(),
   parkingInterieur: z.string().optional(),
   garage: z.string().optional(),
   dpe: z.string().optional(),
 });
+
+// Compat : ancien schéma combiné (étape 1 complète = A + B)
+export const step1Schema = stepASchema.merge(stepBSchema);
 
 // Step 2 validation schema
 export const step2Schema = z.object({
@@ -109,14 +116,17 @@ export type Step2Data = z.infer<typeof step2Schema>;
 export type EstimationFormData = z.infer<typeof estimationFormSchema>;
 
 // Validation helper functions
-export const validateStep1 = (data: Record<string, unknown>) => {
-  return step1Schema.safeParse(data);
-};
+export const validateStepA = (data: Record<string, unknown>) =>
+  stepASchema.safeParse(data);
 
-export const validateStep2 = (data: Record<string, unknown>) => {
-  return step2Schema.safeParse(data);
-};
+export const validateStepB = (data: Record<string, unknown>) =>
+  stepBSchema.safeParse(data);
 
-export const validateFullForm = (data: Record<string, unknown>) => {
-  return estimationFormSchema.safeParse(data);
-};
+export const validateStep1 = (data: Record<string, unknown>) =>
+  step1Schema.safeParse(data);
+
+export const validateStep2 = (data: Record<string, unknown>) =>
+  step2Schema.safeParse(data);
+
+export const validateFullForm = (data: Record<string, unknown>) =>
+  estimationFormSchema.safeParse(data);
