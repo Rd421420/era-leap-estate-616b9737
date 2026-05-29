@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -138,6 +138,12 @@ const EstimationForm = () => {
   const [loading, setLoading] = useState(false);
   const [validationErrors, setValidationErrors] = useState<Record<string, string>>({});
   const [startedTracked, setStartedTracked] = useState(false);
+  const stepTitleRef = useRef<HTMLHeadingElement>(null);
+
+  // Focus automatique sur le titre à chaque changement d'étape (accessibilité)
+  useEffect(() => {
+    stepTitleRef.current?.focus();
+  }, [step]);
 
   const {
     checkRateLimit,
@@ -339,13 +345,20 @@ const EstimationForm = () => {
         <Card className="p-6 md:p-10 shadow-era border-2 border-primary/10 transition-all duration-500 hover:shadow-xl">
           <div className="mb-8">
             <div className="flex items-center justify-between mb-3 flex-wrap gap-2">
-              <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground flex items-center gap-3">
+              <h2
+                ref={stepTitleRef}
+                tabIndex={-1}
+                className="text-2xl md:text-3xl font-heading font-bold text-foreground flex items-center gap-3"
+              >
                 <div className="p-2 bg-primary/10 rounded-lg">
                   <StepIcon className="h-7 w-7 text-primary" />
                 </div>
                 <span className="animate-fade-in">{stepTitle}</span>
               </h2>
-              <span className="text-sm font-semibold text-muted-foreground bg-muted px-4 py-2 rounded-full">
+              <span
+                aria-live="polite"
+                className="text-sm font-semibold text-muted-foreground bg-muted px-4 py-2 rounded-full"
+              >
                 Étape {step}/{TOTAL_STEPS}
               </span>
             </div>
