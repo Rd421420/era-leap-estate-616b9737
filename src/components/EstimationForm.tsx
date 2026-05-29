@@ -76,6 +76,7 @@ interface FormData extends Record<string, unknown> {
   telephone: string;
   email: string;
   gestion: string;
+  source: string;
   rgpd: boolean;
 }
 
@@ -103,6 +104,7 @@ const INITIAL: FormData = {
   telephone: "",
   email: "",
   gestion: "",
+  source: "",
   rgpd: false,
 };
 
@@ -253,8 +255,9 @@ const EstimationForm = () => {
         telephone: formData.telephone.replace(/\s/g, ""),
         email: formData.email.toLowerCase().trim(),
         gestion: formData.gestion,
+        source: formData.source,
         timestamp: new Date().toISOString(),
-        source: "estimation-form",
+        source_form: "estimation-form",
       };
 
       const response = await fetch(
@@ -810,6 +813,23 @@ const EstimationForm = () => {
                       <SelectItem value="partielle">Gestion locative seule</SelectItem>
                       <SelectItem value="recherche">Recherche locataire uniquement</SelectItem>
                       <SelectItem value="pas-sur">Je ne sais pas encore</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+
+                <div>
+                  <Label htmlFor="source">Comment avez-vous connu ERA ?</Label>
+                  <Select value={formData.source} onValueChange={(v) => handleInputChange("source", v)}>
+                    <SelectTrigger>
+                      <SelectValue placeholder="Choisir (optionnel)" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="google">Google</SelectItem>
+                      <SelectItem value="bouche-a-oreille">Bouche à oreille</SelectItem>
+                      <SelectItem value="reseaux-sociaux">Réseaux sociaux</SelectItem>
+                      <SelectItem value="panneau-vitrine">Panneau ou vitrine</SelectItem>
+                      <SelectItem value="leboncoin">Leboncoin</SelectItem>
+                      <SelectItem value="autre">Autre</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
