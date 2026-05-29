@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useLocation, Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { CheckCircle, Star, Home } from "lucide-react";
+import { CheckCircle, Star, Home, Calendar } from "lucide-react";
 
 const ThankYou = () => {
   const location = useLocation();
@@ -34,6 +34,33 @@ const ThankYou = () => {
           <p className="text-lg text-muted-foreground mb-6">
             Votre demande d'estimation a bien été envoyée. Vous allez recevoir votre estimation par e-mail dans quelques instants.
           </p>
+
+          <div className="border-2 border-primary/20 rounded-xl p-6 mb-8 bg-primary/5">
+            <div className="flex items-center justify-center gap-2 mb-3">
+              <Calendar className="w-6 h-6 text-primary" />
+              <h2 className="text-xl font-heading font-bold text-foreground">
+                Prenez rendez-vous avec un conseiller
+              </h2>
+            </div>
+            <p className="text-sm text-muted-foreground mb-4">
+              Pour une évaluation personnalisée de votre bien, réservez un créneau téléphonique avec l'un de nos experts ERA.
+            </p>
+            <Button
+              asChild
+              size="lg"
+              className="w-full sm:w-auto bg-primary hover:bg-primary-dark text-primary-foreground font-semibold shadow-md hover:shadow-lg transition-all"
+            >
+              <a
+                href="https://calendar.app.google/viMBcNbADyEeM4de6"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Calendar className="w-4 h-4 mr-2" />
+                Réserver un appel
+              </a>
+            </Button>
+          </div>
+
 
           <div className="bg-muted rounded-xl p-6 mb-8">
             <p className="text-sm text-foreground font-semibold mb-2">
