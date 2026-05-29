@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import { Phone } from "lucide-react";
 import Hero from "@/components/Hero";
 import GoogleReviews from "@/components/GoogleReviews";
 import EstimationForm from "@/components/EstimationForm";
@@ -13,7 +14,7 @@ const Index = () => {
   };
 
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen pb-[52px] md:pb-0">
       <Hero onScrollToForm={scrollToForm} />
       <GoogleReviews />
       <div ref={formRef}>
@@ -46,8 +47,20 @@ const Index = () => {
           </p>
         </div>
       </footer>
+
+      {/* Bandeau sticky mobile : appel direct */}
+      <a
+        href="tel:+33468665718"
+        className="md:hidden fixed bottom-0 left-0 right-0 z-50 h-[52px] bg-primary text-primary-foreground flex items-center justify-center gap-2 font-semibold shadow-lg"
+        aria-label="Appeler ERA Dupont Romain Immobilier"
+      >
+        <Phone className="h-5 w-5" />
+        <span>04 68 66 57 18</span>
+      </a>
     </main>
   );
 };
+
+export default Index;
 
 export default Index;
