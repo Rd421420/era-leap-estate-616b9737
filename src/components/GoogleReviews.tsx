@@ -30,19 +30,15 @@ const GoogleReviews = () => {
           'https://docs.google.com/spreadsheets/d/1MAO3oaJgKkAU-0RsyXgRSOKp_-Yi-wZaNDR7q3NEGJQ/gviz/tq?tqx=out:csv'
         );
         const csvText = await response.text();
-        
-        // Parse CSV (skip header)
-        const lines = csvText.split('\n').slice(1);
-        const parsed = lines
-          .map(line => {
-            const values = line.split(',').map(v => v.replace(/"/g, '').trim());
-            return {
-              author_name: values[0] || '',
-              rating: parseInt(values[3]) || 5,
-              text: values[2] || '',
-              time: values[1] ? new Date(values[1]).getTime() / 1000 : Date.now() / 1000
-            };
-          })
+
+        const rows = parseCSV(csvText).slice(1); // Skip header
+        const parsed = rows
+          .map(values => ({
+            author_name: (values[0] || '').trim(),
+            rating: parseInt(values[3]) || 5,
+            text: (values[2] || '').trim(),
+            time: values[1] ? new Date(values[1]).getTime() / 1000 : Date.now() / 1000,
+          }))
           .filter(r => r.author_name && r.text);
 
         setReviews(parsed.length > 0 ? parsed : getMockReviews());
