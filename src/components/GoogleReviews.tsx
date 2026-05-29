@@ -18,6 +18,71 @@ interface Review {
   profile_photo_url?: string;
 }
 
+/**
+ * Robust CSV parser that handles quoted fields containing commas, newlines,
+ * and escaped quotes (RFC 4180 style with "" as escaped quote).
+ */
+const parseCSV = (text: string): string[][] => {
+  const rows: string[][] = [];
+  let field = '';
+  let row: string[] = [];
+  let inQuotes = false;
+  let i = 0;
+
+  while (i < text.length) {
+    const char = text[i];
+
+    if (inQuotes) {
+      if (char === '"') {
+        if (text[i + 1] === '"') {
+          field += '"';
+          i += 2;
+          continue;
+        }
+        inQuotes = false;
+        i++;
+        continue;
+      }
+      field += char;
+      i++;
+      continue;
+    }
+
+    if (char === '"') {
+      inQuotes = true;
+      i++;
+      continue;
+    }
+    if (char === ',') {
+      row.push(field);
+      field = '';
+      i++;
+      continue;
+    }
+    if (char === '\r') {
+      i++;
+      continue;
+    }
+    if (char === '\n') {
+      row.push(field);
+      rows.push(row);
+      row = [];
+      field = '';
+      i++;
+      continue;
+    }
+    field += char;
+    i++;
+  }
+
+  if (field.length > 0 || row.length > 0) {
+    row.push(field);
+    rows.push(row);
+  }
+
+  return rows.filter(r => r.some(c => c.trim() !== ''));
+};
+
 const GoogleReviews = () => {
   const [reviews, setReviews] = useState<Review[]>([]);
   const [loading, setLoading] = useState(true);
@@ -30,19 +95,15 @@ const GoogleReviews = () => {
           'https://docs.google.com/spreadsheets/d/1MAO3oaJgKkAU-0RsyXgRSOKp_-Yi-wZaNDR7q3NEGJQ/gviz/tq?tqx=out:csv'
         );
         const csvText = await response.text();
-        
-        // Parse CSV (skip header)
-        const lines = csvText.split('\n').slice(1);
-        const parsed = lines
-          .map(line => {
-            const values = line.split(',').map(v => v.replace(/"/g, '').trim());
-            return {
-              author_name: values[0] || '',
-              rating: parseInt(values[3]) || 5,
-              text: values[2] || '',
-              time: values[1] ? new Date(values[1]).getTime() / 1000 : Date.now() / 1000
-            };
-          })
+
+        const rows = parseCSV(csvText).slice(1); // Skip header
+        const parsed = rows
+          .map(values => ({
+            author_name: (values[0] || '').trim(),
+            rating: parseInt(values[3]) || 5,
+            text: (values[2] || '').trim(),
+            time: values[1] ? new Date(values[1]).getTime() / 1000 : Date.now() / 1000,
+          }))
           .filter(r => r.author_name && r.text);
 
         setReviews(parsed.length > 0 ? parsed : getMockReviews());
