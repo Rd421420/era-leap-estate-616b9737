@@ -138,6 +138,12 @@ const EstimationForm = () => {
   const [loading, setLoading] = useState(false);
   const [validationErrors, setValidationErrors] = useState<Record<string, string>>({});
   const [startedTracked, setStartedTracked] = useState(false);
+  const stepTitleRef = useRef<HTMLHeadingElement>(null);
+
+  // Focus automatique sur le titre à chaque changement d'étape (accessibilité)
+  useEffect(() => {
+    stepTitleRef.current?.focus();
+  }, [step]);
 
   const {
     checkRateLimit,
