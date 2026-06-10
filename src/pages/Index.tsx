@@ -1,10 +1,12 @@
 import { useRef } from "react";
-import { Phone } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Phone, AlertTriangle, Ban, Home, ClipboardList, GitCompare, ChevronRight } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
 import Hero from "@/components/Hero";
 import GoogleReviews from "@/components/GoogleReviews";
 import EstimationForm from "@/components/EstimationForm";
 import RecentEstimations from "@/components/RecentEstimations";
-import FAQ from "@/components/FAQ";
+import FAQ from "@/FAQ";
 
 const Index = () => {
   const formRef = useRef<HTMLDivElement>(null);
