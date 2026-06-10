@@ -14,6 +14,8 @@ import LoyersImpayes from "./pages/LoyersImpayes";
 import VacanceLocative from "./pages/VacanceLocative";
 import GestionLocative from "./pages/GestionLocative";
 import DeleguerOuGerer from "./pages/DeleguerOuGerer";
+import BlogIndex from "./pages/BlogIndex";
+import BlogArticle from "./pages/BlogArticle";
 
 const queryClient = new QueryClient();
 
@@ -33,6 +35,8 @@ const App = () => (
             <Route path="/deleguer-ou-gerer-soi-meme" element={<DeleguerOuGerer />} />
             <Route path="/mentions-legales" element={<MentionsLegales />} />
             <Route path="/confidentialite" element={<PolitiqueConfidentialite />} />
+            <Route path="/blog" element={<BlogIndex />} />
+            <Route path="/blog/:slug" element={<BlogArticle />} />
           </Route>
           <Route path="/merci" element={<ThankYou />} />
           <Route path="*" element={<NotFound />} />
