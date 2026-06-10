@@ -33,6 +33,8 @@ const Footer = () => {
           <Link to="/gestion-locative-perpignan" className="hover:underline">Gestion locative</Link>
           <span className="opacity-50">·</span>
           <Link to="/deleguer-ou-gerer-soi-meme" className="hover:underline">Déléguer ou gérer</Link>
+          <span className="opacity-50">·</span>
+          <Link to="/blog" className="hover:underline">Conseils</Link>
         </div>
       </div>
     </footer>
