@@ -12,6 +12,7 @@ import LouerDpeFG from "./pages/LouerDpeFG";
 import LoyersImpayes from "./pages/LoyersImpayes";
 import VacanceLocative from "./pages/VacanceLocative";
 import GestionLocative from "./pages/GestionLocative";
+import DeleguerOuGerer from "./pages/DeleguerOuGerer";
 
 const queryClient = new QueryClient();
 
@@ -27,6 +28,7 @@ const App = () => (
           <Route path="/loyers-impayes-perpignan" element={<LoyersImpayes />} />
           <Route path="/logement-ne-se-loue-pas-perpignan" element={<VacanceLocative />} />
           <Route path="/gestion-locative-perpignan" element={<GestionLocative />} />
+          <Route path="/deleguer-ou-gerer-soi-meme" element={<DeleguerOuGerer />} />
           <Route path="/merci" element={<ThankYou />} />
           <Route path="/mentions-legales" element={<MentionsLegales />} />
           <Route path="/confidentialite" element={<PolitiqueConfidentialite />} />
