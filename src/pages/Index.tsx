@@ -6,7 +6,7 @@ import Hero from "@/components/Hero";
 import GoogleReviews from "@/components/GoogleReviews";
 import EstimationForm from "@/components/EstimationForm";
 import RecentEstimations from "@/components/RecentEstimations";
-import FAQ from "@/FAQ";
+import FAQ from "@/components/FAQ";
 
 const Index = () => {
   const formRef = useRef<HTMLDivElement>(null);
