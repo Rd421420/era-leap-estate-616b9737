@@ -26,20 +26,12 @@ const LouerDpeFG = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Louer un bien classé F ou G à Perpignan — que faire ? | ERA Dupont Romain</title>
-        <meta name="description" content="Logement classé F ou G (DPE) à Perpignan ? On fait le point sur les travaux et la mise en location, et on a déjà des locataires pré-qualifiés. Étude gratuite." />
-        <link rel="canonical" href="https://era-dupontromain.immo/louer-bien-dpe-f-g-perpignan" />
-        <meta property="og:title" content="Louer un bien classé F ou G à Perpignan — que faire ? | ERA Dupont Romain" />
-        <meta property="og:description" content="Logement classé F ou G (DPE) à Perpignan ? On fait le point sur les travaux et la mise en location. Étude gratuite." />
-        <meta property="og:url" content="https://era-dupontromain.immo/louer-bien-dpe-f-g-perpignan" />
-        <meta property="og:type" content="article" />
-        <meta property="og:image" content="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/4ed00f5d-8f60-4af1-ba2a-221a65ba1201/id-preview-b38a2727--d2b7d6f3-4b53-49ba-9635-0bcc23729d43.lovable.app-1781102155449.png" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Louer un bien classé F ou G à Perpignan — que faire ? | ERA Dupont Romain" />
-        <meta name="twitter:description" content="Logement classé F ou G (DPE) à Perpignan ? On fait le point sur les travaux et la mise en location. Étude gratuite." />
-        <meta name="twitter:image" content="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/4ed00f5d-8f60-4af1-ba2a-221a65ba1201/id-preview-b38a2727--d2b7d6f3-4b53-49ba-9635-0bcc23729d43.lovable.app-1781102155449.png" />
-      </Helmet>
+      <SeoHead
+        title="Louer un bien classé F ou G à Perpignan — que faire ? | ERA Dupont Romain"
+        description="Logement classé F ou G (DPE) à Perpignan ? On fait le point sur les travaux et la mise en location, et on a déjà des locataires pré-qualifiés. Étude gratuite."
+        path="/louer-bien-dpe-f-g-perpignan"
+        type="article"
+      />
 
       <main className="min-h-screen">
         {/* HERO */}
