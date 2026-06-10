@@ -29,10 +29,10 @@ const LouerDpeFG = () => {
       <Helmet>
         <title>Louer un bien classé F ou G à Perpignan — que faire ? | ERA Dupont Romain</title>
         <meta name="description" content="Logement classé F ou G (DPE) à Perpignan ? On fait le point sur les travaux et la mise en location, et on a déjà des locataires pré-qualifiés. Étude gratuite." />
-        <link rel="canonical" href="https://era-leap-estate.lovable.app/louer-bien-dpe-f-g-perpignan" />
+        <link rel="canonical" href="https://era-dupontromain.immo/louer-bien-dpe-f-g-perpignan" />
         <meta property="og:title" content="Louer un bien classé F ou G à Perpignan — que faire ? | ERA Dupont Romain" />
         <meta property="og:description" content="Logement classé F ou G (DPE) à Perpignan ? On fait le point sur les travaux et la mise en location. Étude gratuite." />
-        <meta property="og:url" content="https://era-leap-estate.lovable.app/louer-bien-dpe-f-g-perpignan" />
+        <meta property="og:url" content="https://era-dupontromain.immo/louer-bien-dpe-f-g-perpignan" />
       </Helmet>
 
       <main className="min-h-screen pb-[52px] md:pb-0">

@@ -118,10 +118,10 @@ const DeleguerOuGerer = () => {
       <Helmet>
         <title>Gestion locative : déléguer ou gérer soi-même ? Le vrai calcul | ERA Perpignan</title>
         <meta name="description" content="Autogestion ou agence à Perpignan ? Le comparatif honnête coût / temps / risque, sans langue de bois. Estimation locative offerte pour décider avec des chiffres." />
-        <link rel="canonical" href="https://era-leap-estate.lovable.app/deleguer-ou-gerer-soi-meme" />
+        <link rel="canonical" href="https://era-dupontromain.immo/deleguer-ou-gerer-soi-meme" />
         <meta property="og:title" content="Gestion locative : déléguer ou gérer soi-même ? Le vrai calcul | ERA Perpignan" />
         <meta property="og:description" content="Autogestion ou agence à Perpignan ? Le comparatif honnête coût / temps / risque, sans langue de bois." />
-        <meta property="og:url" content="https://era-leap-estate.lovable.app/deleguer-ou-gerer-soi-meme" />
+        <meta property="og:url" content="https://era-dupontromain.immo/deleguer-ou-gerer-soi-meme" />
       </Helmet>
 
       <main className="min-h-screen pb-[52px] md:pb-0">

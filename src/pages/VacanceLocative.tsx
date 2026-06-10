@@ -29,10 +29,10 @@ const VacanceLocative = () => {
       <Helmet>
         <title>Votre appartement ne se loue pas à Perpignan ? | ERA Dupont Romain</title>
         <meta name="description" content="Des semaines sans locataire sérieux à Perpignan ? On active notre vivier de locataires déjà pré-qualifiés. Estimation locative offerte, mise en location rapide." />
-        <link rel="canonical" href="https://era-leap-estate.lovable.app/logement-ne-se-loue-pas-perpignan" />
+        <link rel="canonical" href="https://era-dupontromain.immo/logement-ne-se-loue-pas-perpignan" />
         <meta property="og:title" content="Votre appartement ne se loue pas à Perpignan ? | ERA Dupont Romain" />
         <meta property="og:description" content="Des semaines sans locataire sérieux à Perpignan ? On active notre vivier de locataires déjà pré-qualifiés." />
-        <meta property="og:url" content="https://era-leap-estate.lovable.app/logement-ne-se-loue-pas-perpignan" />
+        <meta property="og:url" content="https://era-dupontromain.immo/logement-ne-se-loue-pas-perpignan" />
       </Helmet>
 
       <main className="min-h-screen pb-[52px] md:pb-0">
