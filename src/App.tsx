@@ -8,7 +8,7 @@ import ThankYou from "./pages/ThankYou";
 import NotFound from "./pages/NotFound";
 import MentionsLegales from "./pages/MentionsLegales";
 import PolitiqueConfidentialite from "./pages/PolitiqueConfidentialite";
-import LouerDpeFG from "./pages/LouerDpeFG";
+import VacanceLocative from "./pages/VacanceLocative";
 import LoyersImpayes from "./pages/LoyersImpayes";
 
 const queryClient = new QueryClient();
@@ -23,6 +23,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/louer-bien-dpe-f-g-perpignan" element={<LouerDpeFG />} />
           <Route path="/loyers-impayes-perpignan" element={<LoyersImpayes />} />
+          <Route path="/logement-ne-se-loue-pas-perpignan" element={<VacanceLocative />} />
           <Route path="/merci" element={<ThankYou />} />
           <Route path="/mentions-legales" element={<MentionsLegales />} />
           <Route path="/confidentialite" element={<PolitiqueConfidentialite />} />
