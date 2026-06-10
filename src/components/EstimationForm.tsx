@@ -352,7 +352,7 @@ const EstimationForm = () => {
             className="flex items-center gap-2 bg-card border border-border rounded-lg px-3 py-2 shadow-sm hover:border-primary transition-colors"
           >
             <Star className="h-4 w-4 text-yellow-500 fill-yellow-500 shrink-0" />
-            <span className="font-medium">4,9/5 sur Google</span>
+            <span className="font-medium">5,0/5 sur Google (7 avis)</span>
           </a>
         </div>
 
