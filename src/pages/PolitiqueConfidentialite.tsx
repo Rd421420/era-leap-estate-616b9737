@@ -4,10 +4,16 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import SeoHead from "@/components/SeoHead";
 
 const PolitiqueConfidentialite = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-muted/20">
+      <SeoHead
+        title="Politique de confidentialité (RGPD) | ERA DUPONT ROMAIN IMMOBILIER"
+        description="Politique de confidentialité d'ERA DUPONT ROMAIN IMMOBILIER : données collectées, finalités, durée de conservation, droits RGPD et contact DPO."
+        path="/confidentialite"
+      />
       <div className="container mx-auto px-4 py-12 max-w-4xl">
         <h1 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-2">
           Politique de Confidentialité
