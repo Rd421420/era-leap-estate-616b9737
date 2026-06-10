@@ -11,6 +11,7 @@ import PolitiqueConfidentialite from "./pages/PolitiqueConfidentialite";
 import LouerDpeFG from "./pages/LouerDpeFG";
 import LoyersImpayes from "./pages/LoyersImpayes";
 import VacanceLocative from "./pages/VacanceLocative";
+import GestionLocative from "./pages/GestionLocative";
 
 const queryClient = new QueryClient();
 
