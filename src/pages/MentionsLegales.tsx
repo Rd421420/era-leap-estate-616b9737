@@ -6,17 +6,7 @@ import { Separator } from "@/components/ui/separator";
 
 const MentionsLegales = () => {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-background to-muted/20">
-      {/* Header */}
-      <header className="bg-foreground text-background py-4">
-        <div className="container mx-auto px-4">
-          <Link to="/" className="inline-flex items-center gap-2 text-background hover:opacity-80 transition-opacity">
-            <ArrowLeft className="h-4 w-4" />
-            Retour à l'accueil
-          </Link>
-        </div>
-      </header>
-
+    <div className="min-h-screen bg-gradient-to-b from-background to-muted/20">
       <div className="container mx-auto px-4 py-12 max-w-4xl">
         <h1 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-8">
           Mentions Légales
@@ -128,7 +118,6 @@ const MentionsLegales = () => {
           </Card>
         </div>
 
-        {/* Back button */}
         <div className="mt-12 text-center">
           <Link to="/">
             <Button variant="outline" size="lg">
@@ -138,16 +127,7 @@ const MentionsLegales = () => {
           </Link>
         </div>
       </div>
-
-      {/* Footer */}
-      <footer className="bg-foreground text-background py-6 mt-12">
-        <div className="container mx-auto px-4 text-center">
-          <p className="text-sm opacity-75">
-            © {new Date().getFullYear()} ERA DUPONT ROMAIN IMMOBILIER - Tous droits réservés
-          </p>
-        </div>
-      </footer>
-    </main>
+    </div>
   );
 };
 
