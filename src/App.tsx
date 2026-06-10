@@ -8,8 +8,9 @@ import ThankYou from "./pages/ThankYou";
 import NotFound from "./pages/NotFound";
 import MentionsLegales from "./pages/MentionsLegales";
 import PolitiqueConfidentialite from "./pages/PolitiqueConfidentialite";
-import VacanceLocative from "./pages/VacanceLocative";
+import LouerDpeFG from "./pages/LouerDpeFG";
 import LoyersImpayes from "./pages/LoyersImpayes";
+import VacanceLocative from "./pages/VacanceLocative";
 
 const queryClient = new QueryClient();
 
