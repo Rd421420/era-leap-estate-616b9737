@@ -16,12 +16,6 @@ const ThankYou = () => {
         'value': 1.0,
         'currency': 'EUR'
       });
-      // Google Ads conversion — TODO: remplacer AW-XXXXXXXXX/LIBELLE par la vraie valeur
-      (window as any).gtag('event', 'conversion', {
-        'send_to': 'AW-XXXXXXXXX/LIBELLE',
-        'value': 1.0,
-        'currency': 'EUR'
-      });
     }
   }, []);
 
