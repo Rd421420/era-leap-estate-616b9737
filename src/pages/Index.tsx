@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { Link } from "react-router-dom";
-import { Phone, AlertTriangle, Ban, Home, ClipboardList, GitCompare, ChevronRight } from "lucide-react";
+import { AlertTriangle, Ban, Home, ClipboardList, GitCompare, ChevronRight } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import Hero from "@/components/Hero";
 import GoogleReviews from "@/components/GoogleReviews";
