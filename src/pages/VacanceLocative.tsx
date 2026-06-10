@@ -1,5 +1,5 @@
 import { useRef, useEffect } from "react";
-import { Helmet } from "react-helmet-async";
+import SeoHead from "@/components/SeoHead";
 import { Phone, ChevronRight, ClipboardCheck, Calculator, Users, SearchX, TrendingDown, Megaphone, LineChart, ClipboardList } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
