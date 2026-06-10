@@ -202,7 +202,7 @@ const LoyersImpayes = () => {
                 <AccordionTrigger>Pouvez-vous reprendre un dossier déjà en cours ?</AccordionTrigger>
                 <AccordionContent>
                   <p className="text-muted-foreground leading-relaxed">
-                    Oui, tout à fait. Que vous soyez en phase de relance, de procédure judiciaire ou même en attente d'expulsion, on peut reprendre le suivi de votre dossier. On fait le point avec vous, on contacte les parties en présence si besoin, et on vous proposons un plan pour sécuriser la suite. Contactez-nous pour un premier échange gratuit et sans engagement.
+                    Oui, tout à fait. Que vous soyez en phase de relance, de procédure judiciaire ou même en attente d'expulsion, on peut reprendre le suivi de votre dossier. On fait le point avec vous, on contacte les parties en présence si besoin, et on vous propose un plan pour sécuriser la suite. Contactez-nous pour un premier échange gratuit et sans engagement.
                   </p>
                 </AccordionContent>
               </AccordionItem>

@@ -171,7 +171,7 @@ const LouerDpeFG = () => {
                 <AccordionTrigger>Puis-je encore louer un bien classé G aujourd'hui ?</AccordionTrigger>
                 <AccordionContent>
                   <p className="text-muted-foreground leading-relaxed">
-                    Depuis 2025, les logements classés G sont interdits à la location sur le parc privé existant. Si votre bien est classé G, il ne peut plus être loué en l'état. La seule solution est de réaliser des travaux pour améliorer le DPE. On peut ensemble faire le point sur les travaux nécessaires et leur coût. Demandez une étude gratuite.
+                    Depuis le 1er janvier 2025, un logement classé G ne peut plus faire l'objet d'un nouveau bail ni d'un renouvellement, mais les baux en cours se poursuivent jusqu'à leur échéance. Les logements G+ (&gt;450 kWh/m²/an) sont interdits depuis 2023, les F le seront en 2028 et les E en 2034. Pas de panique : si votre bien est concerné, on fait le point ensemble sur les travaux nécessaires et on vous accompagne. Demandez une étude gratuite.
                   </p>
                 </AccordionContent>
               </AccordionItem>
