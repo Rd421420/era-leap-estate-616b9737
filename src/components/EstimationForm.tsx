@@ -142,6 +142,32 @@ const EstimationForm = () => {
   const [startedTracked, setStartedTracked] = useState(false);
   const stepTitleRef = useRef<HTMLHeadingElement>(null);
 
+  // Attribution tracking (lues une seule fois au montage)
+  const [attribution, setAttribution] = useState({
+    gclid: "",
+    utm_source: "",
+    utm_medium: "",
+    utm_campaign: "",
+    utm_term: "",
+    utm_content: "",
+    landing_page: "",
+    referrer: "",
+  });
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    setAttribution({
+      gclid: params.get("gclid") || "",
+      utm_source: params.get("utm_source") || "",
+      utm_medium: params.get("utm_medium") || "",
+      utm_campaign: params.get("utm_campaign") || "",
+      utm_term: params.get("utm_term") || "",
+      utm_content: params.get("utm_content") || "",
+      landing_page: window.location.pathname || "",
+      referrer: document.referrer || "",
+    });
+  }, []);
+
   // Focus automatique sur le titre à chaque changement d'étape (accessibilité)
   useEffect(() => {
     stepTitleRef.current?.focus();
@@ -255,7 +281,15 @@ const EstimationForm = () => {
         telephone: formData.telephone.replace(/\s/g, ""),
         email: formData.email.toLowerCase().trim(),
         gestion: formData.gestion,
-        source: formData.source,
+        source: formData.source || (attribution.gclid ? "google-ads" : ""),
+        gclid: attribution.gclid,
+        utm_source: attribution.utm_source,
+        utm_medium: attribution.utm_medium,
+        utm_campaign: attribution.utm_campaign,
+        utm_term: attribution.utm_term,
+        utm_content: attribution.utm_content,
+        landing_page: attribution.landing_page,
+        referrer: attribution.referrer,
         timestamp: new Date().toISOString(),
         source_form: "estimation-form",
       };
