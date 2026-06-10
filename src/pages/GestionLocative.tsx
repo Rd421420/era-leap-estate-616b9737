@@ -1,5 +1,5 @@
 import { useRef, useEffect } from "react";
-import { Helmet } from "react-helmet-async";
+import SeoHead from "@/components/SeoHead";
 import {
   Phone,
   ChevronRight,
