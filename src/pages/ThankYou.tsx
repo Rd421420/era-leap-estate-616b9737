@@ -9,10 +9,16 @@ const ThankYou = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    // Track conversion
+    // Track GA4 conversion
     if (typeof window !== 'undefined' && (window as any).gtag) {
       (window as any).gtag('event', 'conversion', {
         'send_to': 'G-JD27BBNDM5',
+        'value': 1.0,
+        'currency': 'EUR'
+      });
+      // Google Ads conversion — TODO: remplacer AW-XXXXXXXXX/LIBELLE par la vraie valeur
+      (window as any).gtag('event', 'conversion', {
+        'send_to': 'AW-XXXXXXXXX/LIBELLE',
         'value': 1.0,
         'currency': 'EUR'
       });
