@@ -23,7 +23,7 @@ const ThankYou = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-muted flex items-center justify-center px-4 py-12">
       <SeoHead
-        title="Merci ! Votre demande d'estimation est bien reçue | ERA DUPONT ROMAIN"
+        title="Merci ! Votre demande est bien reçue | ERA"
         description="Votre demande d'estimation locative à Perpignan est bien reçue. Nous vous recontactons sous 24h ouvrées."
         path="/merci"
         noindex

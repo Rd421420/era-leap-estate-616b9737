@@ -27,7 +27,7 @@ const LoyersImpayes = () => {
   return (
     <>
       <SeoHead
-        title="Locataire qui ne paie pas à Perpignan — que faire ? | ERA Dupont Romain"
+        title="Loyers impayés à Perpignan : que faire ? | ERA IMMO"
         description="Loyers impayés à Perpignan ? On vous aide à reprendre la main et à sécuriser vos loyers à venir (garantie loyers impayés). Conseil gratuit sous 24h."
         path="/loyers-impayes-perpignan"
         type="article"

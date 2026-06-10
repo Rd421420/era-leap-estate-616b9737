@@ -9,7 +9,7 @@ const MentionsLegales = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-muted/20">
       <SeoHead
-        title="Mentions légales | ERA DUPONT ROMAIN IMMOBILIER Perpignan"
+        title="Mentions légales | ERA DUPONT ROMAIN Perpignan"
         description="Mentions légales d'ERA DUPONT ROMAIN IMMOBILIER à Perpignan : informations société, carte professionnelle, RCS, contact et hébergeur."
         path="/mentions-legales"
       />

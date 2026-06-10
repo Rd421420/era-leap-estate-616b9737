@@ -76,7 +76,7 @@ const GestionLocative = () => {
   return (
     <>
       <SeoHead
-        title="Gestion locative à Perpignan — on gère tout, vous encaissez | ERA Dupont Romain"
+        title="Gestion locative à Perpignan : on gère tout | ERA IMMO"
         description="Confiez la gestion de votre bien à Perpignan : quittances, état des lieux, relances, fiscalité. Estimation offerte, GLI remboursée 12 mois, locataires pré-qualifiés."
         path="/gestion-locative-perpignan"
         type="article"

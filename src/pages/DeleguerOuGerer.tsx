@@ -116,7 +116,7 @@ const DeleguerOuGerer = () => {
   return (
     <>
       <SeoHead
-        title="Gestion locative : déléguer ou gérer soi-même ? Le vrai calcul | ERA Perpignan"
+        title="Déléguer ou gérer son bien soi-même ? | ERA Perpignan"
         description="Autogestion ou agence à Perpignan ? Le comparatif honnête coût / temps / risque, sans langue de bois. Estimation locative offerte pour décider avec des chiffres."
         path="/deleguer-ou-gerer-soi-meme"
         type="article"

@@ -27,7 +27,7 @@ const LouerDpeFG = () => {
   return (
     <>
       <SeoHead
-        title="Louer un bien classé F ou G à Perpignan — que faire ? | ERA Dupont Romain"
+        title="Louer un bien DPE F ou G à Perpignan | ERA IMMO"
         description="Logement classé F ou G (DPE) à Perpignan ? On fait le point sur les travaux et la mise en location, et on a déjà des locataires pré-qualifiés. Étude gratuite."
         path="/louer-bien-dpe-f-g-perpignan"
         type="article"
