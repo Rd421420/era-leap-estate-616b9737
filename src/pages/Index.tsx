@@ -7,6 +7,7 @@ import GoogleReviews from "@/components/GoogleReviews";
 import EstimationForm from "@/components/EstimationForm";
 import RecentEstimations from "@/components/RecentEstimations";
 import FAQ from "@/components/FAQ";
+import SeoHead from "@/components/SeoHead";
 
 const Index = () => {
   const formRef = useRef<HTMLDivElement>(null);
