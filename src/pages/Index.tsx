@@ -7,6 +7,7 @@ import GoogleReviews from "@/components/GoogleReviews";
 import EstimationForm from "@/components/EstimationForm";
 import RecentEstimations from "@/components/RecentEstimations";
 import FAQ from "@/components/FAQ";
+import SeoHead from "@/components/SeoHead";
 
 const Index = () => {
   const formRef = useRef<HTMLDivElement>(null);
@@ -17,6 +18,11 @@ const Index = () => {
 
   return (
     <main className="min-h-screen">
+      <SeoHead
+        title="Estimation locative offerte à Perpignan | ERA DUPONT ROMAIN IMMOBILIER"
+        description="Obtenez une estimation locative fiable et offerte à Perpignan. Découvrez les avis Google de propriétaires satisfaits et confiez votre gestion locative à ERA."
+        path="/"
+      />
       <Hero onScrollToForm={scrollToForm} />
       <GoogleReviews />
 

@@ -1,5 +1,5 @@
 import { useRef, useEffect } from "react";
-import { Helmet } from "react-helmet-async";
+import SeoHead from "@/components/SeoHead";
 import { Phone, ChevronRight, ClipboardCheck, Calculator, Users, AlertTriangle, Wallet, Home } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -26,14 +26,12 @@ const LouerDpeFG = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Louer un bien classé F ou G à Perpignan — que faire ? | ERA Dupont Romain</title>
-        <meta name="description" content="Logement classé F ou G (DPE) à Perpignan ? On fait le point sur les travaux et la mise en location, et on a déjà des locataires pré-qualifiés. Étude gratuite." />
-        <link rel="canonical" href="https://era-dupontromain.immo/louer-bien-dpe-f-g-perpignan" />
-        <meta property="og:title" content="Louer un bien classé F ou G à Perpignan — que faire ? | ERA Dupont Romain" />
-        <meta property="og:description" content="Logement classé F ou G (DPE) à Perpignan ? On fait le point sur les travaux et la mise en location. Étude gratuite." />
-        <meta property="og:url" content="https://era-dupontromain.immo/louer-bien-dpe-f-g-perpignan" />
-      </Helmet>
+      <SeoHead
+        title="Louer un bien classé F ou G à Perpignan — que faire ? | ERA Dupont Romain"
+        description="Logement classé F ou G (DPE) à Perpignan ? On fait le point sur les travaux et la mise en location, et on a déjà des locataires pré-qualifiés. Étude gratuite."
+        path="/louer-bien-dpe-f-g-perpignan"
+        type="article"
+      />
 
       <main className="min-h-screen">
         {/* HERO */}

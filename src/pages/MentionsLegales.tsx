@@ -3,10 +3,16 @@ import { ArrowLeft, Building2, CreditCard, Shield, Scale, Phone, Mail, MapPin } 
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import SeoHead from "@/components/SeoHead";
 
 const MentionsLegales = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-muted/20">
+      <SeoHead
+        title="Mentions légales | ERA DUPONT ROMAIN IMMOBILIER Perpignan"
+        description="Mentions légales d'ERA DUPONT ROMAIN IMMOBILIER à Perpignan : informations société, carte professionnelle, RCS, contact et hébergeur."
+        path="/mentions-legales"
+      />
       <div className="container mx-auto px-4 py-12 max-w-4xl">
         <h1 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-8">
           Mentions Légales
