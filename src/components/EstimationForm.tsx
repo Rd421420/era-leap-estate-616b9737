@@ -48,6 +48,7 @@ import {
   sanitizeString,
 } from "@/lib/formValidation";
 import { trackEvent } from "@/lib/analytics";
+import { supabase } from "@/integrations/supabase/client";
 
 interface FormData extends Record<string, unknown> {
   // Étape 1
@@ -294,16 +295,12 @@ const EstimationForm = () => {
         source_form: "estimation-form",
       };
 
-      const response = await fetch(
-        "https://n8n.srv864634.hstgr.cloud/webhook/c15fe03b-332b-405e-b285-3c660fb06c0e",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(sanitizedData),
-        },
+      const { data: fnData, error: fnError } = await supabase.functions.invoke(
+        "submit-estimation",
+        { body: sanitizedData },
       );
 
-      if (response.ok) {
+      if (!fnError && fnData?.ok) {
         recordAttempt();
         trackEvent("form_submit", { form_id: "estimation" });
         clear();
