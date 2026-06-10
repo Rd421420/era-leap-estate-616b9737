@@ -17,7 +17,7 @@ const Index = () => {
   };
 
   return (
-    <main className="min-h-screen">
+    <>
       <SeoHead
         title="Estimation locative offerte à Perpignan | ERA DUPONT ROMAIN IMMOBILIER"
         description="Obtenez une estimation locative fiable et offerte à Perpignan. Découvrez les avis Google de propriétaires satisfaits et confiez votre gestion locative à ERA."
@@ -122,7 +122,7 @@ const Index = () => {
       </div>
       <RecentEstimations />
       <FAQ />
-    </main>
+    </>
   );
 };
 

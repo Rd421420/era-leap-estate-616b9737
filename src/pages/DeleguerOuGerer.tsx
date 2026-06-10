@@ -122,7 +122,7 @@ const DeleguerOuGerer = () => {
         type="article"
       />
 
-      <main className="min-h-screen">
+      <>
         {/* HERO */}
         <section className="relative bg-gradient-to-br from-background via-muted/30 to-background pt-12 pb-16">
           <div className="container mx-auto px-4">
@@ -277,7 +277,7 @@ const DeleguerOuGerer = () => {
           </div>
         </section>
 
-      </main>
+      </>
     </>
   );
 };
