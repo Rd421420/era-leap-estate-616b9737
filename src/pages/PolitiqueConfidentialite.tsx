@@ -10,7 +10,7 @@ const PolitiqueConfidentialite = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-muted/20">
       <SeoHead
-        title="Politique de confidentialité (RGPD) | ERA DUPONT ROMAIN IMMOBILIER"
+        title="Politique de confidentialité | ERA DUPONT ROMAIN"
         description="Politique de confidentialité d'ERA DUPONT ROMAIN IMMOBILIER : données collectées, finalités, durée de conservation, droits RGPD et contact DPO."
         path="/confidentialite"
       />
