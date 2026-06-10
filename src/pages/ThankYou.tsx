@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useLocation, Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { CheckCircle, Star, Home, Calendar } from "lucide-react";
+import SeoHead from "@/components/SeoHead";
 
 const ThankYou = () => {
   const location = useLocation();
