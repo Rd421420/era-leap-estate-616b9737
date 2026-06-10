@@ -26,6 +26,7 @@ const App = () => (
           <Route path="/louer-bien-dpe-f-g-perpignan" element={<LouerDpeFG />} />
           <Route path="/loyers-impayes-perpignan" element={<LoyersImpayes />} />
           <Route path="/logement-ne-se-loue-pas-perpignan" element={<VacanceLocative />} />
+          <Route path="/gestion-locative-perpignan" element={<GestionLocative />} />
           <Route path="/merci" element={<ThankYou />} />
           <Route path="/mentions-legales" element={<MentionsLegales />} />
           <Route path="/confidentialite" element={<PolitiqueConfidentialite />} />
