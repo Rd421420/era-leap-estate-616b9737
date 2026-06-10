@@ -27,7 +27,7 @@ const VacanceLocative = () => {
   return (
     <>
       <SeoHead
-        title="Votre appartement ne se loue pas à Perpignan ? | ERA Dupont Romain"
+        title="Votre appartement ne se loue pas ? | ERA Perpignan"
         description="Des semaines sans locataire sérieux à Perpignan ? On active notre vivier de locataires déjà pré-qualifiés. Estimation locative offerte, mise en location rapide."
         path="/logement-ne-se-loue-pas-perpignan"
         type="article"
