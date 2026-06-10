@@ -75,14 +75,12 @@ const GestionLocative = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Gestion locative à Perpignan — on gère tout, vous encaissez | ERA Dupont Romain</title>
-        <meta name="description" content="Confiez la gestion de votre bien à Perpignan : quittances, état des lieux, relances, fiscalité. Estimation offerte, GLI remboursée 12 mois, locataires pré-qualifiés." />
-        <link rel="canonical" href="https://era-dupontromain.immo/gestion-locative-perpignan" />
-        <meta property="og:title" content="Gestion locative à Perpignan — on gère tout, vous encaissez | ERA Dupont Romain" />
-        <meta property="og:description" content="Confiez la gestion de votre bien à Perpignan : quittances, état des lieux, relances, fiscalité. Estimation offerte, GLI remboursée 12 mois." />
-        <meta property="og:url" content="https://era-dupontromain.immo/gestion-locative-perpignan" />
-      </Helmet>
+      <SeoHead
+        title="Gestion locative à Perpignan — on gère tout, vous encaissez | ERA Dupont Romain"
+        description="Confiez la gestion de votre bien à Perpignan : quittances, état des lieux, relances, fiscalité. Estimation offerte, GLI remboursée 12 mois, locataires pré-qualifiés."
+        path="/gestion-locative-perpignan"
+        type="article"
+      />
 
       <main className="min-h-screen">
         {/* HERO */}
