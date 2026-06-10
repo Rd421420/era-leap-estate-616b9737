@@ -49,7 +49,7 @@ const GestionLocative = () => {
     {
       icon: FileText,
       title: "Rédaction du bail",
-      desc: "Bail conforme à la législation en vigueur, clauses adaptées à votre bien et à votre situation. Zero risque juridique.",
+      desc: "Bail conforme à la législation en vigueur, clauses adaptées à votre bien et à votre situation. Zéro risque juridique.",
     },
     {
       icon: SearchCheck,
