@@ -26,14 +26,12 @@ const LoyersImpayes = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Locataire qui ne paie pas à Perpignan — que faire ? | ERA Dupont Romain</title>
-        <meta name="description" content="Loyers impayés à Perpignan ? On vous aide à reprendre la main et à sécuriser vos loyers à venir (garantie loyers impayés). Conseil gratuit sous 24h." />
-        <link rel="canonical" href="https://era-dupontromain.immo/loyers-impayes-perpignan" />
-        <meta property="og:title" content="Locataire qui ne paie pas à Perpignan — que faire ? | ERA Dupont Romain" />
-        <meta property="og:description" content="Loyers impayés à Perpignan ? On vous aide à reprendre la main et à sécuriser vos loyers à venir. Conseil gratuit sous 24h." />
-        <meta property="og:url" content="https://era-dupontromain.immo/loyers-impayes-perpignan" />
-      </Helmet>
+      <SeoHead
+        title="Locataire qui ne paie pas à Perpignan — que faire ? | ERA Dupont Romain"
+        description="Loyers impayés à Perpignan ? On vous aide à reprendre la main et à sécuriser vos loyers à venir (garantie loyers impayés). Conseil gratuit sous 24h."
+        path="/loyers-impayes-perpignan"
+        type="article"
+      />
 
       <main className="min-h-screen">
         {/* HERO */}
