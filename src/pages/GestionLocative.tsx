@@ -20,6 +20,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 import EstimationForm from "@/components/EstimationForm";
+import LandingHero from "@/components/LandingHero";
 import GoogleReviews from "@/components/GoogleReviews";
 import { trackEvent } from "@/lib/analytics";
 
@@ -102,46 +103,12 @@ const GestionLocative = () => {
       />
 
       <>
-        {/* HERO */}
-        <section className="relative bg-gradient-to-br from-background via-muted/30 to-background pt-12 pb-16">
-          <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto text-center">
-              <h1 className="font-heading text-3xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
-                Déléguez la gestion de votre bien à Perpignan. On s'occupe de tout.
-              </h1>
-              <p className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed">
-                Quittances, états des lieux, relances, suivi, fiscalité : vous gardez la décision, on porte la charge mentale. Et on arrive avec des locataires déjà pré-qualifiés.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
-                <Button size="lg" onClick={scrollToForm} className="shadow-era">
-                  Estimation locative offerte
-                  <ChevronRight className="h-4 w-4 ml-2" />
-                </Button>
-                <Button size="lg" variant="outline" asChild>
-                  <a href="tel:+33468665718" className="gap-2">
-                    <Phone className="h-4 w-4" />
-                    04 68 66 57 18
-                  </a>
-                </Button>
-              </div>
-
-              {/* 3 atouts */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                {atouts.map((a) => (
-                  <div
-                    key={a.label}
-                    className="flex items-center gap-3 rounded-xl border border-border bg-card p-4 shadow-sm"
-                  >
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10">
-                      <a.icon className="h-5 w-5 text-primary" />
-                    </div>
-                    <span className="text-sm font-semibold text-foreground text-left">{a.label}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
+        <LandingHero
+          eyebrow="Gestion locative Perpignan"
+          title="Déléguez la gestion de votre bien à Perpignan. On s'occupe de tout."
+          subtitle="Quittances, états des lieux, relances, suivi, fiscalité : vous gardez la décision, on porte la charge mentale. Et on arrive avec des locataires déjà pré-qualifiés."
+          onCta={scrollToForm}
+        />
 
         {/* SECTION "Ce qu'on prend en charge" */}
         <section className="py-16 bg-muted/20">

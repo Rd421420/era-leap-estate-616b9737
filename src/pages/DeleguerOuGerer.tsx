@@ -18,6 +18,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 import EstimationForm from "@/components/EstimationForm";
+import LandingHero from "@/components/LandingHero";
 import { trackEvent } from "@/lib/analytics";
 
 const DeleguerOuGerer = () => {
@@ -142,46 +143,12 @@ const DeleguerOuGerer = () => {
       />
 
       <>
-        {/* HERO */}
-        <section className="relative bg-gradient-to-br from-background via-muted/30 to-background pt-12 pb-16">
-          <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto text-center">
-              <h1 className="font-heading text-3xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
-                Gérer seul ou déléguer ? Faisons le vrai calcul.
-              </h1>
-              <p className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed">
-                Le temps passé, le risque d'impayé et de vacance, les erreurs de bail : l'autogestion a un coût caché. On vous aide à comparer, chiffres en main.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
-                <Button size="lg" onClick={scrollToForm} className="shadow-era">
-                  Recevoir mon analyse offerte
-                  <ChevronRight className="h-4 w-4 ml-2" />
-                </Button>
-                <Button size="lg" variant="outline" asChild>
-                  <a href="tel:+33468665718" className="gap-2">
-                    <Phone className="h-4 w-4" />
-                    04 68 66 57 18
-                  </a>
-                </Button>
-              </div>
-
-              {/* 3 atouts */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                {atouts.map((a) => (
-                  <div
-                    key={a.label}
-                    className="flex items-center gap-3 rounded-xl border border-border bg-card p-4 shadow-sm"
-                  >
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10">
-                      <a.icon className="h-5 w-5 text-primary" />
-                    </div>
-                    <span className="text-sm font-semibold text-foreground text-left">{a.label}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
+        <LandingHero
+          eyebrow="Autogestion ou agence ?"
+          title="Gérer seul ou déléguer ? Faisons le vrai calcul."
+          subtitle="Le temps passé, le risque d'impayé et de vacance, les erreurs de bail : l'autogestion a un coût caché. On vous aide à comparer, chiffres en main."
+          onCta={scrollToForm}
+        />
 
         {/* SECTION Tableau comparatif */}
         <section className="py-16 bg-muted/20">

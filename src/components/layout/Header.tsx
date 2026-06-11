@@ -1,25 +1,9 @@
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Phone, BarChart3 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import eraLogo from "@/assets/era-logo.png";
 
 const Header = () => {
-  const navigate = useNavigate();
-  const location = useLocation();
-
-  const handleAnalysisClick = () => {
-    if (location.pathname === "/") {
-      const formEl = document.getElementById("estimation-form");
-      if (formEl) {
-        formEl.scrollIntoView({ behavior: "smooth", block: "start" });
-      } else {
-        window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
-      }
-    } else {
-      navigate("/");
-    }
-  };
-
   return (
     <header className="sticky top-0 z-40 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between gap-4">
@@ -32,6 +16,9 @@ const Header = () => {
               (e.currentTarget as HTMLImageElement).style.display = 'none';
             }}
           />
+          <span className="font-heading font-bold text-sm md:text-base text-foreground hidden xs:inline sm:inline">
+            ERA Dupont Romain
+          </span>
         </Link>
 
         <div className="flex items-center gap-3">
@@ -50,11 +37,13 @@ const Header = () => {
           </a>
           <Button
             size="sm"
-            onClick={handleAnalysisClick}
+            asChild
             className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-sm"
           >
-            <BarChart3 className="h-4 w-4 mr-1.5" />
-            Analyse offerte
+            <Link to="/#estimation-form">
+              <BarChart3 className="h-4 w-4 mr-1.5" />
+              Analyse offerte
+            </Link>
           </Button>
         </div>
       </div>
