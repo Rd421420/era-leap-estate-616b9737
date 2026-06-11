@@ -20,7 +20,7 @@ const Index = () => {
     <>
       <SeoHead
         title="Estimation locative offerte à Perpignan | ERA IMMO"
-        description="Obtenez une estimation locative fiable et offerte à Perpignan. Découvrez les avis Google de propriétaires satisfaits et confiez votre gestion locative à ERA."
+        description="Obtenez une estimation locative fiable et offerte sur les Pyrénnées Orientales. Découvrez les avis Google de propriétaires satisfaits et confiez votre gestion locative à ERA."
         path="/"
       />
       <Hero onScrollToForm={scrollToForm} />
