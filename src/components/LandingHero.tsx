@@ -6,6 +6,8 @@ interface LandingHeroProps {
   title: string;
   subtitle: string;
   onCta: () => void;
+  image?: string;
+  imageAlt?: string;
 }
 
 const atouts = [
@@ -32,7 +34,7 @@ const SocialProof = () => (
   </div>
 );
 
-const LandingHero = ({ eyebrow, title, subtitle, onCta }: LandingHeroProps) => {
+const LandingHero = ({ eyebrow, title, subtitle, onCta, image, imageAlt }: LandingHeroProps) => {
   return (
     <section className="relative bg-gradient-to-br from-background via-muted/30 to-background pt-10 pb-12 md:pt-16 md:pb-20">
       <div className="container mx-auto px-4">
