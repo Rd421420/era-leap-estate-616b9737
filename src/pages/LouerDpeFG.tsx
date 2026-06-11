@@ -50,7 +50,7 @@ const LouerDpeFG = () => {
       />
 
       <LandingHero
-        eyebrow="DPE F/G · Perpignan"
+        eyebrow="GESTION LOCATIVE · PERPIGNAN ET LE 66"
         title="Votre bien est classé F ou G ? Voici quoi faire avant l'interdiction de louer."
         subtitle="Calendrier qui se resserre, devis de travaux qui s'envolent, locataire à reloger… On fait le point clair et, dès que c'est louable, on a déjà des locataires sérieux prêts à emménager."
         image="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=900&q=80"
