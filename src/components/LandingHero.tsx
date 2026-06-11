@@ -99,6 +99,7 @@ const LandingHero = ({ eyebrow, title, subtitle, onCta, image, imageAlt }: Landi
               Recevoir mon analyse
               <ChevronRight className="h-4 w-4 ml-2" />
             </Button>
+            </div>
           </div>
         </div>
       </div>
