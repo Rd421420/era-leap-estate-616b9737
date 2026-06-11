@@ -8,7 +8,7 @@ const MobileCallBar = () => {
       aria-label="Appeler ERA Dupont Romain Immobilier"
     >
       <Phone className="h-5 w-5" />
-      <span>04 68 66 57 18</span>
+      <span className="whitespace-pre-line">{"\n"}04 68 66 57 18</span>
     </a>
   );
 };

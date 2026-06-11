@@ -122,7 +122,7 @@ const ThankYou = () => {
         <p className="text-center text-sm text-muted-foreground mt-6">
           Des questions ? Contactez-nous directement au{" "}
           <a href="tel:0468665718" className="text-primary font-semibold hover:underline">
-            04 68 66 57 18
+            {"\n"}04 68 66 57 18
           </a>
         </p>
       </div>
