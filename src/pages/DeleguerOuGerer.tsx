@@ -107,6 +107,24 @@ const DeleguerOuGerer = () => {
     },
   ];
 
+  const faq = [
+    {
+      question: "Est-ce rentable de payer une agence ?",
+      answer:
+        "Cela dépend de votre situation. Si vous avez du temps, de l'expérience juridique et un réseau de locataires fiables, l'autogestion peut être économique. Mais pour la plupart des propriétaires, le coût caché (vacance, impayés, erreurs) dépasse largement les honoraires d'une agence. Notre analyse offerte vous donne les chiffres réels pour votre bien, sans langue de bois.",
+    },
+    {
+      question: "Quels sont les frais de gestion ?",
+      answer:
+        "Nos honoraires de gestion locative sont calculés en pourcentage du loyer encaissé. Ils incluent la recherche de locataire, la rédaction du bail, l'état des lieux, l'encaissement, les relances, le suivi technique et la fiscalité. Nous vous proposons une estimation offerte qui détaille précisément les coûts pour votre bien spécifique.",
+    },
+    {
+      question: "Puis-je déléguer seulement la recherche de locataire ?",
+      answer:
+        "Oui, tout à fait. Nous proposons un mandat de location simple qui couvre uniquement la mise en location : estimation, diffusion, visites, sélection du candidat et rédaction du bail. Vous reprenez ensuite la gestion courante en direct. C'est une bonne solution intermédiaire pour tester nos services sans vous engager sur la gestion complète.",
+    },
+  ];
+
   const renderScore = (score: string) => {
     if (score === "positif") return <Check className="h-5 w-5 text-green-600 shrink-0" />;
     if (score === "negatif") return <X className="h-5 w-5 text-red-500 shrink-0" />;
@@ -116,10 +134,11 @@ const DeleguerOuGerer = () => {
   return (
     <>
       <SeoHead
-        title="Déléguer ou gérer son bien soi-même ? | ERA Perpignan"
+        title="Déléguer ou gérer son bien soi-même ? | ERA Dupont Romain"
         description="Autogestion ou agence à Perpignan ? Le comparatif honnête coût / temps / risque, sans langue de bois. Estimation locative offerte pour décider avec des chiffres."
         path="/deleguer-ou-gerer-soi-meme"
         type="article"
+        faq={faq}
       />
 
       <>
@@ -249,30 +268,14 @@ const DeleguerOuGerer = () => {
               Questions fréquentes
             </h2>
             <Accordion type="single" collapsible className="w-full">
-              <AccordionItem value="q1">
-                <AccordionTrigger>Est-ce rentable de payer une agence ?</AccordionTrigger>
-                <AccordionContent>
-                  <p className="text-muted-foreground leading-relaxed">
-                    Cela dépend de votre situation. Si vous avez du temps, de l'expérience juridique et un réseau de locataires fiables, l'autogestion peut être économique. Mais pour la plupart des propriétaires, le coût caché (vacance, impayés, erreurs) dépasse largement les honoraires d'une agence. Notre analyse offerte vous donne les chiffres réels pour votre bien, sans langue de bois.
-                  </p>
-                </AccordionContent>
-              </AccordionItem>
-              <AccordionItem value="q2">
-                <AccordionTrigger>Quels sont les frais de gestion ?</AccordionTrigger>
-                <AccordionContent>
-                  <p className="text-muted-foreground leading-relaxed">
-                    Nos honoraires de gestion locative sont calculés en pourcentage du loyer encaissé. Ils incluent la recherche de locataire, la rédaction du bail, l'état des lieux, l'encaissement, les relances, le suivi technique et la fiscalité. Nous vous proposons une estimation offerte qui détaille précisément les coûts pour votre bien spécifique.
-                  </p>
-                </AccordionContent>
-              </AccordionItem>
-              <AccordionItem value="q3">
-                <AccordionTrigger>Puis-je déléguer seulement la recherche de locataire ?</AccordionTrigger>
-                <AccordionContent>
-                  <p className="text-muted-foreground leading-relaxed">
-                    Oui, tout à fait. Nous proposons un mandat de location simple qui couvre uniquement la mise en location : estimation, diffusion, visites, sélection du candidat et rédaction du bail. Vous reprenez ensuite la gestion courante en direct. C'est une bonne solution intermédiaire pour tester nos services sans vous engager sur la gestion complète.
-                  </p>
-                </AccordionContent>
-              </AccordionItem>
+              {faq.map((f, i) => (
+                <AccordionItem key={i} value={`q${i + 1}`}>
+                  <AccordionTrigger>{f.question}</AccordionTrigger>
+                  <AccordionContent>
+                    <p className="text-muted-foreground leading-relaxed">{f.answer}</p>
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
             </Accordion>
           </div>
         </section>

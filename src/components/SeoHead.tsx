@@ -11,6 +11,7 @@ interface SeoHeadProps {
   image?: string;
   type?: "website" | "article";
   noindex?: boolean;
+  faq?: { question: string; answer: string }[];
 }
 
 const SeoHead = ({
@@ -20,8 +21,21 @@ const SeoHead = ({
   image = DEFAULT_IMAGE,
   type = "website",
   noindex = false,
+  faq,
 }: SeoHeadProps) => {
   const url = `${SITE}${path}`;
+  const faqJsonLd =
+    faq && faq.length > 0
+      ? {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: faq.map((f) => ({
+            "@type": "Question",
+            name: f.question,
+            acceptedAnswer: { "@type": "Answer", text: f.answer },
+          })),
+        }
+      : null;
   return (
     <Helmet>
       <title>{title}</title>
@@ -38,6 +52,9 @@ const SeoHead = ({
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={image} />
+      {faqJsonLd && (
+        <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
+      )}
     </Helmet>
   );
 };

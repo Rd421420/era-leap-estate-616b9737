@@ -24,13 +24,32 @@ const LoyersImpayes = () => {
     { label: "Locataires déjà pré-qualifiés", icon: Users },
   ];
 
+  const faq = [
+    {
+      question: "Combien de temps dure une procédure d'impayés ?",
+      answer:
+        "Une procédure classique d'impayés de loyers dure en moyenne entre 6 et 18 mois, selon la réactivité des tribunaux et la situation du locataire. La mise en demeure dure 1 mois, puis l'assignation au tribunal et l'obtention d'un titre exécutoire peuvent prendre plusieurs mois. L'expulsion elle-même dépend du calendrier des forces de l'ordre. On vous accompagne à chaque étape pour gagner du temps et réduire le stress.",
+    },
+    {
+      question: "C'est quoi la garantie loyers impayés (GLI) ?",
+      answer:
+        "La Garantie Loyers Impayés (GLI) est une assurance qui couvre vos loyers en cas de défaut de paiement du locataire. Elle prend généralement en charge les loyers impayés, les charges et parfois les frais juridiques. Chez ERA DUPONT ROMAIN IMMOBILIER, on vous offre le remboursement de cette garantie pendant 12 mois sur tout nouveau mandat de gestion. C'est la tranquillité d'esprit pour votre rentrée locative.",
+    },
+    {
+      question: "Pouvez-vous reprendre un dossier déjà en cours ?",
+      answer:
+        "Oui, tout à fait. Que vous soyez en phase de relance, de procédure judiciaire ou même en attente d'expulsion, on peut reprendre le suivi de votre dossier. On fait le point avec vous, on contacte les parties en présence si besoin, et on vous propose un plan pour sécuriser la suite. Contactez-nous pour un premier échange gratuit et sans engagement.",
+    },
+  ];
+
   return (
     <>
       <SeoHead
-        title="Loyers impayés à Perpignan : que faire ? | ERA IMMO"
+        title="Loyers impayés à Perpignan : que faire ? | ERA Dupont Romain"
         description="Loyers impayés à Perpignan ? On vous aide à reprendre la main et à sécuriser vos loyers à venir (garantie loyers impayés). Conseil gratuit sous 24h."
         path="/loyers-impayes-perpignan"
         type="article"
+        faq={faq}
       />
 
       <>
@@ -182,30 +201,14 @@ const LoyersImpayes = () => {
               Questions fréquentes
             </h2>
             <Accordion type="single" collapsible className="w-full">
-              <AccordionItem value="q1">
-                <AccordionTrigger>Combien de temps dure une procédure d'impayés ?</AccordionTrigger>
-                <AccordionContent>
-                  <p className="text-muted-foreground leading-relaxed">
-                    Une procédure classique d'impayés de loyers dure en moyenne entre 6 et 18 mois, selon la réactivité des tribunaux et la situation du locataire. La mise en demeure dure 1 mois, puis l'assignation au tribunal et l'obtention d'un titre exécutoire peuvent prendre plusieurs mois. L'expulsion elle-même dépend du calendrier des forces de l'ordre. On vous accompagne à chaque étape pour gagner du temps et réduire le stress.
-                  </p>
-                </AccordionContent>
-              </AccordionItem>
-              <AccordionItem value="q2">
-                <AccordionTrigger>C'est quoi la garantie loyers impayés (GLI) ?</AccordionTrigger>
-                <AccordionContent>
-                  <p className="text-muted-foreground leading-relaxed">
-                    La Garantie Loyers Impayés (GLI) est une assurance qui couvre vos loyers en cas de défaut de paiement du locataire. Elle prend généralement en charge les loyers impayés, les charges et parfois les frais juridiques. Chez ERA DUPONT ROMAIN IMMOBILIER, on vous offre le remboursement de cette garantie pendant 12 mois sur tout nouveau mandat de gestion. C'est la tranquillité d'esprit pour votre rentrée locative.
-                  </p>
-                </AccordionContent>
-              </AccordionItem>
-              <AccordionItem value="q3">
-                <AccordionTrigger>Pouvez-vous reprendre un dossier déjà en cours ?</AccordionTrigger>
-                <AccordionContent>
-                  <p className="text-muted-foreground leading-relaxed">
-                    Oui, tout à fait. Que vous soyez en phase de relance, de procédure judiciaire ou même en attente d'expulsion, on peut reprendre le suivi de votre dossier. On fait le point avec vous, on contacte les parties en présence si besoin, et on vous propose un plan pour sécuriser la suite. Contactez-nous pour un premier échange gratuit et sans engagement.
-                  </p>
-                </AccordionContent>
-              </AccordionItem>
+              {faq.map((f, i) => (
+                <AccordionItem key={i} value={`q${i + 1}`}>
+                  <AccordionTrigger>{f.question}</AccordionTrigger>
+                  <AccordionContent>
+                    <p className="text-muted-foreground leading-relaxed">{f.answer}</p>
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
             </Accordion>
           </div>
         </section>
