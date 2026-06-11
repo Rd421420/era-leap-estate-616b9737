@@ -21,6 +21,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 import EstimationForm from "@/components/EstimationForm";
 import LandingHero from "@/components/LandingHero";
+import LocalAgencySection from "@/components/LocalAgencySection";
 import GoogleReviews from "@/components/GoogleReviews";
 import { trackEvent } from "@/lib/analytics";
 
@@ -107,6 +108,8 @@ const GestionLocative = () => {
           eyebrow="Gestion locative Perpignan"
           title="Déléguez la gestion de votre bien à Perpignan. On s'occupe de tout."
           subtitle="Quittances, états des lieux, relances, suivi, fiscalité : vous gardez la décision, on porte la charge mentale. Et on arrive avec des locataires déjà pré-qualifiés."
+          image="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=900&q=80"
+          imageAlt="Conseiller en gestion locative accueillant un propriétaire"
           onCta={scrollToForm}
         />
 
@@ -172,6 +175,9 @@ const GestionLocative = () => {
 
         {/* SECTION AVIS */}
         <GoogleReviews />
+
+        {/* SECTION AGENCE LOCALE */}
+        <LocalAgencySection onCta={scrollToForm} />
 
         {/* FAQ */}
         <section className="py-16">

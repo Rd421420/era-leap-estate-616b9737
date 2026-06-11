@@ -58,6 +58,8 @@ const LoyersImpayes = () => {
           eyebrow="Loyers impayés Perpignan"
           title="Votre locataire ne paie plus ? Reprenez la main sereinement."
           subtitle="Relances, procédure, garanties : on reprend votre dossier et on sécurise vos loyers futurs. Et pour la suite, on a déjà des locataires sérieux et solvables."
+          image="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=900&q=80"
+          imageAlt="Dossier de gestion locative et documents sur un bureau"
           onCta={scrollToForm}
         />
 

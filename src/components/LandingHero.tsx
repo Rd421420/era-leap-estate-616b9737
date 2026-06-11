@@ -6,6 +6,8 @@ interface LandingHeroProps {
   title: string;
   subtitle: string;
   onCta: () => void;
+  image?: string;
+  imageAlt?: string;
 }
 
 const atouts = [
@@ -32,7 +34,7 @@ const SocialProof = () => (
   </div>
 );
 
-const LandingHero = ({ eyebrow, title, subtitle, onCta }: LandingHeroProps) => {
+const LandingHero = ({ eyebrow, title, subtitle, onCta, image, imageAlt }: LandingHeroProps) => {
   return (
     <section className="relative bg-gradient-to-br from-background via-muted/30 to-background pt-10 pb-12 md:pt-16 md:pb-20">
       <div className="container mx-auto px-4">
@@ -63,8 +65,18 @@ const LandingHero = ({ eyebrow, title, subtitle, onCta }: LandingHeroProps) => {
             <SocialProof />
           </div>
 
-          {/* Right column - card */}
-          <div className="rounded-lg border border-border bg-card shadow-lg p-6 md:p-8">
+          {/* Right column */}
+          <div className="space-y-4">
+            {image && (
+              // TODO: remplacer par une vraie photo ERA Dupont Romain (devanture, équipe, bien loué)
+              <img
+                src={image}
+                alt={imageAlt || "Agence ERA Dupont Romain à Perpignan"}
+                className="w-full h-[220px] object-cover rounded-lg shadow-md"
+                loading="lazy"
+              />
+            )}
+            <div className="rounded-lg border border-border bg-card shadow-lg p-6 md:p-8">
             <div className="mb-6">
               <h2 className="font-heading text-2xl font-bold text-foreground">
                 Estimation locative offerte
@@ -87,6 +99,7 @@ const LandingHero = ({ eyebrow, title, subtitle, onCta }: LandingHeroProps) => {
               Recevoir mon analyse
               <ChevronRight className="h-4 w-4 ml-2" />
             </Button>
+            </div>
           </div>
         </div>
       </div>
