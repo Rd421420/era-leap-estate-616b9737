@@ -123,7 +123,11 @@ const formatPhone = (raw: string) => {
   return digits.replace(/(\d{2})(?=\d)/g, "$1 ").trim();
 };
 
-const EstimationForm = () => {
+interface EstimationFormProps {
+  initialAddress?: string;
+}
+
+const EstimationForm = ({ initialAddress }: EstimationFormProps = {}) => {
   const navigate = useNavigate();
   const { toast } = useToast();
   const {
@@ -137,6 +141,21 @@ const EstimationForm = () => {
     clear,
     enablePersistence,
   } = useFormPersistence<FormData>(INITIAL);
+
+  // Pré-remplissage de l'adresse depuis prop ou événement global
+  useEffect(() => {
+    if (initialAddress) {
+      setFormData((prev) => (prev.adresse ? prev : { ...prev, adresse: sanitizeString(initialAddress) }));
+    }
+    const handler = (e: Event) => {
+      const detail = (e as CustomEvent<{ address?: string }>).detail;
+      if (detail?.address) {
+        setFormData((prev) => ({ ...prev, adresse: sanitizeString(detail.address!) }));
+      }
+    };
+    window.addEventListener("prefill-estimation-address", handler as EventListener);
+    return () => window.removeEventListener("prefill-estimation-address", handler as EventListener);
+  }, [initialAddress, setFormData]);
 
   const [loading, setLoading] = useState(false);
   const [validationErrors, setValidationErrors] = useState<Record<string, string>>({});

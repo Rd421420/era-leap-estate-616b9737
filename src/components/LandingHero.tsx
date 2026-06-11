@@ -1,6 +1,8 @@
-import type { ReactNode } from "react";
-import { Phone, ChevronRight, ClipboardCheck, Calculator, Users, Star } from "lucide-react";
+import { useState, type ReactNode, type FormEvent } from "react";
+import { Phone, ChevronRight, Star, ShieldCheck, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 
 interface LandingHeroProps {
   eyebrow: string;
@@ -11,12 +13,6 @@ interface LandingHeroProps {
   imageAlt?: string;
   aside?: ReactNode;
 }
-
-const atouts = [
-  { label: "Estimation locative offerte", icon: ClipboardCheck },
-  { label: "GLI remboursée 12 mois", icon: Calculator },
-  { label: "Locataires pré-qualifiés", icon: Users },
-];
 
 const SocialProof = () => (
   <div className="flex flex-wrap items-center gap-2 text-sm">
@@ -33,8 +29,66 @@ const SocialProof = () => (
     >
       4,6/5 · 136 avis Google
     </a>
+    <span className="text-muted-foreground">· sans engagement</span>
   </div>
 );
+
+const AddressCard = ({ onCta }: { onCta: () => void }) => {
+  const [address, setAddress] = useState("");
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    if (address.trim()) {
+      window.dispatchEvent(
+        new CustomEvent("prefill-estimation-address", { detail: { address: address.trim() } }),
+      );
+    }
+    onCta();
+  };
+
+  return (
+    <form
+      onSubmit={handleSubmit}
+      className="rounded-lg border border-border bg-card shadow-lg p-6 md:p-8"
+      aria-label="Analyse locative de votre rue"
+    >
+      <div className="mb-5">
+        <h2 className="font-heading text-xl md:text-2xl font-bold text-foreground">
+          Analyse locative de votre rue
+        </h2>
+        <p className="text-sm text-muted-foreground mt-1">Gratuit · réponse sous 24 h</p>
+      </div>
+
+      <div className="space-y-2 mb-4">
+        <Label htmlFor="hero-address" className="text-sm font-semibold">
+          Adresse du bien
+        </Label>
+        <div className="relative">
+          <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none" />
+          <Input
+            id="hero-address"
+            type="text"
+            value={address}
+            onChange={(e) => setAddress(e.target.value)}
+            placeholder="12 rue de la Loge, Perpignan"
+            className="pl-9 h-12"
+            autoComplete="street-address"
+          />
+        </div>
+      </div>
+
+      <Button type="submit" size="lg" className="w-full shadow-era min-h-[44px]">
+        Recevoir mon analyse
+        <ChevronRight className="h-4 w-4 ml-2" />
+      </Button>
+
+      <p className="text-xs text-muted-foreground mt-3 flex items-center justify-center gap-1.5">
+        <ShieldCheck className="h-3.5 w-3.5" />
+        Données non revendues · 100% offert
+      </p>
+    </form>
+  );
+};
 
 const LandingHero = ({ eyebrow, title, subtitle, onCta, image, imageAlt, aside }: LandingHeroProps) => {
   return (
@@ -53,11 +107,11 @@ const LandingHero = ({ eyebrow, title, subtitle, onCta, image, imageAlt, aside }
               {subtitle}
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
-              <Button size="lg" onClick={onCta} className="shadow-era">
+              <Button size="lg" onClick={onCta} className="shadow-era min-h-[44px]">
                 Recevoir mon analyse offerte
                 <ChevronRight className="h-4 w-4 ml-2" />
               </Button>
-              <Button size="lg" variant="outline" asChild>
+              <Button size="lg" variant="outline" asChild className="min-h-[44px]">
                 <a href="tel:+33468665718" className="gap-2">
                   <Phone className="h-4 w-4" />
                   04 68 66 57 18
@@ -70,7 +124,6 @@ const LandingHero = ({ eyebrow, title, subtitle, onCta, image, imageAlt, aside }
           {/* Right column */}
           <div className="space-y-4">
             {image && (
-              // TODO: remplacer par une vraie photo ERA Dupont Romain (devanture, équipe, bien loué)
               <img
                 src={image}
                 alt={imageAlt || "Agence ERA Dupont Romain à Perpignan"}
@@ -78,34 +131,7 @@ const LandingHero = ({ eyebrow, title, subtitle, onCta, image, imageAlt, aside }
                 loading="lazy"
               />
             )}
-            {aside ? (
-              aside
-            ) : (
-            <div className="rounded-lg border border-border bg-card shadow-lg p-6 md:p-8">
-            <div className="mb-6">
-              <h2 className="font-heading text-2xl font-bold text-foreground">
-                Estimation locative offerte
-              </h2>
-              <p className="text-sm text-muted-foreground mt-1">
-                Gratuit · réponse sous 24 h
-              </p>
-            </div>
-            <ul className="space-y-4 mb-6">
-              {atouts.map((a) => (
-                <li key={a.label} className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10">
-                    <a.icon className="h-5 w-5 text-primary" />
-                  </div>
-                  <span className="text-sm font-semibold text-foreground">{a.label}</span>
-                </li>
-              ))}
-            </ul>
-            <Button size="lg" onClick={onCta} className="w-full shadow-era">
-              Recevoir mon analyse
-              <ChevronRight className="h-4 w-4 ml-2" />
-            </Button>
-            </div>
-            )}
+            {aside ?? <AddressCard onCta={onCta} />}
           </div>
         </div>
       </div>

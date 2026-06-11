@@ -2,7 +2,8 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { AlertTriangle, Ban, Home, ClipboardList, GitCompare, ChevronRight } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-import Hero from "@/components/Hero";
+import LandingHero from "@/components/LandingHero";
+import TrustBar from "@/components/TrustBar";
 import GoogleReviews from "@/components/GoogleReviews";
 import EstimationForm from "@/components/EstimationForm";
 import RecentEstimations from "@/components/RecentEstimations";
@@ -24,8 +25,29 @@ const Index = () => {
         description="Obtenez une estimation locative fiable et offerte sur Perpignan et les Pyrénnées Orientales. Découvrez les avis Google de propriétaires satisfaits et confiez votre gestion locative à ERA."
         path="/"
       />
-      <Hero onScrollToForm={scrollToForm} />
+      <LandingHero
+        eyebrow="Gestion locative · Perpignan"
+        title="On ne vous demande pas de nous confier votre bien. On a déjà les locataires."
+        subtitle="ERA DUPONT ROMAIN IMMOBILIER — votre expert local en gestion locative. Recevez votre estimation en quelques minutes."
+        onCta={scrollToForm}
+      />
+      <TrustBar />
       <GoogleReviews />
+
+      {/* Vidéo de présentation */}
+      <section className="py-12 md:py-16">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <div className="relative rounded-2xl overflow-hidden shadow-xl aspect-video bg-muted">
+            <iframe
+              className="w-full h-full"
+              src="https://www.youtube.com/embed/UlXohzlvmMc?controls=1&rel=0&modestbranding=1"
+              title="ERA DUPONT ROMAIN IMMOBILIER - Gestion Locative à Perpignan"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
+        </div>
+      </section>
 
       {/* SECTION "Quelle est votre situation ?" */}
       <section className="py-16 bg-muted/20">
@@ -44,7 +66,7 @@ const Index = () => {
                   <p className="text-muted-foreground text-sm leading-relaxed">
                     Votre logement est une passoire thermique ? On fait le point sur les travaux et la mise en location.
                   </p>
-                  <div className="mt-auto pt-4 flex items-center text-sm font-medium text-primary opacity-0 group-hover:opacity-100 transition-opacity">
+                  <div className="mt-auto pt-4 flex items-center text-sm font-medium text-primary">
                     En savoir plus <ChevronRight className="h-4 w-4 ml-1" />
                   </div>
                 </CardContent>
@@ -60,7 +82,7 @@ const Index = () => {
                   <p className="text-muted-foreground text-sm leading-relaxed">
                     Loyers impayés, relances sans réponse : on vous aide à reprendre la main sereinement.
                   </p>
-                  <div className="mt-auto pt-4 flex items-center text-sm font-medium text-primary opacity-0 group-hover:opacity-100 transition-opacity">
+                  <div className="mt-auto pt-4 flex items-center text-sm font-medium text-primary">
                     En savoir plus <ChevronRight className="h-4 w-4 ml-1" />
                   </div>
                 </CardContent>
@@ -76,7 +98,7 @@ const Index = () => {
                   <p className="text-muted-foreground text-sm leading-relaxed">
                     Peu de visites, aucun dossier sérieux : on active notre vivier de locataires pré-qualifiés.
                   </p>
-                  <div className="mt-auto pt-4 flex items-center text-sm font-medium text-primary opacity-0 group-hover:opacity-100 transition-opacity">
+                  <div className="mt-auto pt-4 flex items-center text-sm font-medium text-primary">
                     En savoir plus <ChevronRight className="h-4 w-4 ml-1" />
                   </div>
                 </CardContent>
@@ -92,7 +114,7 @@ const Index = () => {
                   <p className="text-muted-foreground text-sm leading-relaxed">
                     Quittances, états des lieux, relances : déléguez la gestion et encaissez en paix.
                   </p>
-                  <div className="mt-auto pt-4 flex items-center text-sm font-medium text-primary opacity-0 group-hover:opacity-100 transition-opacity">
+                  <div className="mt-auto pt-4 flex items-center text-sm font-medium text-primary">
                     En savoir plus <ChevronRight className="h-4 w-4 ml-1" />
                   </div>
                 </CardContent>
@@ -108,7 +130,7 @@ const Index = () => {
                   <p className="text-muted-foreground text-sm leading-relaxed">
                     Le comparatif honnête : coût, temps, risque. Décidez avec des chiffres.
                   </p>
-                  <div className="mt-auto pt-4 flex items-center text-sm font-medium text-primary opacity-0 group-hover:opacity-100 transition-opacity">
+                  <div className="mt-auto pt-4 flex items-center text-sm font-medium text-primary">
                     En savoir plus <ChevronRight className="h-4 w-4 ml-1" />
                   </div>
                 </CardContent>
