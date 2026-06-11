@@ -1,6 +1,6 @@
 import eraLogo from "@/assets/era-logo.png";
 import { Button } from "@/components/ui/button";
-import { ArrowDown, Phone } from "lucide-react";
+import { ArrowDown, Phone, Star } from "lucide-react";
 
 interface HeroProps {
   onScrollToForm: () => void;
@@ -36,6 +36,22 @@ const Hero = ({ onScrollToForm }: HeroProps) => {
               ERA DUPONT ROMAIN IMMOBILIER — votre expert local en gestion locative. 
               Recevez votre estimation en quelques minutes.
             </p>
+
+            <div className="flex flex-wrap items-center gap-2 text-sm justify-center lg:justify-start">
+              <div className="flex items-center gap-0.5" aria-label="Note 4,6 sur 5">
+                {[0, 1, 2, 3, 4].map((i) => (
+                  <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                ))}
+              </div>
+              <a
+                href="https://g.page/r/Cf4uH0jFPZDSEBM/review"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-foreground hover:text-primary transition-colors"
+              >
+                4,6/5 · 136 avis Google
+              </a>
+            </div>
 
             {/* Special Offer Banner */}
             <div className="bg-gradient-to-r from-primary/10 to-primary/5 border-l-4 border-primary rounded-lg p-4 max-w-2xl mx-auto lg:mx-0">
