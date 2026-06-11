@@ -74,7 +74,7 @@ const ThankYou = () => {
               📞 Un conseiller ERA vous contactera sous 24h
             </p>
             <p className="text-xs text-muted-foreground">
-              ℹ️ Cette estimation est indicative. Pour une évaluation plus précise et personnalisée, nous vous recommandons un rendez-vous avec l'un de nos experts.
+              ℹ️ Cette estimation est indicative. {"\n"}Pour une évaluation plus précise et personnalisée, nous vous recommandons un rendez-vous avec l'un de nos experts.
             </p>
           </div>
 
