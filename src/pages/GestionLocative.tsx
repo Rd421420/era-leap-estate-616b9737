@@ -104,102 +104,91 @@ const GestionLocative = () => {
       />
 
       <>
-        <LandingHero
-          eyebrow="Gestion locative Perpignan"
-          title="Déléguez la gestion de votre bien à Perpignan. On s'occupe de tout."
-          subtitle="Quittances, états des lieux, relances, suivi, fiscalité : vous gardez la décision, on porte la charge mentale. Et on arrive avec des locataires déjà pré-qualifiés."
-          image="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=900&q=80"
-          imageAlt="Conseiller en gestion locative accueillant un propriétaire"
-          onCta={scrollToForm}
-        />
+      <LandingHero
+        eyebrow="Gestion locative · Perpignan"
+        title="Déléguez la gestion de votre bien à Perpignan. On s'occupe de tout."
+        subtitle="Quittances, états des lieux, relances, suivi, fiscalité : vous gardez la décision, on porte la charge mentale. Et on arrive avec des locataires déjà pré-qualifiés."
+        image="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=900&q=80"
+        imageAlt="Conseiller en gestion locative accueillant un propriétaire"
+        onCta={scrollToForm}
+      />
+      <TrustBar />
 
-        {/* SECTION "Ce qu'on prend en charge" */}
-        <section className="py-16 bg-muted/20">
-          <div className="container mx-auto px-4">
-            <h2 className="font-heading text-2xl md:text-3xl font-bold text-center mb-10">
-              Ce qu'on prend en charge
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-              {services.map((s) => (
-                <Card key={s.title} className="border-l-4 border-l-primary">
-                  <CardContent className="p-6">
-                    <s.icon className="h-6 w-6 text-primary mb-4" />
-                    <h3 className="font-heading text-lg font-bold mb-2">{s.title}</h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed">{s.desc}</p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
+      <section className="py-16 md:py-20 bg-muted/20">
+        <div className="container mx-auto px-4">
+          <SectionHeading title="Ce qu'on prend en charge" />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {services.map((s) => (
+              <Card key={s.title} className="border-l-4 border-l-primary">
+                <CardContent className="p-6">
+                  <s.icon className="h-6 w-6 text-primary mb-4" />
+                  <h3 className="font-heading text-lg font-bold mb-2">{s.title}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{s.desc}</p>
+                </CardContent>
+              </Card>
+            ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* SECTION "Notre différence" */}
-        <section className="py-10 bg-primary/5">
-          <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto rounded-xl border-2 border-primary/20 bg-card p-8 text-center shadow-sm">
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                <div className="flex flex-col items-center">
-                  <Users className="h-8 w-8 text-primary mb-3" />
-                  <h3 className="font-heading text-base font-bold mb-1">Locataires pré-qualifiés</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
-                    Dossiers complets, revenus vérifiés, garanties validées avant même la première visite.
-                  </p>
-                </div>
-                <div className="flex flex-col items-center">
-                  <Shield className="h-8 w-8 text-primary mb-3" />
-                  <h3 className="font-heading text-base font-bold mb-1">GLI remboursée 12 mois</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
-                    La garantie loyers impayés est remboursée pendant 12 mois sur tout nouveau mandat de gestion.
-                  </p>
-                </div>
-                <div className="flex flex-col items-center">
-                  <RotateCcw className="h-8 w-8 text-primary mb-3" />
-                  <h3 className="font-heading text-base font-bold mb-1">Sans engagement</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
-                    Pas de clause de durée minimale. Vous restez libre de reprendre la gestion quand vous le souhaitez.
-                  </p>
-                </div>
+      <section className="py-10 bg-primary/5">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto rounded-lg border-2 border-primary/20 bg-card p-8 text-center shadow-sm">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+              <div className="flex flex-col items-center">
+                <Users className="h-8 w-8 text-primary mb-3" />
+                <h3 className="font-heading text-base font-bold mb-1">Locataires pré-qualifiés</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  Dossiers complets, revenus vérifiés, garanties validées avant même la première visite.
+                </p>
+              </div>
+              <div className="flex flex-col items-center">
+                <Shield className="h-8 w-8 text-primary mb-3" />
+                <h3 className="font-heading text-base font-bold mb-1">GLI remboursée 12 mois</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  La garantie loyers impayés est remboursée pendant 12 mois sur tout nouveau mandat de gestion.
+                </p>
+              </div>
+              <div className="flex flex-col items-center">
+                <RotateCcw className="h-8 w-8 text-primary mb-3" />
+                <h3 className="font-heading text-base font-bold mb-1">Sans engagement</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  Pas de clause de durée minimale. Vous restez libre de reprendre la gestion quand vous le souhaitez.
+                </p>
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* SECTION FORMULAIRE */}
-        <section className="py-16 bg-muted/20">
-          <div className="container mx-auto px-4">
-            <div ref={formRef}>
-              <EstimationForm />
-            </div>
+      <section id="estimation-form" className="py-16 md:py-20 bg-muted/20">
+        <div className="container mx-auto px-4">
+          <div ref={formRef}>
+            <EstimationForm />
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* SECTION AVIS */}
-        <GoogleReviews />
+      <GoogleReviews />
 
-        {/* SECTION AGENCE LOCALE */}
-        <LocalAgencySection onCta={scrollToForm} />
+      <LocalAgencySection onCta={scrollToForm} />
 
-        {/* FAQ */}
-        <section className="py-16">
-          <div className="container mx-auto px-4 max-w-3xl">
-            <h2 className="font-heading text-2xl md:text-3xl font-bold text-center mb-10">
-              Questions fréquentes
-            </h2>
-            <Accordion type="single" collapsible className="w-full">
-              {faq.map((f, i) => (
-                <AccordionItem key={i} value={`q${i + 1}`}>
-                  <AccordionTrigger>{f.question}</AccordionTrigger>
-                  <AccordionContent>
-                    <p className="text-muted-foreground leading-relaxed">{f.answer}</p>
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </div>
-        </section>
+      <section className="py-16 md:py-20">
+        <div className="container mx-auto px-4 max-w-3xl">
+          <SectionHeading title="Questions fréquentes" />
+          <Accordion type="single" collapsible className="w-full">
+            {faq.map((f, i) => (
+              <AccordionItem key={i} value={`q${i + 1}`}>
+                <AccordionTrigger>{f.question}</AccordionTrigger>
+                <AccordionContent>
+                  <p className="text-muted-foreground leading-relaxed">{f.answer}</p>
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
+      </section>
 
-      </>
-    </>
   );
 };
 
