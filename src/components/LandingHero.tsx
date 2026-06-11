@@ -1,8 +1,6 @@
-import { useState, type ReactNode, type FormEvent } from "react";
-import { Phone, ChevronRight, Star, ShieldCheck, MapPin } from "lucide-react";
+import { type ReactNode } from "react";
+import { Phone, ChevronRight, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 
 interface LandingHeroProps {
   eyebrow: string;
@@ -33,62 +31,6 @@ const SocialProof = () => (
   </div>
 );
 
-const AddressCard = ({ onCta }: { onCta: () => void }) => {
-  const [address, setAddress] = useState("");
-
-  const handleSubmit = (e: FormEvent) => {
-    e.preventDefault();
-    if (address.trim()) {
-      window.dispatchEvent(
-        new CustomEvent("prefill-estimation-address", { detail: { address: address.trim() } }),
-      );
-    }
-    onCta();
-  };
-
-  return (
-    <form
-      onSubmit={handleSubmit}
-      className="rounded-lg border border-border bg-card shadow-lg p-6 md:p-8"
-      aria-label="Analyse locative de votre rue"
-    >
-      <div className="mb-5">
-        <h2 className="font-heading text-xl md:text-2xl font-bold text-foreground">
-          Analyse locative de votre rue
-        </h2>
-        <p className="text-sm text-muted-foreground mt-1">Gratuit · réponse sous 24 h</p>
-      </div>
-
-      <div className="space-y-2 mb-4">
-        <Label htmlFor="hero-address" className="text-sm font-semibold">
-          Adresse du bien
-        </Label>
-        <div className="relative">
-          <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none" />
-          <Input
-            id="hero-address"
-            type="text"
-            value={address}
-            onChange={(e) => setAddress(e.target.value)}
-            placeholder="12 rue de la Loge, Perpignan"
-            className="pl-9 h-12"
-            autoComplete="street-address"
-          />
-        </div>
-      </div>
-
-      <Button type="submit" size="lg" className="w-full shadow-era min-h-[44px]">
-        Recevoir mon analyse
-        <ChevronRight className="h-4 w-4 ml-2" />
-      </Button>
-
-      <p className="text-xs text-muted-foreground mt-3 flex items-center justify-center gap-1.5">
-        <ShieldCheck className="h-3.5 w-3.5" />
-        Données non revendues · 100% offert
-      </p>
-    </form>
-  );
-};
 
 const LandingHero = ({ eyebrow, title, subtitle, onCta, image, imageAlt, aside }: LandingHeroProps) => {
   return (
@@ -123,15 +65,7 @@ const LandingHero = ({ eyebrow, title, subtitle, onCta, image, imageAlt, aside }
 
           {/* Right column */}
           <div className="space-y-4">
-            {image && (
-              <img
-                src={image}
-                alt={imageAlt || "Agence ERA Dupont Romain à Perpignan"}
-                className="w-full h-[220px] object-cover rounded-lg shadow-md"
-                loading="lazy"
-              />
-            )}
-            {aside ?? <AddressCard onCta={onCta} />}
+            {aside}
           </div>
         </div>
       </div>
