@@ -24,13 +24,32 @@ const LouerDpeFG = () => {
     { label: "Locataires déjà pré-qualifiés", icon: Users },
   ];
 
+  const faq = [
+    {
+      question: "Puis-je encore louer un bien classé G aujourd'hui ?",
+      answer:
+        "Depuis le 1er janvier 2025, un logement classé G ne peut plus faire l'objet d'un nouveau bail ni d'un renouvellement, mais les baux en cours se poursuivent jusqu'à leur échéance. Les logements G+ (>450 kWh/m²/an) sont interdits depuis 2023, les F le seront en 2028 et les E en 2034. Pas de panique : si votre bien est concerné, on fait le point ensemble sur les travaux nécessaires et on vous accompagne. Demandez une étude gratuite.",
+    },
+    {
+      question: "Combien coûtent les travaux pour gagner une classe ?",
+      answer:
+        "Le coût dépend fortement de l'état actuel du bien et des équipements. En moyenne, compter entre 300 et 800 € TTC par m² pour passer d'un G à un E ou D. Mais avec les bonnes priorités (isolation des combles, remplacement du chauffage, ventilation), on peut parfois viser une grosse amélioration sans tout changer. On vous aide à chiffrer étape par étape dans notre étude gratuite.",
+    },
+    {
+      question: "Et si je préfère vendre ?",
+      answer:
+        "Vendre est tout à fait envisageable. Notez cependant qu'un DPE G ou F pèse sur le prix de vente et peut réduire le nombre d'acheteurs éligibles. En réalisant des travaux ciblés avant la vente, vous augmentez la valeur de votre bien et la rapidité de la transaction. On peut estimer les deux scénarios ensemble : vente en l'état vs vente après travaux.",
+    },
+  ];
+
   return (
     <>
       <SeoHead
-        title="Louer un bien DPE F ou G à Perpignan | ERA IMMO"
+        title="Louer un bien DPE F ou G à Perpignan | ERA Dupont Romain"
         description="Logement classé F ou G (DPE) à Perpignan ? On fait le point sur les travaux et la mise en location, et on a déjà des locataires pré-qualifiés. Étude gratuite."
         path="/louer-bien-dpe-f-g-perpignan"
         type="article"
+        faq={faq}
       />
 
       <>
@@ -167,30 +186,14 @@ const LouerDpeFG = () => {
               Questions fréquentes
             </h2>
             <Accordion type="single" collapsible className="w-full">
-              <AccordionItem value="q1">
-                <AccordionTrigger>Puis-je encore louer un bien classé G aujourd'hui ?</AccordionTrigger>
-                <AccordionContent>
-                  <p className="text-muted-foreground leading-relaxed">
-                    Depuis le 1er janvier 2025, un logement classé G ne peut plus faire l'objet d'un nouveau bail ni d'un renouvellement, mais les baux en cours se poursuivent jusqu'à leur échéance. Les logements G+ (&gt;450 kWh/m²/an) sont interdits depuis 2023, les F le seront en 2028 et les E en 2034. Pas de panique : si votre bien est concerné, on fait le point ensemble sur les travaux nécessaires et on vous accompagne. Demandez une étude gratuite.
-                  </p>
-                </AccordionContent>
-              </AccordionItem>
-              <AccordionItem value="q2">
-                <AccordionTrigger>Combien coûtent les travaux pour gagner une classe ?</AccordionTrigger>
-                <AccordionContent>
-                  <p className="text-muted-foreground leading-relaxed">
-                    Le coût dépend fortement de l'état actuel du bien et des équipements. En moyenne, compter entre 300 et 800 € TTC par m² pour passer d'un G à un E ou D. Mais avec les bonnes priorités (isolation des combles, remplacement du chauffage, ventilation), on peut parfois viser une grosse amélioration sans tout changer. On vous aide à chiffrer étape par étape dans notre étude gratuite.
-                  </p>
-                </AccordionContent>
-              </AccordionItem>
-              <AccordionItem value="q3">
-                <AccordionTrigger>Et si je préfère vendre ?</AccordionTrigger>
-                <AccordionContent>
-                  <p className="text-muted-foreground leading-relaxed">
-                    Vendre est tout à fait envisageable. Notez cependant qu'un DPE G ou F pèse sur le prix de vente et peut réduire le nombre d'acheteurs éligibles. En réalisant des travaux ciblés avant la vente, vous augmentez la valeur de votre bien et la rapidité de la transaction. On peut estimer les deux scénarios ensemble : vente en l'état vs vente après travaux.
-                  </p>
-                </AccordionContent>
-              </AccordionItem>
+              {faq.map((f, i) => (
+                <AccordionItem key={i} value={`q${i + 1}`}>
+                  <AccordionTrigger>{f.question}</AccordionTrigger>
+                  <AccordionContent>
+                    <p className="text-muted-foreground leading-relaxed">{f.answer}</p>
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
             </Accordion>
           </div>
         </section>

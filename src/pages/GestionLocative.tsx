@@ -73,13 +73,32 @@ const GestionLocative = () => {
     },
   ];
 
+  const faq = [
+    {
+      question: "Combien coûte la gestion locative ?",
+      answer:
+        "Nos honoraires de gestion locative sont transparents et sans surprise. Ils se calculent en pourcentage du loyer encaissé et incluent la totalité des services : recherche de locataire, rédaction du bail, état des lieux, encaissement, relances et suivi technique. Nous vous proposons une estimation offerte qui détaille précisément les coûts pour votre bien. Consultez notre barème d'honoraires pour plus de détails.",
+    },
+    {
+      question: "Suis-je engagé sur la durée ?",
+      answer:
+        "Non. Chez ERA DUPONT ROMAIN IMMOBILIER, nous ne croyons pas aux engagements forcés. Notre contrat de gestion locative ne comporte pas de clause de durée minimale. Vous pouvez reprendre la gestion de votre bien à tout moment, avec un préavis simple et raisonnable. Nous préférons vous convaincre par la qualité de notre service plutôt que par une clause contractuelle.",
+    },
+    {
+      question: "Que comprend la garantie loyers impayés ?",
+      answer:
+        "La Garantie Loyers Impayés (GLI) couvre vos loyers en cas de défaut de paiement du locataire. Elle prend généralement en charge les loyers impayés, les charges locatives et parfois les frais juridiques liés à une procédure d'expulsion. Chez ERA DUPONT ROMAIN IMMOBILIER, cette garantie est remboursée pendant 12 mois sur tout nouveau mandat de gestion. C'est une tranquillité d'esprit essentielle pour tout propriétaire bailleur.",
+    },
+  ];
+
   return (
     <>
       <SeoHead
-        title="Gestion locative à Perpignan : on gère tout | ERA IMMO"
+        title="Gestion locative à Perpignan | ERA Dupont Romain"
         description="Confiez la gestion de votre bien à Perpignan : quittances, état des lieux, relances, fiscalité. Estimation offerte, GLI remboursée 12 mois, locataires pré-qualifiés."
         path="/gestion-locative-perpignan"
         type="article"
+        faq={faq}
       />
 
       <>
@@ -194,30 +213,14 @@ const GestionLocative = () => {
               Questions fréquentes
             </h2>
             <Accordion type="single" collapsible className="w-full">
-              <AccordionItem value="q1">
-                <AccordionTrigger>Combien coûte la gestion locative ?</AccordionTrigger>
-                <AccordionContent>
-                  <p className="text-muted-foreground leading-relaxed">
-                    Nos honoraires de gestion locative sont transparents et sans surprise. Ils se calculent en pourcentage du loyer encaissé et incluent la totalité des services : recherche de locataire, rédaction du bail, état des lieux, encaissement, relances et suivi technique. Nous vous proposons une estimation offerte qui détaille précisément les coûts pour votre bien. Consultez notre barème d'honoraires pour plus de détails.
-                  </p>
-                </AccordionContent>
-              </AccordionItem>
-              <AccordionItem value="q2">
-                <AccordionTrigger>Suis-je engagé sur la durée ?</AccordionTrigger>
-                <AccordionContent>
-                  <p className="text-muted-foreground leading-relaxed">
-                    Non. Chez ERA DUPONT ROMAIN IMMOBILIER, nous ne croyons pas aux engagements forcés. Notre contrat de gestion locative ne comporte pas de clause de durée minimale. Vous pouvez reprendre la gestion de votre bien à tout moment, avec un préavis simple et raisonnable. Nous préférons vous convaincre par la qualité de notre service plutôt que par une clause contractuelle.
-                  </p>
-                </AccordionContent>
-              </AccordionItem>
-              <AccordionItem value="q3">
-                <AccordionTrigger>Que comprend la garantie loyers impayés ?</AccordionTrigger>
-                <AccordionContent>
-                  <p className="text-muted-foreground leading-relaxed">
-                    La Garantie Loyers Impayés (GLI) couvre vos loyers en cas de défaut de paiement du locataire. Elle prend généralement en charge les loyers impayés, les charges locatives et parfois les frais juridiques liés à une procédure d'expulsion. Chez ERA DUPONT ROMAIN IMMOBILIER, cette garantie est remboursée pendant 12 mois sur tout nouveau mandat de gestion. C'est une tranquillité d'esprit essentielle pour tout propriétaire bailleur.
-                  </p>
-                </AccordionContent>
-              </AccordionItem>
+              {faq.map((f, i) => (
+                <AccordionItem key={i} value={`q${i + 1}`}>
+                  <AccordionTrigger>{f.question}</AccordionTrigger>
+                  <AccordionContent>
+                    <p className="text-muted-foreground leading-relaxed">{f.answer}</p>
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
             </Accordion>
           </div>
         </section>

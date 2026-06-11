@@ -24,13 +24,32 @@ const VacanceLocative = () => {
     { label: "Locataires déjà pré-qualifiés", icon: Users },
   ];
 
+  const faq = [
+    {
+      question: "En combien de temps pouvez-vous trouver un locataire ?",
+      answer:
+        "Grâce à notre vivier de candidats déjà pré-qualifiés, nous pouvons souvent présenter un dossier solide en moins d'une semaine. La mise en location complète se déroule généralement en quelques jours à quelques semaines, selon le bien et la période. Chaque situation est unique : faites une analyse offerte pour obtenir une estimation réaliste pour votre logement.",
+    },
+    {
+      question: "Comment sont vérifiés les candidats ?",
+      answer:
+        "Nous vérifions les revenus (généralement 3 fois le montant du loyer), les garanties, l'absence d'impayés passés et la stabilité professionnelle. Nous contactons également les précédents bailleurs et analysons le dossier complet avant toute proposition. C'est cette rigueur qui nous permet de proposer des locataires fiables et de sécuriser votre rentrée locative.",
+    },
+    {
+      question: "Faut-il baisser mon loyer ?",
+      answer:
+        "Pas forcément. Le problème vient souvent d'un loyer mal calibré par rapport au marché local, ou d'une visibilité insuffisante. Notre analyse offerte inclut une étude comparative précise de votre rue et de votre quartier. Si un ajustement est nécessaire, on vous l'explique avec des chiffres concrets. Dans de nombreux cas, le bon locataire existe déjà : il faut juste le toucher au bon endroit.",
+    },
+  ];
+
   return (
     <>
       <SeoHead
-        title="Votre appartement ne se loue pas ? | ERA Perpignan"
+        title="Votre appartement ne se loue pas ? | ERA Dupont Romain"
         description="Des semaines sans locataire sérieux à Perpignan ? On active notre vivier de locataires déjà pré-qualifiés. Estimation locative offerte, mise en location rapide."
         path="/logement-ne-se-loue-pas-perpignan"
         type="article"
+        faq={faq}
       />
 
       <>
@@ -170,30 +189,14 @@ const VacanceLocative = () => {
               Questions fréquentes
             </h2>
             <Accordion type="single" collapsible className="w-full">
-              <AccordionItem value="q1">
-                <AccordionTrigger>En combien de temps pouvez-vous trouver un locataire ?</AccordionTrigger>
-                <AccordionContent>
-                  <p className="text-muted-foreground leading-relaxed">
-                    Grâce à notre vivier de candidats déjà pré-qualifiés, nous pouvons souvent présenter un dossier solide en moins d'une semaine. La mise en location complète se déroule généralement en quelques jours à quelques semaines, selon le bien et la période. Chaque situation est unique : faites une analyse offerte pour obtenir une estimation réaliste pour votre logement.
-                  </p>
-                </AccordionContent>
-              </AccordionItem>
-              <AccordionItem value="q2">
-                <AccordionTrigger>Comment sont vérifiés les candidats ?</AccordionTrigger>
-                <AccordionContent>
-                  <p className="text-muted-foreground leading-relaxed">
-                    Nous vérifions les revenus (généralement 3 fois le montant du loyer), les garanties, l'absence d'impayés passés et la stabilité professionnelle. Nous contactons également les précédents bailleurs et analysons le dossier complet avant toute proposition. C'est cette rigueur qui nous permet de proposer des locataires fiables et de sécuriser votre rentrée locative.
-                  </p>
-                </AccordionContent>
-              </AccordionItem>
-              <AccordionItem value="q3">
-                <AccordionTrigger>Faut-il baisser mon loyer ?</AccordionTrigger>
-                <AccordionContent>
-                  <p className="text-muted-foreground leading-relaxed">
-                    Pas forcément. Le problème vient souvent d'un loyer mal calibré par rapport au marché local, ou d'une visibilité insuffisante. Notre analyse offerte inclut une étude comparative précise de votre rue et de votre quartier. Si un ajustement est nécessaire, on vous l'explique avec des chiffres concrets. Dans de nombreux cas, le bon locataire existe déjà : il faut juste le toucher au bon endroit.
-                  </p>
-                </AccordionContent>
-              </AccordionItem>
+              {faq.map((f, i) => (
+                <AccordionItem key={i} value={`q${i + 1}`}>
+                  <AccordionTrigger>{f.question}</AccordionTrigger>
+                  <AccordionContent>
+                    <p className="text-muted-foreground leading-relaxed">{f.answer}</p>
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
             </Accordion>
           </div>
         </section>
