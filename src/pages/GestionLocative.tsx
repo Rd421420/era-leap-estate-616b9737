@@ -106,7 +106,7 @@ const GestionLocative = () => {
       />
 
       <LandingHero
-        eyebrow="Gestion locative · Perpignan"
+        eyebrow="GESTION LOCATIVE · PERPIGNAN ET LE 66"
         title="Déléguez la gestion de votre bien à Perpignan. On s'occupe de tout."
         subtitle="Quittances, états des lieux, relances, suivi, fiscalité : vous gardez la décision, on porte la charge mentale. Et on arrive avec des locataires déjà pré-qualifiés."
         image="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=900&q=80"
@@ -152,7 +152,7 @@ const GestionLocative = () => {
               </div>
               <div className="flex flex-col items-center">
                 <RotateCcw className="h-8 w-8 text-primary mb-3" />
-                <h3 className="font-heading text-base font-bold mb-1">Sans engagement</h3>
+                <h3 className="font-heading text-base font-bold mb-1">Sans engagement de durée</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">
                   Pas de clause de durée minimale. Vous restez libre de reprendre la gestion quand vous le souhaitez.
                 </p>

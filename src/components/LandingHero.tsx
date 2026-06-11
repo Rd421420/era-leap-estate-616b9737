@@ -27,7 +27,7 @@ const SocialProof = () => (
     >
       4,6/5 · 136 avis Google
     </a>
-    <span className="text-muted-foreground">· sans engagement</span>
+    <span className="text-muted-foreground">· sans engagement de durée</span>
   </div>
 );
 

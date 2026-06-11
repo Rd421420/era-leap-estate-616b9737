@@ -364,7 +364,7 @@ const EstimationForm = ({ initialAddress }: EstimationFormProps = {}) => {
           </div>
           <div className="flex items-center gap-2 bg-card border border-border rounded-lg px-3 py-2 shadow-sm">
             <Shield className="h-4 w-4 text-primary shrink-0" />
-            <span className="font-medium">Sans engagement</span>
+            <span className="font-medium">Sans engagement de durée</span>
           </div>
           <a
             href="#avis-google"
