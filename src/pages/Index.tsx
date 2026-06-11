@@ -8,6 +8,7 @@ import EstimationForm from "@/components/EstimationForm";
 import RecentEstimations from "@/components/RecentEstimations";
 import FAQ from "@/components/FAQ";
 import SeoHead from "@/components/SeoHead";
+import LocalAgencySection from "@/components/LocalAgencySection";
 
 const Index = () => {
   const formRef = useRef<HTMLDivElement>(null);
@@ -121,6 +122,7 @@ const Index = () => {
         <EstimationForm />
       </div>
       <RecentEstimations />
+      <LocalAgencySection onCta={scrollToForm} />
       <FAQ />
     </>
   );

@@ -21,6 +21,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 import EstimationForm from "@/components/EstimationForm";
 import LandingHero from "@/components/LandingHero";
+import LocalAgencySection from "@/components/LocalAgencySection";
 import GoogleReviews from "@/components/GoogleReviews";
 import { trackEvent } from "@/lib/analytics";
 
@@ -174,6 +175,9 @@ const GestionLocative = () => {
 
         {/* SECTION AVIS */}
         <GoogleReviews />
+
+        {/* SECTION AGENCE LOCALE */}
+        <LocalAgencySection onCta={scrollToForm} />
 
         {/* FAQ */}
         <section className="py-16">
