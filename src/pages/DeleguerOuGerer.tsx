@@ -72,7 +72,7 @@ const DeleguerOuGerer = () => {
       />
 
       <LandingHero
-        eyebrow="Déléguer ou gérer · Perpignan"
+        eyebrow="GESTION LOCATIVE · PERPIGNAN ET LE 66"
         title="Gérer seul ou déléguer ? Faisons le vrai calcul."
         subtitle="Le temps passé, le risque d'impayé et de vacance, les erreurs de bail : l'autogestion a un coût caché. On vous aide à comparer, chiffres en main."
         image="https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&w=900&q=80"
