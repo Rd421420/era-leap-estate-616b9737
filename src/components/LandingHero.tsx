@@ -65,8 +65,18 @@ const LandingHero = ({ eyebrow, title, subtitle, onCta, image, imageAlt }: Landi
             <SocialProof />
           </div>
 
-          {/* Right column - card */}
-          <div className="rounded-lg border border-border bg-card shadow-lg p-6 md:p-8">
+          {/* Right column */}
+          <div className="space-y-4">
+            {image && (
+              // TODO: remplacer par une vraie photo ERA Dupont Romain (devanture, équipe, bien loué)
+              <img
+                src={image}
+                alt={imageAlt || "Agence ERA Dupont Romain à Perpignan"}
+                className="w-full h-[220px] object-cover rounded-lg shadow-md"
+                loading="lazy"
+              />
+            )}
+            <div className="rounded-lg border border-border bg-card shadow-lg p-6 md:p-8">
             <div className="mb-6">
               <h2 className="font-heading text-2xl font-bold text-foreground">
                 Estimation locative offerte
