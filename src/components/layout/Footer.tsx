@@ -7,7 +7,7 @@ const Footer = () => {
         <div className="mb-4">
           <img
             src="https://drive.google.com/uc?export=view&id=1i2cANrQpr6_eKXrR98tZF6RwRYXJ3Q-R"
-            alt="ERA"
+            alt="ERA DUPONT ROMAIN IMMOBILIER logo"
             className="h-12 mx-auto opacity-80 invert"
             onError={(e) => {
               (e.currentTarget as HTMLImageElement).style.display = 'none';
