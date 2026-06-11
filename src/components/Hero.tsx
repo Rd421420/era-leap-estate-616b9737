@@ -83,7 +83,7 @@ const Hero = ({ onScrollToForm }: HeroProps) => {
             </div>
 
             <p className="text-xs text-muted-foreground">
-              ✓ Sans engagement • ✓ Réponse sous 24h • ✓ 100% gratuit
+              ✓ Sans engagement de durée • ✓ Réponse sous 24h • ✓ 100% gratuit
             </p>
           </div>
 

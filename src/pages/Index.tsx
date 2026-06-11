@@ -26,7 +26,7 @@ const Index = () => {
         path="/"
       />
       <LandingHero
-        eyebrow="Gestion locative · Perpignan"
+        eyebrow="GESTION LOCATIVE · PERPIGNAN ET LE 66"
         title="On ne vous demande pas de nous confier votre bien. On a déjà les locataires."
         subtitle="ERA DUPONT ROMAIN IMMOBILIER — votre expert local en gestion locative. Recevez votre estimation en quelques minutes."
         onCta={scrollToForm}

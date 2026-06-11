@@ -50,7 +50,7 @@ const LoyersImpayes = () => {
       />
 
       <LandingHero
-        eyebrow="Loyers impayés · Perpignan"
+        eyebrow="GESTION LOCATIVE · PERPIGNAN ET LE 66"
         title="Votre locataire ne paie plus ? Reprenez la main sereinement."
         subtitle="Relances, procédure, garanties : on reprend votre dossier et on sécurise vos loyers futurs. Et pour la suite, on a déjà des locataires sérieux et solvables."
         image="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=900&q=80"

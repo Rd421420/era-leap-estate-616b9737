@@ -14,7 +14,7 @@ const FAQ = () => {
   const faqData = [
     {
       question: "Comment obtenir une estimation locative gratuite à Perpignan ?",
-      answer: "Remplissez simplement notre formulaire en ligne en quelques minutes. Notre équipe ERA DUPONT ROMAIN IMMOBILIER analyse votre bien et vous envoie une estimation détaillée par email sous 24h. Cette estimation est totalement gratuite et sans engagement."
+      answer: "Remplissez simplement notre formulaire en ligne en quelques minutes. Notre équipe ERA DUPONT ROMAIN IMMOBILIER analyse votre bien et vous envoie une estimation détaillée par email sous 24h. Cette estimation est totalement gratuite et sans engagement de durée."
     },
     {
       question: "Quelle est la différence entre une estimation en ligne et une visite sur place ?",
