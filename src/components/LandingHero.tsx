@@ -1,3 +1,4 @@
+import { type ReactNode } from "react";
 import { Phone, ChevronRight, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
