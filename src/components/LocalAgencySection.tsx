@@ -3,13 +3,17 @@ import { ChevronRight, MapPin } from "lucide-react";
 
 interface LocalAgencySectionProps {
   onCta: () => void;
+  image?: string;
+  imageAlt?: string;
 }
 
 // TODO: remplacer par une vraie photo ERA Dupont Romain (devanture de l'agence ou équipe)
-const AGENCY_PHOTO =
+const DEFAULT_AGENCY_PHOTO =
   "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1200&q=80";
 
-const LocalAgencySection = ({ onCta }: LocalAgencySectionProps) => {
+const LocalAgencySection = ({ onCta, image, imageAlt }: LocalAgencySectionProps) => {
+  const photo = image || DEFAULT_AGENCY_PHOTO;
+  const alt = imageAlt || "L'agence ERA Dupont Romain Immobilier à Perpignan";
   return (
     <section className="py-16 bg-background">
       <div className="container mx-auto px-4">
