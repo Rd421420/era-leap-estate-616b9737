@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 import EstimationForm from "@/components/EstimationForm";
+import LandingHero from "@/components/LandingHero";
 import { trackEvent } from "@/lib/analytics";
 
 const LoyersImpayes = () => {
