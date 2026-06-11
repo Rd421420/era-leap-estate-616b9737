@@ -25,8 +25,29 @@ const Index = () => {
         description="Obtenez une estimation locative fiable et offerte sur Perpignan et les Pyrénnées Orientales. Découvrez les avis Google de propriétaires satisfaits et confiez votre gestion locative à ERA."
         path="/"
       />
-      <Hero onScrollToForm={scrollToForm} />
+      <LandingHero
+        eyebrow="Gestion locative · Perpignan"
+        title="On ne vous demande pas de nous confier votre bien. On a déjà les locataires."
+        subtitle="ERA DUPONT ROMAIN IMMOBILIER — votre expert local en gestion locative. Recevez votre estimation en quelques minutes."
+        onCta={scrollToForm}
+      />
+      <TrustBar />
       <GoogleReviews />
+
+      {/* Vidéo de présentation */}
+      <section className="py-12 md:py-16">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <div className="relative rounded-2xl overflow-hidden shadow-xl aspect-video bg-muted">
+            <iframe
+              className="w-full h-full"
+              src="https://www.youtube.com/embed/UlXohzlvmMc?controls=1&rel=0&modestbranding=1"
+              title="ERA DUPONT ROMAIN IMMOBILIER - Gestion Locative à Perpignan"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
+        </div>
+      </section>
 
       {/* SECTION "Quelle est votre situation ?" */}
       <section className="py-16 bg-muted/20">
