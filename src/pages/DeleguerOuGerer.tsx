@@ -135,7 +135,7 @@ const DeleguerOuGerer = () => {
     <>
       <SeoHead
         title="Déléguer ou gérer son bien soi-même ? | ERA Dupont Romain"
-        description="Autogestion ou agence à Perpignan ? Le comparatif honnête coût / temps / risque, sans langue de bois. Estimation locative offerte pour décider avec des chiffres."
+        description="Autogestion ou agence à Perpignan ? Comparatif coût, temps, risque. Estimation offerte pour décider."
         path="/deleguer-ou-gerer-soi-meme"
         type="article"
         faq={faq}
