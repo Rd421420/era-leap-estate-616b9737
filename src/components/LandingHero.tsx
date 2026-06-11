@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { Phone, ChevronRight, ClipboardCheck, Calculator, Users, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -8,6 +9,7 @@ interface LandingHeroProps {
   onCta: () => void;
   image?: string;
   imageAlt?: string;
+  aside?: ReactNode;
 }
 
 const atouts = [
@@ -34,7 +36,7 @@ const SocialProof = () => (
   </div>
 );
 
-const LandingHero = ({ eyebrow, title, subtitle, onCta, image, imageAlt }: LandingHeroProps) => {
+const LandingHero = ({ eyebrow, title, subtitle, onCta, image, imageAlt, aside }: LandingHeroProps) => {
   return (
     <section className="relative bg-gradient-to-br from-background via-muted/30 to-background pt-10 pb-12 md:pt-16 md:pb-20">
       <div className="container mx-auto px-4">
@@ -76,6 +78,9 @@ const LandingHero = ({ eyebrow, title, subtitle, onCta, image, imageAlt }: Landi
                 loading="lazy"
               />
             )}
+            {aside ? (
+              aside
+            ) : (
             <div className="rounded-lg border border-border bg-card shadow-lg p-6 md:p-8">
             <div className="mb-6">
               <h2 className="font-heading text-2xl font-bold text-foreground">
@@ -100,6 +105,7 @@ const LandingHero = ({ eyebrow, title, subtitle, onCta, image, imageAlt }: Landi
               <ChevronRight className="h-4 w-4 ml-2" />
             </Button>
             </div>
+            )}
           </div>
         </div>
       </div>
