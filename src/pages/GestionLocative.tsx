@@ -103,7 +103,6 @@ const GestionLocative = () => {
         faq={faq}
       />
 
-      <>
       <LandingHero
         eyebrow="Gestion locative · Perpignan"
         title="Déléguez la gestion de votre bien à Perpignan. On s'occupe de tout."
@@ -188,7 +187,7 @@ const GestionLocative = () => {
           </Accordion>
         </div>
       </section>
-
+    </>
   );
 };
 
