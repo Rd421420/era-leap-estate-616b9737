@@ -56,7 +56,7 @@ const LandingHero = ({ eyebrow, title, subtitle, onCta, image, imageAlt, aside }
               <Button size="lg" variant="outline" asChild className="min-h-[44px]">
                 <a href="tel:+33468665718" className="gap-2">
                   <Phone className="h-4 w-4" />
-                  04 68 66 57 18
+                  {"\n"}04 68 66 57 18
                 </a>
               </Button>
             </div>

@@ -77,7 +77,7 @@ const Hero = ({ onScrollToForm }: HeroProps) => {
               >
                 <a href="tel:0468665718" className="flex items-center gap-2">
                   <Phone className="h-5 w-5" />
-                  04 68 66 57 18
+                  {"\n"}04 68 66 57 18
                 </a>
               </Button>
             </div>

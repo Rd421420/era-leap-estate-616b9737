@@ -114,7 +114,7 @@ const MentionsLegales = () => {
             <div className="space-y-3 text-muted-foreground">
               <p className="flex items-center gap-2">
                 <Phone className="h-4 w-4 text-primary flex-shrink-0" />
-                <a href="tel:0468665718" className="hover:text-primary transition-colors">04 68 66 57 18</a>
+                <a href="tel:0468665718" className="hover:text-primary transition-colors whitespace-pre-line">{"\n"}04 68 66 57 18</a>
               </p>
               <p className="flex items-center gap-2">
                 <MapPin className="h-4 w-4 text-primary flex-shrink-0" />
