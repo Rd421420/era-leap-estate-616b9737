@@ -124,7 +124,7 @@ const RecentEstimations = () => {
     <section className="py-12 bg-background">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-heading font-bold text-center text-foreground mb-3">
-          📊 Dernières estimations réalisées
+          Dernières estimations réalisées
         </h2>
         <p className="text-center text-muted-foreground mb-8">
           Des propriétaires nous ont fait confiance récemment
