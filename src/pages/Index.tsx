@@ -13,6 +13,8 @@ import SeoHead from "@/components/SeoHead";
 
 const Index = () => {
   const formRef = useRef<HTMLDivElement>(null);
+  const [ville, setVille] = useState("");
+  const [codePostal, setCodePostal] = useState("");
 
   const scrollToForm = () => {
     formRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
