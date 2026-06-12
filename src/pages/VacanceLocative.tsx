@@ -50,7 +50,7 @@ const VacanceLocative = () => {
       />
 
       <LandingHero
-        eyebrow="GESTION LOCATIVE · PERPIGNAN ET LE 66"
+        eyebrow="MISE EN LOCATION · PERPIGNAN"
         title="Votre logement ne se loue pas ? On a déjà les locataires."
         subtitle="Pendant que les autres repartent de zéro à chaque recherche, nous arrivons avec une liste de candidats déjà filtrés — revenus vérifiés, garanties, dossier complet. Votre vacance se compte en jours, pas en mois."
         image="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=900&q=80"

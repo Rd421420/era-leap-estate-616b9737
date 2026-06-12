@@ -106,7 +106,7 @@ const GestionLocative = () => {
       />
 
       <LandingHero
-        eyebrow="GESTION LOCATIVE · PERPIGNAN ET LE 66"
+        eyebrow="GESTION LOCATIVE · PERPIGNAN"
         title="Déléguez la gestion de votre bien à Perpignan. On s'occupe de tout."
         subtitle="Quittances, états des lieux, relances, suivi, fiscalité : vous gardez la décision, on porte la charge mentale. Et on arrive avec des locataires déjà pré-qualifiés."
         image="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=900&q=80"
