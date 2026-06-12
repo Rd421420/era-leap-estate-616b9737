@@ -109,12 +109,19 @@ const GoogleReviews = () => {
 
         const rows = parseCSV(csvText).slice(1); // Skip header
         const parsed = rows
-          .map(values => ({
-            author_name: (values[0] || '').trim(),
-            rating: parseInt(values[3]) || 5,
-            text: (values[2] || '').trim(),
-            time: values[1] ? new Date(values[1]).getTime() / 1000 : Date.now() / 1000,
-          }))
+          .map(values => {
+            const rawDate = (values[1] || '').trim();
+            const parsedDate = rawDate ? new Date(rawDate) : null;
+            const validTime = parsedDate && !isNaN(parsedDate.getTime())
+              ? parsedDate.getTime() / 1000
+              : 0;
+            return {
+              author_name: (values[0] || '').trim(),
+              rating: parseInt(values[3]) || 5,
+              text: (values[2] || '').trim(),
+              time: validTime,
+            };
+          })
           .filter(r => r.author_name && r.text);
 
         setReviews(parsed);
