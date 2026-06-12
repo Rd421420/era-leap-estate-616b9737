@@ -64,7 +64,7 @@ const DefaultAside = ({ onCta }: { onCta: () => void }) => {
             <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <Input
               type="text"
-              placeholder="Adresse de votre bien"
+              placeholder="Adresse, code postal et ville"
               value={address}
               onChange={(e) => setAddress(e.target.value)}
               className="pl-9 min-h-[44px]"
