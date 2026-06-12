@@ -125,9 +125,15 @@ const formatPhone = (raw: string) => {
 
 interface EstimationFormProps {
   initialAddress?: string;
+  initialVille?: string;
+  initialCodePostal?: string;
 }
 
-const EstimationForm = ({ initialAddress }: EstimationFormProps = {}) => {
+const EstimationForm = ({
+  initialAddress,
+  initialVille,
+  initialCodePostal,
+}: EstimationFormProps = {}) => {
   const navigate = useNavigate();
   const { toast } = useToast();
   const {
@@ -156,6 +162,16 @@ const EstimationForm = ({ initialAddress }: EstimationFormProps = {}) => {
     window.addEventListener("prefill-estimation-address", handler as EventListener);
     return () => window.removeEventListener("prefill-estimation-address", handler as EventListener);
   }, [initialAddress, setFormData]);
+
+  // Pré-remplissage ville / code postal (depuis le hero)
+  useEffect(() => {
+    if (!initialVille && !initialCodePostal) return;
+    setFormData((prev) => ({
+      ...prev,
+      ville: prev.ville || (initialVille ? sanitizeString(initialVille) : prev.ville),
+      codePostal: prev.codePostal || (initialCodePostal ?? prev.codePostal),
+    }));
+  }, [initialVille, initialCodePostal, setFormData]);
 
   const [loading, setLoading] = useState(false);
   const [validationErrors, setValidationErrors] = useState<Record<string, string>>({});
