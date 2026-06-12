@@ -239,9 +239,11 @@ const GoogleReviews = () => {
                             <p className="font-semibold text-foreground text-sm truncate">
                               {review.author_name}
                             </p>
-                            <p className="text-xs text-muted-foreground">
-                              {formatDate(review.time)}
-                            </p>
+                            {review.time > 0 && (
+                              <p className="text-xs text-muted-foreground">
+                                {formatDate(review.time)}
+                              </p>
+                            )}
                           </div>
                         </div>
                         <div className="flex gap-0.5 shrink-0">
