@@ -71,10 +71,10 @@ const DefaultAside = ({
       <CardContent className="p-6 md:p-8 space-y-5">
         <div>
           <h2 className="font-heading text-xl md:text-2xl font-bold text-foreground">
-            Analyse locative de votre rue
+            Estimez le loyer de votre bien
           </h2>
           <p className="text-sm text-muted-foreground mt-1">
-            Offert · réponse sous 24 h
+            Gratuit · réponse sous 24 h
           </p>
         </div>
         <form onSubmit={handleSubmit} className="space-y-3">
@@ -87,7 +87,7 @@ const DefaultAside = ({
             />
           </div>
           <Button type="submit" size="lg" className="w-full shadow-era min-h-[44px]">
-            Recevoir mon analyse
+            Estimer mon loyer gratuitement
             <ChevronRight className="h-4 w-4 ml-2" />
           </Button>
         </form>
