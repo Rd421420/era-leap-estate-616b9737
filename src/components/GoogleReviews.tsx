@@ -109,12 +109,19 @@ const GoogleReviews = () => {
 
         const rows = parseCSV(csvText).slice(1); // Skip header
         const parsed = rows
-          .map(values => ({
-            author_name: (values[0] || '').trim(),
-            rating: parseInt(values[3]) || 5,
-            text: (values[2] || '').trim(),
-            time: values[1] ? new Date(values[1]).getTime() / 1000 : Date.now() / 1000,
-          }))
+          .map(values => {
+            const rawDate = (values[1] || '').trim();
+            const parsedDate = rawDate ? new Date(rawDate) : null;
+            const validTime = parsedDate && !isNaN(parsedDate.getTime())
+              ? parsedDate.getTime() / 1000
+              : 0;
+            return {
+              author_name: (values[0] || '').trim(),
+              rating: parseInt(values[3]) || 5,
+              text: (values[2] || '').trim(),
+              time: validTime,
+            };
+          })
           .filter(r => r.author_name && r.text);
 
         setReviews(parsed);
@@ -232,9 +239,11 @@ const GoogleReviews = () => {
                             <p className="font-semibold text-foreground text-sm truncate">
                               {review.author_name}
                             </p>
-                            <p className="text-xs text-muted-foreground">
-                              {formatDate(review.time)}
-                            </p>
+                            {review.time > 0 && (
+                              <p className="text-xs text-muted-foreground">
+                                {formatDate(review.time)}
+                              </p>
+                            )}
                           </div>
                         </div>
                         <div className="flex gap-0.5 shrink-0">
@@ -268,7 +277,7 @@ const GoogleReviews = () => {
         {/* CTA to leave review */}
         <div className="text-center mt-8">
           <p className="text-sm text-muted-foreground mb-4">
-            📢 Vous êtes client ERA DUPONT ROMAIN IMMOBILIER ?
+            Vous êtes client ERA DUPONT ROMAIN IMMOBILIER ?
           </p>
           <Button
             asChild

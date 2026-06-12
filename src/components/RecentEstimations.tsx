@@ -108,7 +108,7 @@ const RecentEstimations = () => {
       <section className="py-12 bg-background">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-center text-foreground mb-8">
-            📊 Dernières estimations réalisées
+            Dernières estimations réalisées
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {[1, 2, 3].map(i => (
@@ -124,7 +124,7 @@ const RecentEstimations = () => {
     <section className="py-12 bg-background">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-heading font-bold text-center text-foreground mb-3">
-          📊 Dernières estimations réalisées
+          Dernières estimations réalisées
         </h2>
         <p className="text-center text-muted-foreground mb-8">
           Des propriétaires nous ont fait confiance récemment
@@ -179,7 +179,17 @@ const RecentEstimations = () => {
 
                     <div className="pt-2 border-t border-border">
                       <div className="text-lg font-heading font-bold text-primary">
-                        {est.loyer} €<span className="text-xs text-muted-foreground">/mois</span>
+                        {(() => {
+                          const n = parseInt(String(est.loyer).replace(/[^\d]/g, ""), 10);
+                          const formatted = Number.isFinite(n)
+                            ? n.toLocaleString("fr-FR")
+                            : String(est.loyer);
+                          return (
+                            <>
+                              {formatted} €<span className="text-xs text-muted-foreground">/mois</span>
+                            </>
+                          );
+                        })()}
                       </div>
                     </div>
                   </div>

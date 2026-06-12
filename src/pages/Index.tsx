@@ -28,9 +28,9 @@ const Index = () => {
         path="/"
       />
       <LandingHero
-        eyebrow="GESTION LOCATIVE · PERPIGNAN ET LE 66"
-        title="On ne vous demande pas de nous confier votre bien. On a déjà les locataires."
-        subtitle="ERA DUPONT ROMAIN IMMOBILIER — votre expert local en gestion locative. Recevez votre estimation en quelques minutes."
+        eyebrow="ESTIMATION LOCATIVE GRATUITE · PERPIGNAN ET LE 66"
+        title="Combien pouvez-vous louer votre bien à Perpignan ?"
+        subtitle="Recevez gratuitement l'estimation du loyer de votre bien, basée sur le marché réel de votre rue. Réponse sous 24 h par votre expert local ERA Dupont Romain."
         onCta={scrollToForm}
         ville={ville}
         codePostal={codePostal}
