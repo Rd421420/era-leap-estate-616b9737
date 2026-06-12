@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { AlertTriangle, Ban, Home, ClipboardList, GitCompare, ChevronRight } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
