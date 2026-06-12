@@ -32,6 +32,10 @@ const Index = () => {
         title="On ne vous demande pas de nous confier votre bien. On a déjà les locataires."
         subtitle="ERA DUPONT ROMAIN IMMOBILIER — votre expert local en gestion locative. Recevez votre estimation en quelques minutes."
         onCta={scrollToForm}
+        ville={ville}
+        codePostal={codePostal}
+        onVilleChange={setVille}
+        onCodePostalChange={setCodePostal}
       />
       <TrustBar />
       <GoogleReviews />
