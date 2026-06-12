@@ -179,7 +179,17 @@ const RecentEstimations = () => {
 
                     <div className="pt-2 border-t border-border">
                       <div className="text-lg font-heading font-bold text-primary">
-                        {est.loyer} €<span className="text-xs text-muted-foreground">/mois</span>
+                        {(() => {
+                          const n = parseInt(String(est.loyer).replace(/[^\d]/g, ""), 10);
+                          const formatted = Number.isFinite(n)
+                            ? n.toLocaleString("fr-FR")
+                            : String(est.loyer);
+                          return (
+                            <>
+                              {formatted} €<span className="text-xs text-muted-foreground">/mois</span>
+                            </>
+                          );
+                        })()}
                       </div>
                     </div>
                   </div>
