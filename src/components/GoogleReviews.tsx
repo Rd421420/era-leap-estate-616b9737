@@ -277,7 +277,7 @@ const GoogleReviews = () => {
         {/* CTA to leave review */}
         <div className="text-center mt-8">
           <p className="text-sm text-muted-foreground mb-4">
-            📢 Vous êtes client ERA DUPONT ROMAIN IMMOBILIER ?
+            Vous êtes client ERA DUPONT ROMAIN IMMOBILIER ?
           </p>
           <Button
             asChild
