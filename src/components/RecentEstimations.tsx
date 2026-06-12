@@ -108,7 +108,7 @@ const RecentEstimations = () => {
       <section className="py-12 bg-background">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-center text-foreground mb-8">
-            📊 Dernières estimations réalisées
+            Dernières estimations réalisées
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {[1, 2, 3].map(i => (
