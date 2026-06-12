@@ -1,6 +1,8 @@
-import { type ReactNode } from "react";
-import { Phone, ChevronRight, Star } from "lucide-react";
+import { useState, type ReactNode } from "react";
+import { Phone, ChevronRight, Star, MapPin, Lock } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Card, CardContent } from "@/components/ui/card";
 
 interface LandingHeroProps {
   eyebrow: string;
@@ -31,8 +33,59 @@ const SocialProof = () => (
   </div>
 );
 
+const DefaultAside = ({ onCta }: { onCta: () => void }) => {
+  const [address, setAddress] = useState("");
 
-const LandingHero = ({ eyebrow, title, subtitle, onCta, image, imageAlt, aside }: LandingHeroProps) => {
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (address.trim()) {
+      window.dispatchEvent(
+        new CustomEvent("prefill-estimation-address", {
+          detail: { address: address.trim() },
+        }),
+      );
+    }
+    onCta();
+  };
+
+  return (
+    <Card className="shadow-era border-primary/20">
+      <CardContent className="p-6 md:p-8 space-y-5">
+        <div>
+          <h2 className="font-heading text-xl md:text-2xl font-bold text-foreground">
+            Analyse locative de votre rue
+          </h2>
+          <p className="text-sm text-muted-foreground mt-1">
+            Offert · réponse sous 24 h
+          </p>
+        </div>
+        <form onSubmit={handleSubmit} className="space-y-3">
+          <div className="relative">
+            <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+            <Input
+              type="text"
+              placeholder="Adresse de votre bien"
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
+              className="pl-9 min-h-[44px]"
+              aria-label="Adresse de votre bien"
+            />
+          </div>
+          <Button type="submit" size="lg" className="w-full shadow-era min-h-[44px]">
+            Recevoir mon analyse
+            <ChevronRight className="h-4 w-4 ml-2" />
+          </Button>
+        </form>
+        <p className="flex items-center gap-1.5 text-xs text-muted-foreground">
+          <Lock className="h-3 w-3" />
+          Données non revendues · 100% offert
+        </p>
+      </CardContent>
+    </Card>
+  );
+};
+
+const LandingHero = ({ eyebrow, title, subtitle, onCta, aside }: LandingHeroProps) => {
   return (
     <section className="relative bg-gradient-to-br from-background via-muted/30 to-background pt-10 pb-12 md:pt-16 md:pb-20">
       <div className="container mx-auto px-4">
@@ -56,7 +109,7 @@ const LandingHero = ({ eyebrow, title, subtitle, onCta, image, imageAlt, aside }
               <Button size="lg" variant="outline" asChild className="min-h-[44px]">
                 <a href="tel:+33468665718" className="gap-2">
                   <Phone className="h-4 w-4" />
-                  {"\n"}04 68 66 57 18
+                  04 68 66 57 18
                 </a>
               </Button>
             </div>
@@ -65,7 +118,7 @@ const LandingHero = ({ eyebrow, title, subtitle, onCta, image, imageAlt, aside }
 
           {/* Right column */}
           <div className="space-y-4">
-            {aside}
+            {aside ?? <DefaultAside onCta={onCta} />}
           </div>
         </div>
       </div>

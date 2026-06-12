@@ -21,8 +21,8 @@ const Index = () => {
   return (
     <>
       <SeoHead
-        title="Estimation locative offerte à Perpignan et les Pyrénnées Orientales | ERA Dupont Romain"
-        description="Obtenez une estimation locative fiable et offerte sur Perpignan et les Pyrénnées Orientales. Découvrez les avis Google de propriétaires satisfaits et confiez votre gestion locative à ERA."
+        title="Estimation locative offerte à Perpignan | ERA Dupont Romain"
+        description="Estimation locative fiable et offerte à Perpignan et dans les Pyrénées-Orientales. Avis Google de propriétaires satisfaits — confiez votre gestion à ERA."
         path="/"
       />
       <LandingHero

@@ -33,7 +33,7 @@ const Header = () => {
             className="hidden sm:inline-flex items-center gap-1.5 text-sm font-semibold text-foreground hover:text-primary transition-colors"
           >
             <Phone className="h-4 w-4" />
-            {"\n"}04 68 66 57 18
+            04 68 66 57 18
           </a>
           <Button
             size="sm"
