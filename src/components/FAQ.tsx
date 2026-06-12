@@ -138,7 +138,7 @@ const FAQ = () => {
     <section className="py-16 bg-muted/30">
       <div className="container mx-auto px-4 max-w-4xl">
         <h2 className="text-3xl md:text-4xl font-heading font-bold text-center text-foreground mb-3">
-          ❓ Questions fréquentes
+          Questions fréquentes
         </h2>
         <p className="text-center text-muted-foreground mb-10">
           Tout savoir sur la location et la gestion locative à Perpignan
