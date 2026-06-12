@@ -128,7 +128,7 @@ const LandingHero = ({
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
               <Button size="lg" onClick={onCta} className="shadow-era min-h-[44px]">
-                Recevoir mon analyse offerte
+                Estimer mon loyer gratuitement
                 <ChevronRight className="h-4 w-4 ml-2" />
               </Button>
               <Button size="lg" variant="outline" asChild className="min-h-[44px]">
