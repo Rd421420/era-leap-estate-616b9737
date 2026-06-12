@@ -1,8 +1,8 @@
 import { useState, type ReactNode } from "react";
-import { Phone, ChevronRight, Star, MapPin, Lock } from "lucide-react";
+import { Phone, ChevronRight, Star, Lock } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
+import { CommuneAutocomplete } from "@/components/CommuneAutocomplete";
 
 interface LandingHeroProps {
   eyebrow: string;
@@ -12,6 +12,10 @@ interface LandingHeroProps {
   image?: string;
   imageAlt?: string;
   aside?: ReactNode;
+  ville?: string;
+  codePostal?: string;
+  onVilleChange?: (v: string) => void;
+  onCodePostalChange?: (v: string) => void;
 }
 
 const SocialProof = () => (
@@ -33,18 +37,32 @@ const SocialProof = () => (
   </div>
 );
 
-const DefaultAside = ({ onCta }: { onCta: () => void }) => {
-  const [address, setAddress] = useState("");
+interface DefaultAsideProps {
+  onCta: () => void;
+  ville?: string;
+  codePostal?: string;
+  onVilleChange?: (v: string) => void;
+  onCodePostalChange?: (v: string) => void;
+}
+
+const DefaultAside = ({
+  onCta,
+  ville,
+  codePostal,
+  onVilleChange,
+  onCodePostalChange,
+}: DefaultAsideProps) => {
+  // Mode non contrôlé : état local de secours
+  const [localVille, setLocalVille] = useState("");
+  const [localCp, setLocalCp] = useState("");
+
+  const villeValue = ville ?? localVille;
+  const cpValue = codePostal ?? localCp;
+  const setVille = onVilleChange ?? setLocalVille;
+  const setCp = onCodePostalChange ?? setLocalCp;
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (address.trim()) {
-      window.dispatchEvent(
-        new CustomEvent("prefill-estimation-address", {
-          detail: { address: address.trim() },
-        }),
-      );
-    }
     onCta();
   };
 
@@ -60,15 +78,12 @@ const DefaultAside = ({ onCta }: { onCta: () => void }) => {
           </p>
         </div>
         <form onSubmit={handleSubmit} className="space-y-3">
-          <div className="relative">
-            <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-            <Input
-              type="text"
-              placeholder="Adresse, code postal et ville"
-              value={address}
-              onChange={(e) => setAddress(e.target.value)}
-              className="pl-9 min-h-[44px]"
-              aria-label="Adresse de votre bien"
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <CommuneAutocomplete
+              ville={villeValue}
+              codePostal={cpValue}
+              onVilleChange={setVille}
+              onCodePostalChange={setCp}
             />
           </div>
           <Button type="submit" size="lg" className="w-full shadow-era min-h-[44px]">
@@ -85,7 +100,17 @@ const DefaultAside = ({ onCta }: { onCta: () => void }) => {
   );
 };
 
-const LandingHero = ({ eyebrow, title, subtitle, onCta, aside }: LandingHeroProps) => {
+const LandingHero = ({
+  eyebrow,
+  title,
+  subtitle,
+  onCta,
+  aside,
+  ville,
+  codePostal,
+  onVilleChange,
+  onCodePostalChange,
+}: LandingHeroProps) => {
   return (
     <section className="relative bg-gradient-to-br from-background via-muted/30 to-background pt-10 pb-12 md:pt-16 md:pb-20">
       <div className="container mx-auto px-4">
@@ -118,7 +143,15 @@ const LandingHero = ({ eyebrow, title, subtitle, onCta, aside }: LandingHeroProp
 
           {/* Right column */}
           <div className="space-y-4">
-            {aside ?? <DefaultAside onCta={onCta} />}
+            {aside ?? (
+              <DefaultAside
+                onCta={onCta}
+                ville={ville}
+                codePostal={codePostal}
+                onVilleChange={onVilleChange}
+                onCodePostalChange={onCodePostalChange}
+              />
+            )}
           </div>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { AlertTriangle, Ban, Home, ClipboardList, GitCompare, ChevronRight } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
@@ -13,6 +13,8 @@ import SeoHead from "@/components/SeoHead";
 
 const Index = () => {
   const formRef = useRef<HTMLDivElement>(null);
+  const [ville, setVille] = useState("");
+  const [codePostal, setCodePostal] = useState("");
 
   const scrollToForm = () => {
     formRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -30,6 +32,10 @@ const Index = () => {
         title="On ne vous demande pas de nous confier votre bien. On a déjà les locataires."
         subtitle="ERA DUPONT ROMAIN IMMOBILIER — votre expert local en gestion locative. Recevez votre estimation en quelques minutes."
         onCta={scrollToForm}
+        ville={ville}
+        codePostal={codePostal}
+        onVilleChange={setVille}
+        onCodePostalChange={setCodePostal}
       />
       <TrustBar />
       <GoogleReviews />
@@ -141,7 +147,7 @@ const Index = () => {
       </section>
 
       <div ref={formRef} id="estimation-form">
-        <EstimationForm />
+        <EstimationForm initialVille={ville} initialCodePostal={codePostal} />
       </div>
       <RecentEstimations />
       
