@@ -26,7 +26,7 @@ const DeleguerOuGerer = () => {
       label: "Temps passé",
       self: "10 à 20 heures par mois (annonces, visites, relances, démarches)",
       selfScore: "negatif",
-      era: "Quelques minutes pour consulter votre tableau de bord",
+      era: "Zéro contrainte : vous suivez tout en temps réel depuis votre espace propriétaire",
       eraScore: "positif",
     },
     {
