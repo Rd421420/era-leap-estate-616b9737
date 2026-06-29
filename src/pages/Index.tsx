@@ -10,7 +10,6 @@ import RecentEstimations from "@/components/RecentEstimations";
 import FAQ from "@/components/FAQ";
 import SeoHead from "@/components/SeoHead";
 
-
 const Index = () => {
   const formRef = useRef<HTMLDivElement>(null);
   const [ville, setVille] = useState("");
@@ -29,7 +28,7 @@ const Index = () => {
       />
       <LandingHero
         eyebrow="ESTIMATION LOCATIVE GRATUITE · PERPIGNAN ET LE 66"
-        title="Combien pouvez-vous louer votre bien à Perpignan ?"
+        title="Combien pouvez-vous louer votre bien à Perpignan ou en dans le 66 ?"
         subtitle="Recevez gratuitement l'estimation du loyer de votre bien, basée sur le marché réel de votre rue. Réponse sous 24 h par votre expert local ERA Dupont Romain."
         onCta={scrollToForm}
         ville={ville}
@@ -150,7 +149,7 @@ const Index = () => {
         <EstimationForm initialVille={ville} initialCodePostal={codePostal} />
       </div>
       <RecentEstimations />
-      
+
       <FAQ />
     </>
   );
