@@ -35,14 +35,13 @@ const LocalAgencySection = ({ onCta, image, imageAlt }: LocalAgencySectionProps)
               Votre agence locale à Perpignan
             </h2>
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-              ERA Dupont Romain est implantée au cœur de Perpignan depuis des
-              années. On connaît chaque quartier, du centre historique au
-              Moulin-à-Vent, en passant par Saint-Assiscle et la Réal — et
-              surtout, on sait à quels loyers les biens se louent vraiment.
+              ERA Dupont Romain est implantée au cœur de Perpignan depuis des 15 ans. On connaît chaque quartier, du
+              centre historique au Moulin-à-Vent, en passant par Saint-Assiscle et la Réal — et surtout, on sait à quels
+              loyers les biens se louent vraiment.
             </p>
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-              Vous êtes accompagné par une équipe joignable, qui visite vos
-              biens, rencontre vos locataires, et vous parle franchement.
+              Une équipe joignable, présente sur le terrain et honnête : nous visitons vos biens, rencontrons vos
+              locataires et vous tenons informé..
             </p>
             <Button size="lg" onClick={onCta} className="shadow-era">
               Recevoir mon analyse

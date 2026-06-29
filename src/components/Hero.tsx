@@ -20,21 +20,16 @@ const Hero = ({ onScrollToForm }: HeroProps) => {
           {/* Left Column - Content */}
           <div className="text-center lg:text-left space-y-6">
             <div className="inline-block mb-4">
-              <img
-                src={eraLogo}
-                alt="ERA DUPONT ROMAIN IMMOBILIER"
-                className="h-16 md:h-20 object-contain"
-              />
+              <img src={eraLogo} alt="ERA DUPONT ROMAIN IMMOBILIER" className="h-16 md:h-20 object-contain" />
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-foreground leading-tight">
-              Estimation locative{" "}
-              <span className="text-gradient">offerte</span> à Perpignan
+              Estimation locative <span className="text-gradient">offerte</span> à Perpignan
             </h1>
 
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto lg:mx-0">
-              ERA DUPONT ROMAIN IMMOBILIER — votre expert local en gestion locative. 
-              Recevez votre estimation en quelques minutes.
+              ERA DUPONT ROMAIN IMMOBILIER — votre expert local en gestion locative. Recevez votre estimation en
+              quelques minutes.
             </p>
 
             <div className="flex flex-wrap items-center gap-2 text-sm justify-center lg:justify-start">
@@ -56,7 +51,10 @@ const Hero = ({ onScrollToForm }: HeroProps) => {
             {/* Special Offer Banner */}
             <div className="bg-gradient-to-r from-primary/10 to-primary/5 border-l-4 border-primary rounded-lg p-4 max-w-2xl mx-auto lg:mx-0">
               <p className="text-sm md:text-base font-semibold text-foreground flex items-center gap-2">
-                🎁 <span>Offre spéciale : Remboursement de la prime GLI sur 12 mois pour tout mandat de gestion, sans engagement</span>
+                🎁{" "}
+                <span>
+                  Offre spéciale : Remboursement de la prime GLI sur 6 mois pour tout mandat de gestion, sans engagement
+                </span>
               </p>
             </div>
 
