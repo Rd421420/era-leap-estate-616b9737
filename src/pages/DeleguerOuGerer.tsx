@@ -61,7 +61,7 @@ const DeleguerOuGerer = () => {
       label: "Relation locataire",
       self: "Relation directe (mais conflits à gérer seul)",
       selfScore: "neutre",
-      era: "On porte la charge mentale, vous gardez le lien si vous le souhaitez",
+      era: " Fini les sollicitations et les imprévus du locataire : nous nous occupons de tout.",
       eraScore: "positif",
     },
     {
