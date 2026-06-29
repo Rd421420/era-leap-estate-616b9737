@@ -22,19 +22,73 @@ const DeleguerOuGerer = () => {
   };
 
   const comparisons = [
-    { label: "Temps passé", self: "10 à 20 heures par mois (annonces, visites, relances, démarches)", selfScore: "negatif", era: "Quelques minutes pour consulter votre tableau de bord", eraScore: "positif" },
-    { label: "Coût direct", self: "Aucun frais d'agence", selfScore: "positif", era: "Honoraires de gestion (en % du loyer)", eraScore: "negatif" },
-    { label: "Risque d'impayés", self: "Aucune garantie. Contentieux à votre charge", selfScore: "negatif", era: "GLI incluse : loyers payés même en cas de défaut", eraScore: "positif" },
-    { label: "Vacance locative", self: "Dépend de votre réseau et de votre visibilité", selfScore: "neutre", era: "Vivier de locataires pré-qualifiés, délais réduits", eraScore: "positif" },
-    { label: "Conformité du bail et diagnostics", self: "Vous êtes responsable des erreurs juridiques", selfScore: "negatif", era: "Bail rédigé par des professionnels, à jour des lois", eraScore: "positif" },
-    { label: "Relation locataire", self: "Relation directe (mais conflits à gérer seul)", selfScore: "neutre", era: "On porte la charge mentale, vous gardez le lien si vous le souhaitez", eraScore: "positif" },
-    { label: "Fiscalité et déclarations", self: "À faire vous-même ou avec un comptable (coût supplémentaire)", selfScore: "negatif", era: "Suivi fiscal inclus dans la gestion", eraScore: "positif" },
+    {
+      label: "Temps passé",
+      self: "10 à 20 heures par mois (annonces, visites, relances, démarches)",
+      selfScore: "negatif",
+      era: "Quelques minutes pour consulter votre tableau de bord",
+      eraScore: "positif",
+    },
+    {
+      label: "Coût direct",
+      self: "Aucun frais d'agence",
+      selfScore: "positif",
+      era: "Honoraires de gestion (en % du loyer)",
+      eraScore: "negatif",
+    },
+    {
+      label: "Risque d'impayés",
+      self: "Aucune garantie. Contentieux à votre charge",
+      selfScore: "negatif",
+      era: "GLI incluse : loyers payés même en cas de défaut de paiement",
+      eraScore: "positif",
+    },
+    {
+      label: "Vacance locative",
+      self: "Dépend de votre réseau et de votre visibilité",
+      selfScore: "neutre",
+      era: "Vivier de locataires pré-qualifiés, délais réduits",
+      eraScore: "positif",
+    },
+    {
+      label: "Conformité du bail et diagnostics",
+      self: "Vous êtes responsable des erreurs juridiques",
+      selfScore: "negatif",
+      era: "Bail rédigé par des professionnels, à jour des lois",
+      eraScore: "positif",
+    },
+    {
+      label: "Relation locataire",
+      self: "Relation directe (mais conflits à gérer seul)",
+      selfScore: "neutre",
+      era: "On porte la charge mentale, vous gardez le lien si vous le souhaitez",
+      eraScore: "positif",
+    },
+    {
+      label: "Fiscalité et déclarations",
+      self: "À faire vous-même ou avec un comptable (coût supplémentaire)",
+      selfScore: "negatif",
+      era: "Suivi fiscal inclus dans la gestion",
+      eraScore: "positif",
+    },
   ];
 
   const coutsCaches = [
-    { icon: Home, title: "La vacance qui s'éternise", desc: "Un bien vacant 2 mois coûte déjà plus cher qu'une année d'honoraires d'agence. Sans vivier de candidats et sans visibilité optimisée, les trous locatifs s'allongent." },
-    { icon: ShieldAlert, title: "L'impayé qui tombe mal", desc: "Un seul locataire qui ne paie plus, et c'est des mois de tracas, de procédures et de pertes financières. Sans garantie loyers impayés, vous assumez seul le risque." },
-    { icon: FileWarning, title: "L'erreur juridique qui coûte cher", desc: "Un bail mal rédigé, un diagnostic oublié, une clause non conforme : une simple erreur peut invalider une procédure d'expulsion ou vous exposer à des sanctions." },
+    {
+      icon: Home,
+      title: "La vacance qui s'éternise",
+      desc: "Un bien vacant 2 mois coûte déjà plus cher qu'une année d'honoraires d'agence. Sans vivier de candidats et sans visibilité optimisée, les trous locatifs s'allongent.",
+    },
+    {
+      icon: ShieldAlert,
+      title: "L'impayé qui tombe mal",
+      desc: "Un seul locataire qui ne paie plus, et c'est des mois de tracas, de procédures et de pertes financières. Sans garantie loyers impayés, vous assumez seul le risque.",
+    },
+    {
+      icon: FileWarning,
+      title: "L'erreur juridique qui coûte cher",
+      desc: "Un bail mal rédigé, un diagnostic oublié, une clause non conforme : une simple erreur peut invalider une procédure d'expulsion ou vous exposer à des sanctions.",
+    },
   ];
 
   const faq = [
@@ -91,13 +145,17 @@ const DeleguerOuGerer = () => {
                   <th className="text-left py-4 px-4 font-heading text-lg w-1/4">Critère</th>
                   <th className="text-left py-4 px-4 font-heading text-lg w-[37.5%]">
                     <div className="flex items-center gap-2">
-                      <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-muted text-xs font-bold">1</span>
+                      <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-muted text-xs font-bold">
+                        1
+                      </span>
                       Gérer soi-même
                     </div>
                   </th>
                   <th className="text-left py-4 px-4 font-heading text-lg w-[37.5%]">
                     <div className="flex items-center gap-2">
-                      <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-primary text-primary-foreground text-xs font-bold">2</span>
+                      <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-primary text-primary-foreground text-xs font-bold">
+                        2
+                      </span>
                       Déléguer à ERA
                     </div>
                   </th>
