@@ -48,7 +48,7 @@ const GestionLocative = () => {
     {
       icon: UserCheck,
       title: "Recherche et sélection des locataires",
-      desc: "Nous diffusons votre bien, organisons les visites et filtrons les dossiers pour ne vous présenter que des candidats solvables et sérieux.",
+      desc: "Nous diffusons votre bien, organisons les visites et sélectionons les dossiers pour ne vous présenter uniquement des candidats solvables et sérieux.",
     },
     {
       icon: FileText,
@@ -63,12 +63,12 @@ const GestionLocative = () => {
     {
       icon: Receipt,
       title: "Encaissement et quittances",
-      desc: "Paiement mensuel sécurisé, quittances automatiques et suivi de vos revenus locatifs en temps réel. Vous encaissez sans vous en occuper.",
+      desc: "Paiement mensuel sécurisé, quittances automatiques et suivi de vos revenus locatifs en temps réel. Vous encaissez les loyers sans vous en occuper.",
     },
     {
       icon: Bell,
       title: "Relances et impayés",
-      desc: "Suivi des paiements, relances préventives et gestion des contentieux si besoin. Nous sommes votre bouclier contre les impayés.",
+      desc: "Suivi des paiements, relances préventives et gestion des contentieux si besoin.",
     },
     {
       icon: Wrench,
