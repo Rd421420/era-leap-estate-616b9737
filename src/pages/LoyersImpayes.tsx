@@ -42,7 +42,7 @@ const LoyersImpayes = () => {
   return (
     <>
       <SeoHead
-        title="Loyers impayés Perpignan : que faire ? | ERA Dupont Romain"
+        title="Que faut-il faire en cas d'impayés de loyers ? | ERA Dupont Romain"
         description="Loyers impayés à Perpignan ? On vous aide à reprendre la main et à sécuriser vos loyers à venir (garantie loyers impayés). Conseil gratuit sous 24h."
         path="/loyers-impayes-perpignan"
         type="article"
@@ -68,7 +68,8 @@ const LoyersImpayes = () => {
                 <MessageCircle className="h-6 w-6 text-primary mb-4" />
                 <h3 className="font-heading text-lg font-bold mb-2">Les relances ne suffisent plus</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">
-                  Vous avez déjà envoyé des mails, fait des appels, peut-être même mis en demeure… et le loyer n'arrive toujours pas. C'est usant et vous perdez du temps.
+                  Vous avez déjà envoyé des mails, fait des appels, peut-être même mis en demeure… et le loyer n'arrive
+                  toujours pas. C'est usant et vous perdez du temps.
                 </p>
               </CardContent>
             </Card>
@@ -77,7 +78,8 @@ const LoyersImpayes = () => {
                 <Shield className="h-6 w-6 text-primary mb-4" />
                 <h3 className="font-heading text-lg font-bold mb-2">La procédure m'angoisse</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">
-                  Assignation en justice, huissier, expulsion… vous ne savez pas par où commencer ni combien ça prend. Vous avez besoin d'un interlocuteur qui connaît le terrain.
+                  Assignation en justice, huissier, expulsion… vous ne savez pas par où commencer ni combien ça prend.
+                  Vous avez besoin d'un interlocuteur qui connaît le terrain.
                 </p>
               </CardContent>
             </Card>
@@ -86,7 +88,8 @@ const LoyersImpayes = () => {
                 <RefreshCw className="h-6 w-6 text-primary mb-4" />
                 <h3 className="font-heading text-lg font-bold mb-2">Je veux éviter que ça recommence</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">
-                  Vous vous demandez comment sécuriser vos futurs loyers et éviter de revivre cette situation. La garantie loyers impayés est peut-être la solution.
+                  Vous vous demandez comment sécuriser vos futurs loyers et éviter de revivre cette situation. La
+                  garantie loyers impayés est peut-être la solution.
                 </p>
               </CardContent>
             </Card>
@@ -99,24 +102,33 @@ const LoyersImpayes = () => {
           <SectionHeading title="Comment on vous aide" />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             <div className="relative rounded-lg border bg-card p-6 shadow-sm">
-              <span className="absolute -top-3 left-6 inline-flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground text-sm font-bold">1</span>
+              <span className="absolute -top-3 left-6 inline-flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground text-sm font-bold">
+                1
+              </span>
               <h3 className="font-heading text-lg font-bold mt-4 mb-2">Point de situation gratuit</h3>
               <p className="text-muted-foreground text-sm leading-relaxed">
-                On échange en toute confidentialité sur votre situation : arriérés, bail en cours, état du dossier. Pas de jugement, juste un diagnostic clair.
+                On échange en toute confidentialité sur votre situation : arriérés, bail en cours, état du dossier. Pas
+                de jugement, juste un diagnostic clair.
               </p>
             </div>
             <div className="relative rounded-lg border bg-card p-6 shadow-sm">
-              <span className="absolute -top-3 left-6 inline-flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground text-sm font-bold">2</span>
+              <span className="absolute -top-3 left-6 inline-flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground text-sm font-bold">
+                2
+              </span>
               <h3 className="font-heading text-lg font-bold mt-4 mb-2">On structure la suite</h3>
               <p className="text-muted-foreground text-sm leading-relaxed">
-                Selon votre cas, on vous oriente vers la bonne procédure, on active les garanties en place et on prépare le relogement si nécessaire. Vous n'êtes pas seul.
+                Selon votre cas, on vous oriente vers la bonne procédure, on active les garanties en place et on prépare
+                le relogement si nécessaire. Vous n'êtes pas seul.
               </p>
             </div>
             <div className="relative rounded-lg border bg-card p-6 shadow-sm">
-              <span className="absolute -top-3 left-6 inline-flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground text-sm font-bold">3</span>
+              <span className="absolute -top-3 left-6 inline-flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground text-sm font-bold">
+                3
+              </span>
               <h3 className="font-heading text-lg font-bold mt-4 mb-2">Gestion sécurisée avec GLI</h3>
               <p className="text-muted-foreground text-sm leading-relaxed">
-                Pour la suite, on vous propose une gestion locative avec garantie loyers impayés incluse. Vos loyers sont protégés, même si le locataire ne paie plus.
+                Pour la suite, on vous propose une gestion locative avec garantie loyers impayés incluse. Vos loyers
+                sont protégés, même si le locataire ne paie plus.
               </p>
             </div>
           </div>
@@ -129,7 +141,8 @@ const LoyersImpayes = () => {
             <BadgeCheck className="h-8 w-8 text-primary mx-auto mb-4" />
             <h3 className="font-heading text-xl font-bold mb-2">GLI remboursée pendant 12 mois</h3>
             <p className="text-muted-foreground leading-relaxed">
-              Pour tout nouveau mandat de gestion signé chez ERA DUPONT ROMAIN IMMOBILIER, la garantie loyers impayés est remboursée pendant 12 mois. Sans engagement de durée, sans surprise.
+              Pour tout nouveau mandat de gestion signé chez ERA DUPONT ROMAIN IMMOBILIER, la garantie loyers impayés
+              est remboursée pendant 12 mois. Sans engagement de durée, sans surprise.
             </p>
           </div>
         </div>
