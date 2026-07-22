@@ -1,0 +1,143 @@
+{
+  "version": 1,
+  "sdk_version": "0.24.0",
+  "path": "/functions/v1/mcp",
+  "auth": {
+    "type": "none"
+  },
+  "mcp": {
+    "server": {
+      "name": "era-dupont-romain-mcp",
+      "version": "0.1.0",
+      "title": "ERA Dupont Romain — Estimation locative"
+    },
+    "tools": [
+      {
+        "name": "get_agency_info",
+        "title": "Informations sur l'agence ERA Dupont Romain",
+        "description": "Retourne les coordonnées et services de l'agence ERA Dupont Romain (Perpignan et Pyrénées-Orientales) : téléphone, site web, zone d'intervention, note Google et prestations proposées.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "submit_estimation",
+        "title": "Soumettre une demande d'estimation locative",
+        "description": "Envoie une demande d'estimation de loyer à ERA Dupont Romain (Perpignan et 66). Coordonnées obligatoires (nom, prénom, email, téléphone) et informations sur le bien optionnelles. La réponse est envoyée par l'agence sous 24 h.",
+        "annotations": {
+          "readOnlyHint": false,
+          "destructiveHint": false,
+          "idempotentHint": false,
+          "openWorldHint": true
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "nom": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Nom de famille du propriétaire."
+            },
+            "prenom": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Prénom du propriétaire."
+            },
+            "email": {
+              "type": "string",
+              "format": "email",
+              "description": "Adresse email de contact."
+            },
+            "telephone": {
+              "type": "string",
+              "minLength": 6,
+              "description": "Numéro de téléphone français."
+            },
+            "ville": {
+              "type": "string",
+              "description": "Ville du bien (ex. Perpignan)."
+            },
+            "codePostal": {
+              "type": "string",
+              "description": "Code postal du bien."
+            },
+            "adresse": {
+              "type": "string",
+              "description": "Adresse ou rue du bien."
+            },
+            "type": {
+              "type": "string",
+              "enum": [
+                "appartement",
+                "maison",
+                "immeuble",
+                "autre"
+              ],
+              "description": "Type de bien."
+            },
+            "surface": {
+              "type": "string",
+              "description": "Surface en m²."
+            },
+            "pieces": {
+              "type": "string",
+              "description": "Nombre de pièces."
+            },
+            "chambres": {
+              "type": "string",
+              "description": "Nombre de chambres."
+            },
+            "dpe": {
+              "type": "string",
+              "enum": [
+                "A",
+                "B",
+                "C",
+                "D",
+                "E",
+                "F",
+                "G",
+                "non-connu"
+              ],
+              "description": "Classe DPE du bien."
+            },
+            "meuble": {
+              "type": "string",
+              "enum": [
+                "oui",
+                "non"
+              ],
+              "description": "Bien meublé ou non."
+            },
+            "gestion": {
+              "type": "string",
+              "enum": [
+                "oui",
+                "non",
+                "peut-etre"
+              ],
+              "description": "Intérêt pour une gestion locative par l'agence."
+            }
+          },
+          "required": [
+            "nom",
+            "prenom",
+            "email",
+            "telephone"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      }
+    ]
+  }
+}
