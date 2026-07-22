@@ -39,7 +39,6 @@
           "openWorldHint": true
         },
         "inputSchema": {
-          "$schema": "http://json-schema.org/draft-07/schema#",
           "type": "object",
           "properties": {
             "nom": {
@@ -55,7 +54,6 @@
             "email": {
               "type": "string",
               "format": "email",
-              "pattern": "^(?!\\.)(?!.*\\.\\.)([A-Za-z0-9_'+\\-\\.]*)[A-Za-z0-9_+-]@([A-Za-z0-9][A-Za-z0-9\\-]*\\.)+[A-Za-z]{2,}$",
               "description": "Adresse email de contact."
             },
             "telephone": {
@@ -64,41 +62,40 @@
               "description": "Numéro de téléphone français."
             },
             "ville": {
-              "description": "Ville du bien (ex. Perpignan).",
-              "type": "string"
+              "type": "string",
+              "description": "Ville du bien (ex. Perpignan)."
             },
             "codePostal": {
-              "description": "Code postal du bien.",
-              "type": "string"
+              "type": "string",
+              "description": "Code postal du bien."
             },
             "adresse": {
-              "description": "Adresse ou rue du bien.",
-              "type": "string"
+              "type": "string",
+              "description": "Adresse ou rue du bien."
             },
             "type": {
-              "description": "Type de bien.",
               "type": "string",
               "enum": [
                 "appartement",
                 "maison",
                 "immeuble",
                 "autre"
-              ]
+              ],
+              "description": "Type de bien."
             },
             "surface": {
-              "description": "Surface en m².",
-              "type": "string"
+              "type": "string",
+              "description": "Surface en m²."
             },
             "pieces": {
-              "description": "Nombre de pièces.",
-              "type": "string"
+              "type": "string",
+              "description": "Nombre de pièces."
             },
             "chambres": {
-              "description": "Nombre de chambres.",
-              "type": "string"
+              "type": "string",
+              "description": "Nombre de chambres."
             },
             "dpe": {
-              "description": "Classe DPE du bien.",
               "type": "string",
               "enum": [
                 "A",
@@ -109,24 +106,25 @@
                 "F",
                 "G",
                 "non-connu"
-              ]
+              ],
+              "description": "Classe DPE du bien."
             },
             "meuble": {
-              "description": "Bien meublé ou non.",
               "type": "string",
               "enum": [
                 "oui",
                 "non"
-              ]
+              ],
+              "description": "Bien meublé ou non."
             },
             "gestion": {
-              "description": "Intérêt pour une gestion locative par l'agence.",
               "type": "string",
               "enum": [
                 "oui",
                 "non",
                 "peut-etre"
-              ]
+              ],
+              "description": "Intérêt pour une gestion locative par l'agence."
             }
           },
           "required": [
@@ -134,7 +132,9 @@
             "prenom",
             "email",
             "telephone"
-          ]
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
         },
         "outputSchema": null
       }

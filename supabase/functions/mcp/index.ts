@@ -52,7 +52,7 @@ Services : ${AGENCY.services.join(", ")}`
 
 // src/lib/mcp/tools/submit-estimation.ts
 import { defineTool as defineTool2 } from "npm:@lovable.dev/mcp-js@0.24.0";
-import { z } from "npm:zod@^4.4.3";
+import { z } from "npm:zod@^3.23.8";
 var N8N_WEBHOOK_URL = "https://n8n.srv864634.hstgr.cloud/webhook/c15fe03b-332b-405e-b285-3c660fb06c0e";
 var submit_estimation_default = defineTool2({
   name: "submit_estimation",
