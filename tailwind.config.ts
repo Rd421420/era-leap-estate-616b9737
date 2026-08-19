@@ -49,6 +49,11 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        navy: {
+          DEFAULT: "hsl(var(--navy))",
+          foreground: "hsl(var(--navy-foreground))",
+          muted: "hsl(var(--navy-muted))",
+        },
         era: {
           red: "hsl(var(--era-red))",
           "red-light": "hsl(var(--era-red-light))",
@@ -56,8 +61,8 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['Open Sans', 'sans-serif'],
-        heading: ['Montserrat', 'sans-serif'],
+        sans: ['Hind', 'sans-serif'],
+        heading: ['Archivo Black', 'sans-serif'],
       },
       borderRadius: {
         lg: "var(--radius)",
