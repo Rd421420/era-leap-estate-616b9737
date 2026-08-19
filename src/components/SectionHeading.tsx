@@ -6,24 +6,26 @@ interface SectionHeadingProps {
 }
 
 const SectionHeading = ({ eyebrow, title, subtitle, align = "center" }: SectionHeadingProps) => {
-  const alignment = align === "center" ? "text-center mx-auto" : "text-left";
+  const alignment = align === "center" ? "text-center mx-auto items-center" : "text-left items-start";
   return (
-    <div className={`max-w-3xl ${alignment} mb-10 md:mb-12`}>
+    <div className={`flex max-w-3xl flex-col ${alignment} mb-10 md:mb-12`}>
       {eyebrow && (
-        <span className="inline-flex items-center rounded-full bg-primary/10 text-primary px-3 py-1 text-xs font-semibold uppercase tracking-wide mb-3">
+        <span className="mb-4 inline-block bg-primary px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary-foreground">
           {eyebrow}
         </span>
       )}
-      <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground leading-tight">
+      <h2 className="font-heading text-2xl uppercase leading-tight tracking-tight text-foreground md:text-4xl">
         {title}
       </h2>
+      <span className="aida-rule mt-4" aria-hidden />
       {subtitle && (
-        <p className="mt-3 text-base md:text-lg text-muted-foreground leading-relaxed">
+        <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
           {subtitle}
         </p>
       )}
     </div>
   );
 };
+
 
 export default SectionHeading;

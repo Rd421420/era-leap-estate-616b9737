@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Hind:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -13,7 +13,12 @@
     --era-red-light: 351 89% 57%;
     --era-red-dark: 351 89% 37%;
     
-    --background: 0 0% 98%; /* #FAFAFA */
+    /* Bleu confiance #0F2A47 */
+    --navy: 211 65% 17%;
+    --navy-foreground: 0 0% 100%;
+    --navy-muted: 211 30% 75%;
+
+    --background: 210 20% 96%; /* #F4F6F8 */
     --foreground: 0 0% 12%; /* #1E1E1E */
 
     --card: 0 0% 100%;
@@ -64,12 +69,13 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: 'Hind', -apple-system, BlinkMacSystemFont, sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
-    font-weight: 700;
+    font-family: 'Archivo Black', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 400;
+    letter-spacing: -0.01em;
   }
 }
 
@@ -81,6 +87,10 @@
   
   .shadow-era {
     box-shadow: var(--shadow-strong);
+  }
+
+  .aida-rule {
+    @apply block h-1.5 w-20 bg-primary;
   }
 }
 

@@ -37,10 +37,14 @@ const Index = () => {
         onCodePostalChange={setCodePostal}
       />
       <TrustBar />
-      <GoogleReviews />
+
+      {/* DÉSIR — preuve sociale */}
+      <div className="bg-card">
+        <GoogleReviews />
+      </div>
 
       {/* Vidéo de présentation */}
-      <section className="py-12 md:py-16">
+      <section className="py-12 md:py-16 bg-background">
         <div className="container mx-auto px-4 max-w-4xl">
           <div className="relative rounded-2xl overflow-hidden shadow-xl aspect-video bg-muted">
             <iframe
@@ -55,17 +59,23 @@ const Index = () => {
       </section>
 
       {/* SECTION "Quelle est votre situation ?" */}
-      <section className="py-16 bg-muted/20">
+      <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4">
-          <h2 className="font-heading text-2xl md:text-3xl font-bold text-center mb-10">
-            Quelle est votre situation ?
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
+          <div className="mb-12">
+            <h2 className="font-heading text-2xl md:text-4xl uppercase tracking-tight mb-4">
+              Quelle est votre <span className="text-primary">situation locative</span> ?
+            </h2>
+            <span className="aida-rule" aria-hidden />
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
             <Link to="/louer-bien-dpe-f-g-perpignan" className="group">
-              <Card className="h-full transition-colors group-hover:border-primary group-hover:bg-primary/5">
-                <CardContent className="p-6 flex flex-col h-full">
-                  <AlertTriangle className="h-6 w-6 text-primary mb-4" />
-                  <h3 className="font-heading text-lg font-bold mb-2 group-hover:text-primary transition-colors">
+              <Card className="h-full rounded-none border border-border bg-card shadow-sm transition-all group-hover:border-primary">
+                <CardContent className="p-8 flex flex-col h-full">
+                  <div className="mb-6 flex h-12 w-12 items-center justify-center bg-muted transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                    <span className="font-heading text-lg">01</span>
+                  </div>
+                  <AlertTriangle className="mb-4 h-5 w-5 text-primary" aria-hidden />
+                  <h3 className="font-heading text-base uppercase leading-tight mb-2 group-hover:text-primary transition-colors">
                     Mon bien est classé F ou G
                   </h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">
@@ -78,10 +88,13 @@ const Index = () => {
               </Card>
             </Link>
             <Link to="/loyers-impayes-perpignan" className="group">
-              <Card className="h-full transition-colors group-hover:border-primary group-hover:bg-primary/5">
-                <CardContent className="p-6 flex flex-col h-full">
-                  <Ban className="h-6 w-6 text-primary mb-4" />
-                  <h3 className="font-heading text-lg font-bold mb-2 group-hover:text-primary transition-colors">
+              <Card className="h-full rounded-none border border-border bg-card shadow-sm transition-all group-hover:border-primary">
+                <CardContent className="p-8 flex flex-col h-full">
+                  <div className="mb-6 flex h-12 w-12 items-center justify-center bg-muted transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                    <span className="font-heading text-lg">02</span>
+                  </div>
+                  <Ban className="mb-4 h-5 w-5 text-primary" aria-hidden />
+                  <h3 className="font-heading text-base uppercase leading-tight mb-2 group-hover:text-primary transition-colors">
                     Mon locataire ne paie pas
                   </h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">
@@ -94,10 +107,13 @@ const Index = () => {
               </Card>
             </Link>
             <Link to="/logement-ne-se-loue-pas-perpignan" className="group">
-              <Card className="h-full transition-colors group-hover:border-primary group-hover:bg-primary/5">
-                <CardContent className="p-6 flex flex-col h-full">
-                  <Home className="h-6 w-6 text-primary mb-4" />
-                  <h3 className="font-heading text-lg font-bold mb-2 group-hover:text-primary transition-colors">
+              <Card className="h-full rounded-none border border-border bg-card shadow-sm transition-all group-hover:border-primary">
+                <CardContent className="p-8 flex flex-col h-full">
+                  <div className="mb-6 flex h-12 w-12 items-center justify-center bg-muted transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                    <span className="font-heading text-lg">03</span>
+                  </div>
+                  <Home className="mb-4 h-5 w-5 text-primary" aria-hidden />
+                  <h3 className="font-heading text-base uppercase leading-tight mb-2 group-hover:text-primary transition-colors">
                     Mon logement ne se loue pas
                   </h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">
@@ -110,10 +126,13 @@ const Index = () => {
               </Card>
             </Link>
             <Link to="/gestion-locative-perpignan" className="group">
-              <Card className="h-full transition-colors group-hover:border-primary group-hover:bg-primary/5">
-                <CardContent className="p-6 flex flex-col h-full">
-                  <ClipboardList className="h-6 w-6 text-primary mb-4" />
-                  <h3 className="font-heading text-lg font-bold mb-2 group-hover:text-primary transition-colors">
+              <Card className="h-full rounded-none border border-border bg-card shadow-sm transition-all group-hover:border-primary">
+                <CardContent className="p-8 flex flex-col h-full">
+                  <div className="mb-6 flex h-12 w-12 items-center justify-center bg-muted transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                    <span className="font-heading text-lg">04</span>
+                  </div>
+                  <ClipboardList className="mb-4 h-5 w-5 text-primary" aria-hidden />
+                  <h3 className="font-heading text-base uppercase leading-tight mb-2 group-hover:text-primary transition-colors">
                     J'en ai marre de tout gérer
                   </h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">
@@ -126,10 +145,13 @@ const Index = () => {
               </Card>
             </Link>
             <Link to="/deleguer-ou-gerer-soi-meme" className="group">
-              <Card className="h-full transition-colors group-hover:border-primary group-hover:bg-primary/5">
-                <CardContent className="p-6 flex flex-col h-full">
-                  <GitCompare className="h-6 w-6 text-primary mb-4" />
-                  <h3 className="font-heading text-lg font-bold mb-2 group-hover:text-primary transition-colors">
+              <Card className="h-full rounded-none border border-border bg-card shadow-sm transition-all group-hover:border-primary">
+                <CardContent className="p-8 flex flex-col h-full">
+                  <div className="mb-6 flex h-12 w-12 items-center justify-center bg-muted transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                    <span className="font-heading text-lg">05</span>
+                  </div>
+                  <GitCompare className="mb-4 h-5 w-5 text-primary" aria-hidden />
+                  <h3 className="font-heading text-base uppercase leading-tight mb-2 group-hover:text-primary transition-colors">
                     Déléguer ou gérer moi-même ?
                   </h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">
@@ -144,6 +166,23 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* ACTION */}
+      <div className="bg-navy py-14 text-center text-navy-foreground">
+        <div className="container mx-auto px-4">
+          <h2 className="font-heading text-2xl md:text-4xl uppercase tracking-tight">
+            Votre estimation en <span className="text-primary">3 étapes</span>
+          </h2>
+          <p className="mt-4 text-navy-muted">
+            Gratuit, sans engagement de durée · réponse sous 24 h
+          </p>
+          <div className="mt-8 flex justify-center gap-3" aria-hidden>
+            <span className="h-2 w-12 bg-primary" />
+            <span className="h-2 w-12 bg-white/20" />
+            <span className="h-2 w-12 bg-white/20" />
+          </div>
+        </div>
+      </div>
 
       <div ref={formRef} id="estimation-form">
         <EstimationForm initialVille={ville} initialCodePostal={codePostal} />
