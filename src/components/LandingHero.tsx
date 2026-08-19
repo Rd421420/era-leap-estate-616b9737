@@ -19,7 +19,7 @@ interface LandingHeroProps {
 }
 
 const SocialProof = () => (
-  <div className="flex flex-wrap items-center gap-2 text-sm">
+  <div className="flex flex-wrap items-center justify-center gap-2 text-sm">
     <div className="flex items-center gap-0.5" aria-label="Note 4,6 sur 5">
       {[0, 1, 2, 3, 4].map((i) => (
         <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
@@ -29,13 +29,14 @@ const SocialProof = () => (
       href="https://g.page/r/Cf4uH0jFPZDSEBM/review"
       target="_blank"
       rel="noopener noreferrer"
-      className="font-semibold text-foreground hover:text-primary transition-colors"
+      className="font-semibold text-navy-foreground hover:text-primary transition-colors"
     >
       4,6/5 · 136 avis Google
     </a>
-    <span className="text-muted-foreground">· sans engagement de durée</span>
+    <span className="text-navy-muted">· sans engagement de durée</span>
   </div>
 );
+
 
 interface DefaultAsideProps {
   onCta: () => void;
