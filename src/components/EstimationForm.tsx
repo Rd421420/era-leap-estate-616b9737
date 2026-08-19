@@ -366,7 +366,7 @@ const EstimationForm = ({
   const StepIcon = step === 3 ? Building2 : Home;
 
   return (
-    <section id="estimation-form" className="py-16 bg-gradient-to-b from-background to-muted/20">
+    <section id="estimation-form" className="py-16 bg-card">
       <div className="container mx-auto px-4 max-w-3xl">
         {/* Bandeau réassurance */}
         <div className="mb-6 grid grid-cols-2 md:grid-cols-4 gap-3 text-sm">
