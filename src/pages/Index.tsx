@@ -29,8 +29,8 @@ const Index = () => {
       />
       <LandingHero
         eyebrow="ESTIMATION LOCATIVE GRATUITE · PERPIGNAN ET LE 66"
-        title="Combien pouvez-vous louer votre bien à Perpignan ou en dans le 66 ?"
-        subtitle="Recevez gratuitement l'estimation du loyer de votre bien, basée sur le marché réel de votre quartier. Réponse sous 24 h par votre expert local ERA Dupont Romain."
+        title="Combien pouvez-vous louer votre bien à Perpignan ou dans le 66 ?"
+        subtitle="Recevez gratuitement l'estimation du loyer de votre bien, basée sur le marché réel de votre quartier. Estimation par email en quelques minutes, puis rappel de votre expert local ERA Dupont Romain sous 24 h."
         onCta={scrollToForm}
         ville={ville}
         codePostal={codePostal}
