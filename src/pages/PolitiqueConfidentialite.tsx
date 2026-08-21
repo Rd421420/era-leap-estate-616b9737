@@ -320,28 +320,34 @@ const PolitiqueConfidentialite = () => {
               <div className="p-2 bg-primary/10 rounded-lg">
                 <Cookie className="h-5 w-5 text-primary" />
               </div>
-              <h2 className="text-xl font-semibold">Cookies</h2>
+              <h2 className="text-xl font-semibold">Cookies et traceurs</h2>
             </div>
-            <div className="space-y-3 text-muted-foreground">
-              <p>Le site peut utiliser des cookies à des fins :</p>
-              <ul className="list-disc pl-6 space-y-1">
-                <li>techniques,</li>
-                <li>de mesure d'audience,</li>
-                <li>d'amélioration de l'expérience utilisateur.</li>
-              </ul>
-              <p>Les cookies ne permettent pas de vous identifier personnellement.</p>
-              <p>Un bandeau de gestion du consentement permet d'accepter ou refuser les cookies non essentiels.</p>
+            <div className="space-y-4 text-muted-foreground">
+              <p>Le site utilise les traceurs suivants :</p>
+              <div>
+                <p className="font-semibold text-foreground">1. Google Analytics 4 / Google Ads (identifiant G-JD27BBNDM5)</p>
+                <ul className="list-disc pl-6 space-y-1 mt-1">
+                  <li>Finalité : mesure d'audience et suivi des conversions publicitaires.</li>
+                  <li>Durée de vie des cookies : jusqu'à 13 mois.</li>
+                  <li>Déposés uniquement après votre consentement.</li>
+                </ul>
+              </div>
+              <div>
+                <p className="font-semibold text-foreground">2. Cookies YouTube</p>
+                <ul className="list-disc pl-6 space-y-1 mt-1">
+                  <li>Déposés uniquement si vous lancez volontairement la lecture de la vidéo de présentation.</li>
+                </ul>
+              </div>
+              <p>
+                Votre consentement peut être retiré ou modifié à tout moment via le lien
+                <strong className="text-foreground"> « Gérer mes cookies » </strong>
+                situé dans le pied de page du site.
+              </p>
+              <p>Le refus des cookies n'empêche pas l'utilisation du site, qui reste pleinement fonctionnel.</p>
               <p>Vous pouvez également configurer votre navigateur pour bloquer les cookies.</p>
             </div>
           </Card>
 
-          {/* Conclusion */}
-          <Card className="p-6 bg-primary/5 border-primary/20">
-            <p className="text-center text-muted-foreground">
-              ✔️ Cette politique est <strong className="text-foreground">conforme RGPD</strong>, 
-              cohérente avec un site automatisé et adaptée à une agence immobilière de gestion/location.
-            </p>
-          </Card>
         </div>
 
         <div className="mt-12 text-center">
