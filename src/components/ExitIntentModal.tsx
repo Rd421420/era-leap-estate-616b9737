@@ -11,6 +11,8 @@ import {
 } from "@/components/ui/dialog";
 import { supabase } from "@/integrations/supabase/client";
 import { trackEvent } from "@/lib/analytics";
+import { useRateLimit } from "@/hooks/useRateLimit";
+import { useToast } from "@/hooks/use-toast";
 
 const SESSION_KEY = "era_exit_intent_shown";
 const DRAFT_KEY = "era_estimation_draft";
