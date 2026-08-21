@@ -342,7 +342,7 @@ const EstimationForm = ({
         clear();
         toast({
           title: "✅ Demande envoyée !",
-          description: "Votre estimation arrive dans quelques instants par email.",
+          description: "Votre estimation arrive par email dans quelques minutes.",
         });
         navigate("/merci", { state: { prenom: formData.prenom } });
       } else {
@@ -377,7 +377,7 @@ const EstimationForm = ({
           </div>
           <div className="flex items-center gap-2 bg-card border border-border rounded-lg px-3 py-2 shadow-sm">
             <Clock className="h-4 w-4 text-primary shrink-0" />
-            <span className="font-medium">Sous 24h</span>
+            <span className="font-medium">Email en quelques minutes</span>
           </div>
           <div className="flex items-center gap-2 bg-card border border-border rounded-lg px-3 py-2 shadow-sm">
             <Shield className="h-4 w-4 text-primary shrink-0" />

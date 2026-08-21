@@ -10,6 +10,11 @@ export default defineTool({
   description:
     "Envoie une demande d'estimation de loyer à ERA Dupont Romain (Perpignan et 66). Coordonnées obligatoires (nom, prénom, email, téléphone) et informations sur le bien optionnelles. La réponse est envoyée par l'agence sous 24 h.",
   inputSchema: {
+    consentement_rgpd: z
+      .boolean()
+      .describe(
+        "Confirmation que la personne a explicitement consenti à être recontactée par ERA Dupont Romain et a été informée de la politique de confidentialité : https://era-dupontromain.immo/confidentialite",
+      ),
     nom: z.string().min(1).describe("Nom de famille du propriétaire."),
     prenom: z.string().min(1).describe("Prénom du propriétaire."),
     email: z.string().email().describe("Adresse email de contact."),
@@ -41,8 +46,23 @@ export default defineTool({
     openWorldHint: true,
   },
   handler: async (input) => {
+    const { consentement_rgpd, ...fields } = input;
+
+    if (consentement_rgpd !== true) {
+      return {
+        content: [
+          {
+            type: "text" as const,
+            text: "Consentement RGPD manquant : la demande n'a pas été transmise. La personne doit explicitement accepter d'être recontactée par ERA Dupont Romain et être informée de la politique de confidentialité (https://era-dupontromain.immo/confidentialite).",
+          },
+        ],
+        isError: true,
+      };
+    }
+
     const payload = {
-      ...input,
+      ...fields,
+      rgpd: "true",
       source: "mcp",
       source_form: "mcp-server",
       timestamp: new Date().toISOString(),

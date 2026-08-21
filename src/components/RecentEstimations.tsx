@@ -30,28 +30,32 @@ const RecentEstimations = () => {
           'https://docs.google.com/spreadsheets/d/1q0g4AqqlWZ01DgRF2kmKn7t_Te6jH3AuFPs41jPaCGY/gviz/tq?tqx=out:csv'
         );
         const csvText = await response.text();
-        
-        // Parse CSV (simple parsing for demo)
+
         const lines = csvText.split('\n').slice(1); // Skip header
         const parsed = lines
-          .slice(0, 5)
-          .map(line => {
-            const values = line.split(',').map(v => v.replace(/"/g, '').trim());
+          .map((line) => {
+            const values = line.split(',').map((v) => v.replace(/"/g, '').trim());
             return {
-              date: values[0] || new Date().toLocaleDateString('fr-FR'),
-              ville: values[1] || 'Perpignan',
-              type: values[2] || 'Appartement',
-              pieces: values[3] || 'T3',
-              surface: values[4] || '75',
-              loyer: values[5] || '800'
+              date: values[0] ?? '',
+              ville: values[1] ?? '',
+              type: values[2] ?? '',
+              pieces: values[3] ?? '',
+              surface: values[4] ?? '',
+              loyer: values[5] ?? '',
             };
           })
-          .filter(e => e.ville);
+          // On n'affiche que les lignes réellement complètes du CSV
+          .filter(
+            (e) =>
+              e.date && e.ville && e.type && e.pieces && e.surface && e.loyer &&
+              /\d/.test(e.loyer) && /\d/.test(e.surface)
+          )
+          .slice(0, 5);
 
-        setEstimations(parsed.length > 0 ? parsed : getMockEstimations());
+        setEstimations(parsed);
       } catch (error) {
         console.error('Erreur chargement estimations:', error);
-        setEstimations(getMockEstimations());
+        setEstimations([]);
       } finally {
         setLoading(false);
       }
@@ -59,49 +63,6 @@ const RecentEstimations = () => {
 
     fetchEstimations();
   }, []);
-
-  const getMockEstimations = (): Estimation[] => [
-    {
-      date: new Date(Date.now() - 86400000 * 2).toLocaleDateString('fr-FR'),
-      ville: "Perpignan",
-      type: "Appartement",
-      pieces: "T3",
-      surface: "75",
-      loyer: "850"
-    },
-    {
-      date: new Date(Date.now() - 86400000 * 3).toLocaleDateString('fr-FR'),
-      ville: "Canet-en-Roussillon",
-      type: "Maison",
-      pieces: "T4",
-      surface: "110",
-      loyer: "1250"
-    },
-    {
-      date: new Date(Date.now() - 86400000 * 5).toLocaleDateString('fr-FR'),
-      ville: "Perpignan",
-      type: "Studio",
-      pieces: "T1",
-      surface: "28",
-      loyer: "480"
-    },
-    {
-      date: new Date(Date.now() - 86400000 * 7).toLocaleDateString('fr-FR'),
-      ville: "Saint-Cyprien",
-      type: "Appartement",
-      pieces: "T2",
-      surface: "52",
-      loyer: "720"
-    },
-    {
-      date: new Date(Date.now() - 86400000 * 10).toLocaleDateString('fr-FR'),
-      ville: "Perpignan",
-      type: "Appartement",
-      pieces: "T4",
-      surface: "95",
-      loyer: "1100"
-    }
-  ];
 
   if (loading) {
     return (
@@ -119,6 +80,9 @@ const RecentEstimations = () => {
       </section>
     );
   }
+
+  // Aucune donnée réelle disponible → on masque la section
+  if (estimations.length === 0) return null;
 
   return (
     <section className="py-12 bg-background">

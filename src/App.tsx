@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 import ScrollToTop from "@/components/ScrollToTop";
 import CookieConsent from "@/components/CookieConsent";
+import ExitIntentModal from "@/components/ExitIntentModal";
 
 import Layout from "@/components/layout/Layout";
 import Index from "./pages/Index";
@@ -46,6 +47,7 @@ const App = () => (
           <Route path="*" element={<NotFound />} />
         </Routes>
         <CookieConsent />
+        <ExitIntentModal />
 
       </BrowserRouter>
     </TooltipProvider>
