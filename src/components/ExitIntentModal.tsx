@@ -79,6 +79,9 @@ const ExitIntentModal = () => {
   const [sent, setSent] = useState(false);
   const [error, setError] = useState("");
 
+  const { toast } = useToast();
+  const { checkRateLimit, recordAttempt } = useRateLimit(RATE_LIMIT_CONFIG);
+
   useEffect(() => {
     // Desktop uniquement
     if (typeof window === "undefined") return;
