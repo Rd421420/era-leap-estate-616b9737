@@ -904,7 +904,7 @@ const EstimationForm = ({
                   </Button>
                   <Button
                     type="submit"
-                    disabled={loading || isBlocked}
+                    disabled={loading}
                     size="lg"
                     className="flex-1 bg-primary hover:bg-primary-dark text-primary-foreground font-semibold shadow-lg hover:shadow-xl transition-all hover:scale-[1.02]"
                   >
