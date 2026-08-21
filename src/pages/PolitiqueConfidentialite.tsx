@@ -18,7 +18,10 @@ const PolitiqueConfidentialite = () => {
         <h1 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-2">
           Politique de Confidentialité
         </h1>
-        <p className="text-lg text-muted-foreground mb-8">Données Personnelles</p>
+        <p className="text-lg text-muted-foreground mb-1">Données Personnelles</p>
+        <p className="text-sm text-muted-foreground mb-8">
+          Dernière mise à jour : 21 août 2026
+        </p>
 
         <div className="space-y-8">
           {/* Qui sommes-nous */}
@@ -31,26 +34,27 @@ const PolitiqueConfidentialite = () => {
             </div>
             <div className="space-y-3 text-muted-foreground">
               <p>
-                La société <strong className="text-foreground">ERA DUPONT ROMAIN IMMOBILIER</strong>,<br />
-                SARL au capital social 5.000€,<br />
+                La société <strong className="text-foreground">PERPIGNAN IMMOBILIER (nom commercial : ERA DUPONT ROMAIN IMMOBILIER)</strong>,<br />
+                EURL au capital social de 5.000 €,<br />
                 dont le siège social est situé 2 rue Pierre Rameil, 66000 Perpignan,<br />
                 immatriculée au RCS de Perpignan sous le numéro 530 560 697 00043,<br />
                 exerce une activité d'agence immobilière sous l'enseigne ERA Immobilier.
               </p>
               <p>
-                L'agence ERA DUPONT ROMAIN IMMOBILIER est juridiquement et financièrement indépendante.
+                L'agence PERPIGNAN IMMOBILIER (nom commercial : ERA DUPONT ROMAIN IMMOBILIER) est juridiquement et financièrement indépendante.
                 Elle appartient au réseau de franchise ERA Immobilier sans lien de subordination juridique 
                 ou financière avec ERA France.
               </p>
               <p>
                 La présente politique de confidentialité a pour objet d'informer les utilisateurs du site{" "}
-                <a href="https://era-dupontimmobilier.immo" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">
-                  https://era-dupontimmobilier.immo
+                <a href="https://era-dupontromain.immo" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">
+                  https://era-dupontromain.immo
                 </a>{" "}
                 des modalités de collecte, d'utilisation et de protection de leurs données à caractère personnel.
               </p>
             </div>
           </Card>
+
 
           {/* Cadre légal */}
           <Card className="p-6">
@@ -103,6 +107,11 @@ const PolitiqueConfidentialite = () => {
                 <li>Adresse du logement à estimer</li>
                 <li>Informations liées à votre projet immobilier</li>
               </ul>
+              <p>
+                <strong className="text-foreground">Données de mesure marketing :</strong> identifiant de clic Google (gclid),
+                paramètres de campagne (UTM), page d'arrivée et site référent, collectés lors de l'envoi du formulaire
+                (base légale : intérêt légitime, finalité : mesure de l'efficacité de nos campagnes).
+              </p>
               <p className="text-sm italic">
                 Les champs obligatoires sont signalés lors de la saisie. À défaut, la demande ne pourra pas être traitée.
               </p>
@@ -120,13 +129,37 @@ const PolitiqueConfidentialite = () => {
             <div className="space-y-3 text-muted-foreground">
               <p>Les traitements sont réalisés :</p>
               <ul className="list-disc pl-6 space-y-1">
-                <li>via des webhooks automatisés (outil n8n),</li>
-                <li>sur un serveur VPS hébergé chez Hostinger,</li>
-                <li>avec un stockage sécurisé sur Google Drive et Google Sheets (Google Workspace).</li>
+                <li>hébergement du site par Lovable,</li>
+                <li>transmission des formulaires via une fonction Supabase, puis un outil d'automatisation n8n auto-hébergé sur un serveur VPS Hostinger (Union européenne),</li>
+                <li>stockage interne sur Google Workspace (Drive / Sheets).</li>
               </ul>
               <p>Ces outils sont utilisés exclusivement pour le fonctionnement interne de l'agence.</p>
+              <Separator className="my-4" />
+              <p className="font-semibold text-foreground">Transferts hors Union européenne</p>
+              <p>
+                Certains prestataires (Google, Supabase, Lovable) peuvent traiter des données hors de l'Union européenne.
+                Ces transferts sont encadrés par les clauses contractuelles types de la Commission européenne
+                et/ou par le cadre EU-US Data Privacy Framework.
+              </p>
             </div>
           </Card>
+
+          {/* Estimation automatisée */}
+          <Card className="p-6">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="p-2 bg-primary/10 rounded-lg">
+                <FileText className="h-5 w-5 text-primary" />
+              </div>
+              <h2 className="text-xl font-semibold">Estimation automatisée</h2>
+            </div>
+            <p className="text-muted-foreground">
+              L'estimation de loyer communiquée est calculée automatiquement à partir de notre base de références
+              de loyers du marché local (valeurs moyennes). Elle est purement indicative, ne produit aucun effet
+              juridique et ne constitue pas une décision entièrement automatisée au sens de l'article 22 du RGPD.
+              Un conseiller reste disponible pour une évaluation personnalisée.
+            </p>
+          </Card>
+
 
           {/* Destinataires */}
           <Card className="p-6">
@@ -287,28 +320,34 @@ const PolitiqueConfidentialite = () => {
               <div className="p-2 bg-primary/10 rounded-lg">
                 <Cookie className="h-5 w-5 text-primary" />
               </div>
-              <h2 className="text-xl font-semibold">Cookies</h2>
+              <h2 className="text-xl font-semibold">Cookies et traceurs</h2>
             </div>
-            <div className="space-y-3 text-muted-foreground">
-              <p>Le site peut utiliser des cookies à des fins :</p>
-              <ul className="list-disc pl-6 space-y-1">
-                <li>techniques,</li>
-                <li>de mesure d'audience,</li>
-                <li>d'amélioration de l'expérience utilisateur.</li>
-              </ul>
-              <p>Les cookies ne permettent pas de vous identifier personnellement.</p>
-              <p>Un bandeau de gestion du consentement permet d'accepter ou refuser les cookies non essentiels.</p>
+            <div className="space-y-4 text-muted-foreground">
+              <p>Le site utilise les traceurs suivants :</p>
+              <div>
+                <p className="font-semibold text-foreground">1. Google Analytics 4 / Google Ads (identifiant G-JD27BBNDM5)</p>
+                <ul className="list-disc pl-6 space-y-1 mt-1">
+                  <li>Finalité : mesure d'audience et suivi des conversions publicitaires.</li>
+                  <li>Durée de vie des cookies : jusqu'à 13 mois.</li>
+                  <li>Déposés uniquement après votre consentement.</li>
+                </ul>
+              </div>
+              <div>
+                <p className="font-semibold text-foreground">2. Cookies YouTube</p>
+                <ul className="list-disc pl-6 space-y-1 mt-1">
+                  <li>Déposés uniquement si vous lancez volontairement la lecture de la vidéo de présentation.</li>
+                </ul>
+              </div>
+              <p>
+                Votre consentement peut être retiré ou modifié à tout moment via le lien
+                <strong className="text-foreground"> « Gérer mes cookies » </strong>
+                situé dans le pied de page du site.
+              </p>
+              <p>Le refus des cookies n'empêche pas l'utilisation du site, qui reste pleinement fonctionnel.</p>
               <p>Vous pouvez également configurer votre navigateur pour bloquer les cookies.</p>
             </div>
           </Card>
 
-          {/* Conclusion */}
-          <Card className="p-6 bg-primary/5 border-primary/20">
-            <p className="text-center text-muted-foreground">
-              ✔️ Cette politique est <strong className="text-foreground">conforme RGPD</strong>, 
-              cohérente avec un site automatisé et adaptée à une agence immobilière de gestion/location.
-            </p>
-          </Card>
         </div>
 
         <div className="mt-12 text-center">

@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import eraLogo from "@/assets/era-logo.png";
+import { openCookieBanner } from "@/components/CookieConsent";
 
 const Footer = () => {
   return (
@@ -6,12 +8,10 @@ const Footer = () => {
       <div className="container mx-auto px-4 text-center">
         <div className="mb-4">
           <img
-            src="https://drive.google.com/uc?export=view&id=1i2cANrQpr6_eKXrR98tZF6RwRYXJ3Q-R"
+            src={eraLogo}
             alt="ERA DUPONT ROMAIN IMMOBILIER logo"
             className="h-12 mx-auto opacity-80 invert"
-            onError={(e) => {
-              (e.currentTarget as HTMLImageElement).style.display = 'none';
-            }}
+            loading="lazy"
           />
         </div>
         <p className="text-sm mb-2">
@@ -21,8 +21,10 @@ const Footer = () => {
           © {new Date().getFullYear()} Tous droits réservés |
           <a href="/mentions-legales" className="hover:underline ml-1">Mentions légales</a> |
           <a href="/confidentialite" className="hover:underline ml-1">Politique de confidentialité</a> |
+          <button type="button" onClick={openCookieBanner} className="hover:underline ml-1 underline-offset-2">Gérer mes cookies</button> |
           <a href="https://media.immo-facile.com/segments/immo/catalog/images/manufacturers_bareme/265286.pdf" className="hover:underline ml-1" target="_blank" rel="noopener noreferrer">Honoraires</a>
         </p>
+
         <div className="flex flex-wrap justify-center gap-x-3 gap-y-1 text-xs opacity-75">
           <Link to="/louer-bien-dpe-f-g-perpignan" className="hover:underline">Bien F ou G</Link>
           <span className="opacity-50">·</span>

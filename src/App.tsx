@@ -4,6 +4,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 import ScrollToTop from "@/components/ScrollToTop";
+import CookieConsent from "@/components/CookieConsent";
+
 import Layout from "@/components/layout/Layout";
 import Index from "./pages/Index";
 import ThankYou from "./pages/ThankYou";
@@ -43,6 +45,8 @@ const App = () => (
           <Route path="/merci" element={<ThankYou />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <CookieConsent />
+
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

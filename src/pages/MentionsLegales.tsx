@@ -51,7 +51,7 @@ const MentionsLegales = () => {
             </div>
             <div className="space-y-3 text-muted-foreground">
               <p><strong className="text-foreground">Carte Transaction :</strong> CPI 6601 2016 000 003 876 - CCI Perpignan</p>
-              <p><strong className="text-foreground">Carte Gestion :</strong> CCI Perpignan</p>
+              <p><strong className="text-foreground">Carte Gestion :</strong> [À COMPLÉTER — numéro de carte gestion] - CCI Perpignan</p>
             </div>
           </Card>
 
@@ -67,8 +67,41 @@ const MentionsLegales = () => {
               <p><strong className="text-foreground">Nom et adresse du garant :</strong> GALIAN, 89 Rue La Boétie, 75008 PARIS</p>
               <p><strong className="text-foreground">Montant de la garantie financière :</strong> 120 000 €</p>
               <p><strong className="text-foreground">Détention de fonds :</strong> Oui</p>
+              <p><strong className="text-foreground">Assurance responsabilité civile professionnelle :</strong> [À COMPLÉTER — nom de l'assureur et adresse]</p>
             </div>
           </Card>
+
+          {/* Directeur de la publication */}
+          <Card className="p-6">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="p-2 bg-primary/10 rounded-lg">
+                <Building2 className="h-5 w-5 text-primary" />
+              </div>
+              <h2 className="text-xl font-semibold">Directeur de la publication</h2>
+            </div>
+            <p className="text-muted-foreground">Romain Dupont, gérant.</p>
+          </Card>
+
+          {/* Hébergeur */}
+          <Card className="p-6">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="p-2 bg-primary/10 rounded-lg">
+                <Building2 className="h-5 w-5 text-primary" />
+              </div>
+              <h2 className="text-xl font-semibold">Hébergeur</h2>
+            </div>
+            <div className="space-y-3 text-muted-foreground">
+              <p>
+                Site hébergé par Lovable Labs Inc. —{" "}
+                <a href="https://lovable.dev" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">
+                  https://lovable.dev
+                </a>
+              </p>
+              <p>Traitement des formulaires via Supabase Inc.</p>
+              <p>Serveur d'automatisation hébergé par Hostinger International Ltd.</p>
+            </div>
+          </Card>
+
 
           {/* Médiation */}
           <Card className="p-6">
@@ -116,6 +149,11 @@ const MentionsLegales = () => {
                 <Phone className="h-4 w-4 text-primary flex-shrink-0" />
                 <a href="tel:0468665718" className="hover:text-primary transition-colors whitespace-pre-line">{"\n"}04 68 66 57 18</a>
               </p>
+              <p className="flex items-center gap-2">
+                <Mail className="h-4 w-4 text-primary flex-shrink-0" />
+                <a href="mailto:dupontimmobilier@erafrance.com" className="hover:text-primary transition-colors">dupontimmobilier@erafrance.com</a>
+              </p>
+
               <p className="flex items-center gap-2">
                 <MapPin className="h-4 w-4 text-primary flex-shrink-0" />
                 <span>2 rue Pierre Rameil, 66000 Perpignan</span>

@@ -3,6 +3,8 @@ import { useLocation, Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { CheckCircle, Star, Home, Calendar } from "lucide-react";
 import SeoHead from "@/components/SeoHead";
+import { hasConsent } from "@/lib/consent";
+
 
 const ThankYou = () => {
   const location = useLocation();
@@ -10,8 +12,8 @@ const ThankYou = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    // Track GA4 conversion
-    if (typeof window !== 'undefined' && (window as any).gtag) {
+    // Track GA4 conversion — uniquement si le consentement est accordé
+    if (typeof window !== 'undefined' && hasConsent() && (window as any).gtag) {
       (window as any).gtag('event', 'conversion', {
         'send_to': 'G-JD27BBNDM5',
         'value': 1.0,
@@ -19,6 +21,7 @@ const ThankYou = () => {
       });
     }
   }, []);
+
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-muted flex items-center justify-center px-4 py-12">
