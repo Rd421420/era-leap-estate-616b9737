@@ -51,7 +51,7 @@ const MentionsLegales = () => {
             </div>
             <div className="space-y-3 text-muted-foreground">
               <p><strong className="text-foreground">Carte Transaction :</strong> CPI 6601 2016 000 003 876 - CCI Perpignan</p>
-              <p><strong className="text-foreground">Carte Gestion :</strong> [À COMPLÉTER — numéro de carte gestion] - CCI Perpignan</p>
+              <p><strong className="text-foreground">Carte Gestion :</strong> CPI 6601 2016 000 003 876 - CCI Perpignan</p>
             </div>
           </Card>
 
@@ -67,7 +67,7 @@ const MentionsLegales = () => {
               <p><strong className="text-foreground">Nom et adresse du garant :</strong> GALIAN, 89 Rue La Boétie, 75008 PARIS</p>
               <p><strong className="text-foreground">Montant de la garantie financière :</strong> 120 000 €</p>
               <p><strong className="text-foreground">Détention de fonds :</strong> Oui</p>
-              <p><strong className="text-foreground">Assurance responsabilité civile professionnelle :</strong> [À COMPLÉTER — nom de l'assureur et adresse]</p>
+              <p><strong className="text-foreground">Assurance responsabilité civile professionnelle :</strong> GALIAN-SMABTP, 89 rue La Boétie, 75008 PARIS</p>
             </div>
           </Card>
 
