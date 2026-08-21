@@ -110,8 +110,8 @@ const INITIAL: FormData = {
 };
 
 const RATE_LIMIT_CONFIG = {
-  maxAttempts: 3,
-  windowMs: 60 * 60 * 1000,
+  maxAttempts: 1,
+  windowMs: 30 * 1000,
   storageKey: "era_estimation_rate_limit",
 };
 
@@ -213,9 +213,6 @@ const EstimationForm = ({
   const {
     checkRateLimit,
     recordAttempt,
-    isBlocked,
-    remainingTime,
-    getRemainingAttempts,
   } = useRateLimit(RATE_LIMIT_CONFIG);
 
   const progress = (step / TOTAL_STEPS) * 100;
@@ -285,9 +282,8 @@ const EstimationForm = ({
 
     if (!checkRateLimit()) {
       toast({
-        title: "Trop de demandes",
-        description: `Vous avez atteint la limite. Réessayez dans ${remainingTime} minute(s).`,
-        variant: "destructive",
+        title: "Demande déjà envoyée",
+        description: "Votre demande vient d'être envoyée, merci de patienter quelques secondes.",
       });
       return;
     }
@@ -360,7 +356,6 @@ const EstimationForm = ({
     }
   };
 
-  const remainingAttempts = getRemainingAttempts();
 
   const stepTitle =
     step === 1 ? "Votre bien en 30s" : step === 2 ? "Quelques détails" : "Vos coordonnées";
@@ -443,23 +438,6 @@ const EstimationForm = ({
             </p>
           </div>
 
-          {isBlocked && (
-            <Alert className="border-destructive/50 bg-destructive/10 mb-4">
-              <Clock className="h-4 w-4 text-destructive" />
-              <AlertDescription className="text-sm">
-                <strong>Limite atteinte :</strong> Réessayez dans {remainingTime} minute(s).
-              </AlertDescription>
-            </Alert>
-          )}
-
-          {remainingAttempts <= 1 && remainingAttempts > 0 && (
-            <Alert className="border-amber-500/50 bg-amber-50 dark:bg-amber-900/10 mb-4">
-              <AlertTriangle className="h-4 w-4 text-amber-600 dark:text-amber-400" />
-              <AlertDescription className="text-sm text-amber-800 dark:text-amber-200">
-                <strong>Attention :</strong> Il vous reste {remainingAttempts} demande(s) cette heure.
-              </AlertDescription>
-            </Alert>
-          )}
 
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* ÉTAPE 1 — Essentiels */}
@@ -926,7 +904,7 @@ const EstimationForm = ({
                   </Button>
                   <Button
                     type="submit"
-                    disabled={loading || isBlocked}
+                    disabled={loading}
                     size="lg"
                     className="flex-1 bg-primary hover:bg-primary-dark text-primary-foreground font-semibold shadow-lg hover:shadow-xl transition-all hover:scale-[1.02]"
                   >

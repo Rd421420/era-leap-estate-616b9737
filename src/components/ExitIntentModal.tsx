@@ -11,9 +11,17 @@ import {
 } from "@/components/ui/dialog";
 import { supabase } from "@/integrations/supabase/client";
 import { trackEvent } from "@/lib/analytics";
+import { useRateLimit } from "@/hooks/useRateLimit";
+import { useToast } from "@/hooks/use-toast";
 
 const SESSION_KEY = "era_exit_intent_shown";
 const DRAFT_KEY = "era_estimation_draft";
+
+const RATE_LIMIT_CONFIG = {
+  maxAttempts: 1,
+  windowMs: 30 * 1000,
+  storageKey: "era_exit_intent_rate_limit",
+};
 
 const PROPERTY_FIELDS = [
   "adresse",
@@ -71,6 +79,9 @@ const ExitIntentModal = () => {
   const [sent, setSent] = useState(false);
   const [error, setError] = useState("");
 
+  const { toast } = useToast();
+  const { checkRateLimit, recordAttempt } = useRateLimit(RATE_LIMIT_CONFIG);
+
   useEffect(() => {
     // Desktop uniquement
     if (typeof window === "undefined") return;
@@ -98,6 +109,15 @@ const ExitIntentModal = () => {
       return;
     }
     setError("");
+
+    if (!checkRateLimit()) {
+      toast({
+        title: "Demande déjà envoyée",
+        description: "Votre demande vient d'être envoyée, merci de patienter quelques secondes.",
+      });
+      return;
+    }
+
     setLoading(true);
     try {
       const { error: fnError } = await supabase.functions.invoke("submit-estimation", {
@@ -110,6 +130,7 @@ const ExitIntentModal = () => {
         },
       });
       if (fnError) throw fnError;
+      recordAttempt();
       trackEvent("form_abandon_captured");
       setSent(true);
       setTimeout(() => setOpen(false), 2500);
