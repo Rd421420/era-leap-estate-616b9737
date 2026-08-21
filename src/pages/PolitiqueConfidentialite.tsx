@@ -107,6 +107,11 @@ const PolitiqueConfidentialite = () => {
                 <li>Adresse du logement à estimer</li>
                 <li>Informations liées à votre projet immobilier</li>
               </ul>
+              <p>
+                <strong className="text-foreground">Données de mesure marketing :</strong> identifiant de clic Google (gclid),
+                paramètres de campagne (UTM), page d'arrivée et site référent, collectés lors de l'envoi du formulaire
+                (base légale : intérêt légitime, finalité : mesure de l'efficacité de nos campagnes).
+              </p>
               <p className="text-sm italic">
                 Les champs obligatoires sont signalés lors de la saisie. À défaut, la demande ne pourra pas être traitée.
               </p>
@@ -124,13 +129,37 @@ const PolitiqueConfidentialite = () => {
             <div className="space-y-3 text-muted-foreground">
               <p>Les traitements sont réalisés :</p>
               <ul className="list-disc pl-6 space-y-1">
-                <li>via des webhooks automatisés (outil n8n),</li>
-                <li>sur un serveur VPS hébergé chez Hostinger,</li>
-                <li>avec un stockage sécurisé sur Google Drive et Google Sheets (Google Workspace).</li>
+                <li>hébergement du site par Lovable,</li>
+                <li>transmission des formulaires via une fonction Supabase, puis un outil d'automatisation n8n auto-hébergé sur un serveur VPS Hostinger (Union européenne),</li>
+                <li>stockage interne sur Google Workspace (Drive / Sheets).</li>
               </ul>
               <p>Ces outils sont utilisés exclusivement pour le fonctionnement interne de l'agence.</p>
+              <Separator className="my-4" />
+              <p className="font-semibold text-foreground">Transferts hors Union européenne</p>
+              <p>
+                Certains prestataires (Google, Supabase, Lovable) peuvent traiter des données hors de l'Union européenne.
+                Ces transferts sont encadrés par les clauses contractuelles types de la Commission européenne
+                et/ou par le cadre EU-US Data Privacy Framework.
+              </p>
             </div>
           </Card>
+
+          {/* Estimation automatisée */}
+          <Card className="p-6">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="p-2 bg-primary/10 rounded-lg">
+                <FileText className="h-5 w-5 text-primary" />
+              </div>
+              <h2 className="text-xl font-semibold">Estimation automatisée</h2>
+            </div>
+            <p className="text-muted-foreground">
+              L'estimation de loyer communiquée est calculée automatiquement à partir de notre base de références
+              de loyers du marché local (valeurs moyennes). Elle est purement indicative, ne produit aucun effet
+              juridique et ne constitue pas une décision entièrement automatisée au sens de l'article 22 du RGPD.
+              Un conseiller reste disponible pour une évaluation personnalisée.
+            </p>
+          </Card>
+
 
           {/* Destinataires */}
           <Card className="p-6">
