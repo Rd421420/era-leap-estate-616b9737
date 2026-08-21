@@ -84,8 +84,21 @@ var submit_estimation_default = defineTool2({
     openWorldHint: true
   },
   handler: async (input) => {
+    const { consentement_rgpd, ...fields } = input;
+    if (consentement_rgpd !== true) {
+      return {
+        content: [
+          {
+            type: "text",
+            text: "Consentement RGPD manquant : la demande n'a pas \xE9t\xE9 transmise. La personne doit explicitement accepter d'\xEAtre recontact\xE9e par ERA Dupont Romain et \xEAtre inform\xE9e de la politique de confidentialit\xE9 (https://era-dupontromain.immo/confidentialite)."
+          }
+        ],
+        isError: true
+      };
+    }
     const payload = {
-      ...input,
+      ...fields,
+      rgpd: "true",
       source: "mcp",
       source_form: "mcp-server",
       timestamp: (/* @__PURE__ */ new Date()).toISOString()

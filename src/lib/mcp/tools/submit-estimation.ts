@@ -46,8 +46,23 @@ export default defineTool({
     openWorldHint: true,
   },
   handler: async (input) => {
+    const { consentement_rgpd, ...fields } = input;
+
+    if (consentement_rgpd !== true) {
+      return {
+        content: [
+          {
+            type: "text" as const,
+            text: "Consentement RGPD manquant : la demande n'a pas été transmise. La personne doit explicitement accepter d'être recontactée par ERA Dupont Romain et être informée de la politique de confidentialité (https://era-dupontromain.immo/confidentialite).",
+          },
+        ],
+        isError: true,
+      };
+    }
+
     const payload = {
-      ...input,
+      ...fields,
+      rgpd: "true",
       source: "mcp",
       source_form: "mcp-server",
       timestamp: new Date().toISOString(),
