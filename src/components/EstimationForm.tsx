@@ -110,8 +110,8 @@ const INITIAL: FormData = {
 };
 
 const RATE_LIMIT_CONFIG = {
-  maxAttempts: 3,
-  windowMs: 60 * 60 * 1000,
+  maxAttempts: 1,
+  windowMs: 30 * 1000,
   storageKey: "era_estimation_rate_limit",
 };
 
