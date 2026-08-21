@@ -18,7 +18,10 @@ const PolitiqueConfidentialite = () => {
         <h1 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-2">
           Politique de Confidentialité
         </h1>
-        <p className="text-lg text-muted-foreground mb-8">Données Personnelles</p>
+        <p className="text-lg text-muted-foreground mb-1">Données Personnelles</p>
+        <p className="text-sm text-muted-foreground mb-8">
+          Dernière mise à jour : 21 août 2026
+        </p>
 
         <div className="space-y-8">
           {/* Qui sommes-nous */}
@@ -31,26 +34,27 @@ const PolitiqueConfidentialite = () => {
             </div>
             <div className="space-y-3 text-muted-foreground">
               <p>
-                La société <strong className="text-foreground">ERA DUPONT ROMAIN IMMOBILIER</strong>,<br />
-                SARL au capital social 5.000€,<br />
+                La société <strong className="text-foreground">PERPIGNAN IMMOBILIER (nom commercial : ERA DUPONT ROMAIN IMMOBILIER)</strong>,<br />
+                EURL au capital social de 5.000 €,<br />
                 dont le siège social est situé 2 rue Pierre Rameil, 66000 Perpignan,<br />
                 immatriculée au RCS de Perpignan sous le numéro 530 560 697 00043,<br />
                 exerce une activité d'agence immobilière sous l'enseigne ERA Immobilier.
               </p>
               <p>
-                L'agence ERA DUPONT ROMAIN IMMOBILIER est juridiquement et financièrement indépendante.
+                L'agence PERPIGNAN IMMOBILIER (nom commercial : ERA DUPONT ROMAIN IMMOBILIER) est juridiquement et financièrement indépendante.
                 Elle appartient au réseau de franchise ERA Immobilier sans lien de subordination juridique 
                 ou financière avec ERA France.
               </p>
               <p>
                 La présente politique de confidentialité a pour objet d'informer les utilisateurs du site{" "}
-                <a href="https://era-dupontimmobilier.immo" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">
-                  https://era-dupontimmobilier.immo
+                <a href="https://era-dupontromain.immo" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">
+                  https://era-dupontromain.immo
                 </a>{" "}
                 des modalités de collecte, d'utilisation et de protection de leurs données à caractère personnel.
               </p>
             </div>
           </Card>
+
 
           {/* Cadre légal */}
           <Card className="p-6">
