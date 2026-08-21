@@ -282,9 +282,8 @@ const EstimationForm = ({
 
     if (!checkRateLimit()) {
       toast({
-        title: "Trop de demandes",
-        description: `Vous avez atteint la limite. Réessayez dans ${remainingTime} minute(s).`,
-        variant: "destructive",
+        title: "Demande déjà envoyée",
+        description: "Votre demande vient d'être envoyée, merci de patienter quelques secondes.",
       });
       return;
     }
