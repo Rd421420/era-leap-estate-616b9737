@@ -115,7 +115,6 @@ const ExitIntentModal = () => {
         title: "Demande déjà envoyée",
         description: "Votre demande vient d'être envoyée, merci de patienter quelques secondes.",
       });
-      setLoading(false);
       return;
     }
 
