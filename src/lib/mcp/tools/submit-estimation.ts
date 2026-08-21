@@ -4,6 +4,13 @@ import { z } from "zod";
 const N8N_WEBHOOK_URL =
   "https://n8n.srv864634.hstgr.cloud/webhook/c15fe03b-332b-405e-b285-3c660fb06c0e";
 
+function runtimeEnv(name: string): string | undefined {
+  const runtime = globalThis as typeof globalThis & {
+    Deno?: { env: { get(name: string): string | undefined } };
+  };
+  return runtime.Deno?.env?.get(name);
+}
+
 export default defineTool({
   name: "submit_estimation",
   title: "Soumettre une demande d'estimation locative",
@@ -68,9 +75,14 @@ export default defineTool({
       timestamp: new Date().toISOString(),
     };
 
+    const secret = runtimeEnv("N8N_WEBHOOK_SECRET") ?? "";
+
     const res = await fetch(N8N_WEBHOOK_URL, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        "x-webhook-secret": secret,
+      },
       body: JSON.stringify(payload),
     });
 
