@@ -438,23 +438,6 @@ const EstimationForm = ({
             </p>
           </div>
 
-          {isBlocked && (
-            <Alert className="border-destructive/50 bg-destructive/10 mb-4">
-              <Clock className="h-4 w-4 text-destructive" />
-              <AlertDescription className="text-sm">
-                <strong>Limite atteinte :</strong> Réessayez dans {remainingTime} minute(s).
-              </AlertDescription>
-            </Alert>
-          )}
-
-          {remainingAttempts <= 1 && remainingAttempts > 0 && (
-            <Alert className="border-amber-500/50 bg-amber-50 dark:bg-amber-900/10 mb-4">
-              <AlertTriangle className="h-4 w-4 text-amber-600 dark:text-amber-400" />
-              <AlertDescription className="text-sm text-amber-800 dark:text-amber-200">
-                <strong>Attention :</strong> Il vous reste {remainingAttempts} demande(s) cette heure.
-              </AlertDescription>
-            </Alert>
-          )}
 
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* ÉTAPE 1 — Essentiels */}
