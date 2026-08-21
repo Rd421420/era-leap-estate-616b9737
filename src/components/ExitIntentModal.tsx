@@ -109,6 +109,16 @@ const ExitIntentModal = () => {
       return;
     }
     setError("");
+
+    if (!checkRateLimit()) {
+      toast({
+        title: "Demande déjà envoyée",
+        description: "Votre demande vient d'être envoyée, merci de patienter quelques secondes.",
+      });
+      setLoading(false);
+      return;
+    }
+
     setLoading(true);
     try {
       const { error: fnError } = await supabase.functions.invoke("submit-estimation", {
@@ -121,6 +131,7 @@ const ExitIntentModal = () => {
         },
       });
       if (fnError) throw fnError;
+      recordAttempt();
       trackEvent("form_abandon_captured");
       setSent(true);
       setTimeout(() => setOpen(false), 2500);
