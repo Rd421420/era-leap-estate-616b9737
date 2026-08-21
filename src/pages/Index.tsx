@@ -38,10 +38,6 @@ const Index = () => {
       />
       <TrustBar />
 
-      {/* DÉSIR — preuve sociale */}
-      <div className="bg-card">
-        <GoogleReviews />
-      </div>
 
       {/* Vidéo de présentation */}
       <section className="py-12 md:py-16 bg-background">
