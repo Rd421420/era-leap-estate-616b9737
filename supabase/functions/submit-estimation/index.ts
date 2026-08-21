@@ -11,7 +11,7 @@ const ALLOWED_FIELDS = new Set([
   "garage", "dpe", "nom", "prenom", "telephone", "email", "gestion",
   "source", "gclid", "utm_source", "utm_medium", "utm_campaign",
   "utm_term", "utm_content", "landing_page", "referrer", "timestamp",
-  "source_form",
+  "source_form", "lead_partiel",
 ]);
 
 const sanitize = (v: unknown): string => {
@@ -47,7 +47,17 @@ Deno.serve(async (req) => {
     }
 
     // Minimal server-side validation
-    if (!payload.email || !payload.telephone || !payload.nom || !payload.prenom) {
+    const isPartial = payload.lead_partiel === "true";
+    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(payload.email ?? "");
+
+    if (isPartial) {
+      if (!emailOk) {
+        return new Response(JSON.stringify({ error: "Email invalide" }), {
+          status: 400,
+          headers: { ...corsHeaders, "Content-Type": "application/json" },
+        });
+      }
+    } else if (!payload.email || !payload.telephone || !payload.nom || !payload.prenom) {
       return new Response(JSON.stringify({ error: "Champs requis manquants" }), {
         status: 400,
         headers: { ...corsHeaders, "Content-Type": "application/json" },
@@ -56,7 +66,10 @@ Deno.serve(async (req) => {
 
     const n8nRes = await fetch(N8N_WEBHOOK_URL, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        "x-webhook-secret": Deno.env.get("N8N_WEBHOOK_SECRET") ?? "",
+      },
       body: JSON.stringify(payload),
     });
 

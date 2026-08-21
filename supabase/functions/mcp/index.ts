@@ -59,6 +59,9 @@ var submit_estimation_default = defineTool2({
   title: "Soumettre une demande d'estimation locative",
   description: "Envoie une demande d'estimation de loyer \xE0 ERA Dupont Romain (Perpignan et 66). Coordonn\xE9es obligatoires (nom, pr\xE9nom, email, t\xE9l\xE9phone) et informations sur le bien optionnelles. La r\xE9ponse est envoy\xE9e par l'agence sous 24 h.",
   inputSchema: {
+    consentement_rgpd: z.boolean().describe(
+      "Confirmation que la personne a explicitement consenti \xE0 \xEAtre recontact\xE9e par ERA Dupont Romain et a \xE9t\xE9 inform\xE9e de la politique de confidentialit\xE9 : https://era-dupontromain.immo/confidentialite"
+    ),
     nom: z.string().min(1).describe("Nom de famille du propri\xE9taire."),
     prenom: z.string().min(1).describe("Pr\xE9nom du propri\xE9taire."),
     email: z.string().email().describe("Adresse email de contact."),

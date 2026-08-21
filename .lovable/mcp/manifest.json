@@ -41,6 +41,10 @@
         "inputSchema": {
           "type": "object",
           "properties": {
+            "consentement_rgpd": {
+              "type": "boolean",
+              "description": "Confirmation que la personne a explicitement consenti à être recontactée par ERA Dupont Romain et a été informée de la politique de confidentialité : https://era-dupontromain.immo/confidentialite"
+            },
             "nom": {
               "type": "string",
               "minLength": 1,
@@ -128,6 +132,7 @@
             }
           },
           "required": [
+            "consentement_rgpd",
             "nom",
             "prenom",
             "email",
