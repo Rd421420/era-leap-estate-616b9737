@@ -54,6 +54,10 @@ Services : ${AGENCY.services.join(", ")}`
 import { defineTool as defineTool2 } from "npm:@lovable.dev/mcp-js@0.24.0";
 import { z } from "npm:zod@^3.23.8";
 var N8N_WEBHOOK_URL = "https://n8n.srv864634.hstgr.cloud/webhook/c15fe03b-332b-405e-b285-3c660fb06c0e";
+function runtimeEnv(name) {
+  const runtime = globalThis;
+  return runtime.Deno?.env?.get(name);
+}
 var submit_estimation_default = defineTool2({
   name: "submit_estimation",
   title: "Soumettre une demande d'estimation locative",
@@ -103,9 +107,13 @@ var submit_estimation_default = defineTool2({
       source_form: "mcp-server",
       timestamp: (/* @__PURE__ */ new Date()).toISOString()
     };
+    const secret = runtimeEnv("N8N_WEBHOOK_SECRET") ?? "";
     const res = await fetch(N8N_WEBHOOK_URL, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        "x-webhook-secret": secret
+      },
       body: JSON.stringify(payload)
     });
     if (!res.ok) {

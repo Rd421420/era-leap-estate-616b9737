@@ -75,9 +75,14 @@ export default defineTool({
       timestamp: new Date().toISOString(),
     };
 
+    const secret = runtimeEnv("N8N_WEBHOOK_SECRET") ?? "";
+
     const res = await fetch(N8N_WEBHOOK_URL, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        "x-webhook-secret": secret,
+      },
       body: JSON.stringify(payload),
     });
 
