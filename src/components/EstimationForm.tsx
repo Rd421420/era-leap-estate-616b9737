@@ -163,14 +163,15 @@ const EstimationForm = ({
     return () => window.removeEventListener("prefill-estimation-address", handler as EventListener);
   }, [initialAddress, setFormData]);
 
-  // Pré-remplissage ville / code postal (depuis le hero)
+  // Pré-remplissage ville / code postal (depuis le hero) — synchronisé
   useEffect(() => {
     if (!initialVille && !initialCodePostal) return;
-    setFormData((prev) => ({
-      ...prev,
-      ville: prev.ville || (initialVille ? sanitizeString(initialVille) : prev.ville),
-      codePostal: prev.codePostal || (initialCodePostal ?? prev.codePostal),
-    }));
+    setFormData((prev) => {
+      const ville = initialVille ? sanitizeString(initialVille) : prev.ville;
+      const codePostal = initialCodePostal ? initialCodePostal : prev.codePostal;
+      if (ville === prev.ville && codePostal === prev.codePostal) return prev;
+      return { ...prev, ville, codePostal };
+    });
   }, [initialVille, initialCodePostal, setFormData]);
 
   const [loading, setLoading] = useState(false);

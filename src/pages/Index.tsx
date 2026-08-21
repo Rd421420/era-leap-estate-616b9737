@@ -4,7 +4,6 @@ import { AlertTriangle, Ban, Home, ClipboardList, GitCompare, ChevronRight } fro
 import { Card, CardContent } from "@/components/ui/card";
 import LandingHero from "@/components/LandingHero";
 import TrustBar from "@/components/TrustBar";
-import GoogleReviews from "@/components/GoogleReviews";
 import EstimationForm from "@/components/EstimationForm";
 import RecentEstimations from "@/components/RecentEstimations";
 import FAQ from "@/components/FAQ";
@@ -38,10 +37,6 @@ const Index = () => {
       />
       <TrustBar />
 
-      {/* DÉSIR — preuve sociale */}
-      <div className="bg-card">
-        <GoogleReviews />
-      </div>
 
       {/* Vidéo de présentation */}
       <section className="py-12 md:py-16 bg-background">

@@ -1,8 +1,7 @@
-import { ClipboardCheck, ShieldCheck, Users, Star, Phone } from "lucide-react";
+import { ClipboardCheck, Users, Star, Phone } from "lucide-react";
 
 const items = [
   { label: "Estimation offerte", Icon: ClipboardCheck },
-  { label: "GLI remboursée 12 mois", Icon: ShieldCheck },
   { label: "Locataires pré-qualifiés", Icon: Users },
 ];
 
