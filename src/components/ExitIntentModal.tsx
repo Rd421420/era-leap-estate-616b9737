@@ -17,6 +17,12 @@ import { useToast } from "@/hooks/use-toast";
 const SESSION_KEY = "era_exit_intent_shown";
 const DRAFT_KEY = "era_estimation_draft";
 
+const RATE_LIMIT_CONFIG = {
+  maxAttempts: 1,
+  windowMs: 30 * 1000,
+  storageKey: "era_exit_intent_rate_limit",
+};
+
 const PROPERTY_FIELDS = [
   "adresse",
   "type",
