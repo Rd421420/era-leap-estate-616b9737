@@ -213,9 +213,6 @@ const EstimationForm = ({
   const {
     checkRateLimit,
     recordAttempt,
-    isBlocked,
-    remainingTime,
-    getRemainingAttempts,
   } = useRateLimit(RATE_LIMIT_CONFIG);
 
   const progress = (step / TOTAL_STEPS) * 100;
