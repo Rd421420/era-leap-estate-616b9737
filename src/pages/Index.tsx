@@ -8,6 +8,8 @@ import EstimationForm from "@/components/EstimationForm";
 import RecentEstimations from "@/components/RecentEstimations";
 import FAQ from "@/components/FAQ";
 import SeoHead from "@/components/SeoHead";
+import YouTubeFacade from "@/components/YouTubeFacade";
+
 
 const Index = () => {
   const formRef = useRef<HTMLDivElement>(null);
@@ -41,15 +43,11 @@ const Index = () => {
       {/* Vidéo de présentation */}
       <section className="py-12 md:py-16 bg-background">
         <div className="container mx-auto px-4 max-w-4xl">
-          <div className="relative rounded-2xl overflow-hidden shadow-xl aspect-video bg-muted">
-            <iframe
-              className="w-full h-full"
-              src="https://www.youtube.com/embed/UlXohzlvmMc?controls=1&rel=0&modestbranding=1"
-              title="ERA DUPONT ROMAIN IMMOBILIER - Gestion Locative à Perpignan"
-              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
-          </div>
+          <YouTubeFacade
+            videoId="UlXohzlvmMc"
+            title="ERA DUPONT ROMAIN IMMOBILIER - Gestion locative à Perpignan"
+          />
+
         </div>
       </section>
 

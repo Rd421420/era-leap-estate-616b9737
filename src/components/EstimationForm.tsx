@@ -908,8 +908,12 @@ const EstimationForm = ({
                     onCheckedChange={(checked) => handleInputChange("rgpd", checked as boolean)}
                   />
                   <label htmlFor="rgpd" className="text-xs text-muted-foreground leading-relaxed cursor-pointer">
-                    J'accepte que mes données soient utilisées par ERA DUPONT ROMAIN IMMOBILIER pour me recontacter au sujet de ma demande d'estimation. Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression de vos données. *
+                    J'accepte que mes données soient utilisées par ERA DUPONT ROMAIN IMMOBILIER pour me recontacter au sujet de ma demande d'estimation. Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression de vos données. * Vos données sont conservées 3 ans maximum. En savoir plus dans notre{" "}
+                    <a href="/confidentialite" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">
+                      Politique de confidentialité
+                    </a>.
                   </label>
+
                 </div>
                 {validationErrors.rgpd && (
                   <p className="text-xs text-destructive mt-1">{validationErrors.rgpd}</p>
