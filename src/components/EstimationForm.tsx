@@ -356,7 +356,6 @@ const EstimationForm = ({
     }
   };
 
-  const remainingAttempts = getRemainingAttempts();
 
   const stepTitle =
     step === 1 ? "Votre bien en 30s" : step === 2 ? "Quelques détails" : "Vos coordonnées";
