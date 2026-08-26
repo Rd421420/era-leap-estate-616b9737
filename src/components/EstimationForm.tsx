@@ -47,6 +47,7 @@ import {
   validateStep2,
   sanitizeString,
 } from "@/lib/formValidation";
+import { GOOGLE_RATING, GOOGLE_REVIEW_COUNT } from "@/lib/agency";
 import { trackEvent } from "@/lib/analytics";
 import { supabase } from "@/integrations/supabase/client";
 
