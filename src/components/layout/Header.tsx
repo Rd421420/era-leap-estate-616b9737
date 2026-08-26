@@ -22,12 +22,6 @@ const Header = () => {
         </Link>
 
         <div className="flex items-center gap-3">
-          <Link
-            to="/blog"
-            className="hidden sm:inline-flex text-sm font-medium text-foreground hover:text-primary transition-colors"
-          >
-            Conseils
-          </Link>
           <a
             href="tel:+33468665718"
             className="hidden sm:inline-flex items-center gap-1.5 text-sm font-semibold text-foreground hover:text-primary transition-colors"
