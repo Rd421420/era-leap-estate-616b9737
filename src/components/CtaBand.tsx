@@ -8,7 +8,7 @@ interface CtaBandProps {
 
 const CtaBand = ({
   title = "Vous voulez savoir ce que vaut votre bien en location à Perpignan ou dans le 66?",
-  ctaText = "Recevoir mon analyse offerte",
+  ctaText = "Recevoir mon estimation de loyer",
 }: CtaBandProps) => {
   return (
     <section className="my-12 rounded-lg bg-primary/5 border border-primary/20 p-6 md:p-8 text-center">

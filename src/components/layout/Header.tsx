@@ -42,7 +42,7 @@ const Header = () => {
           >
             <Link to="/#estimation-form">
               <BarChart3 className="h-4 w-4 mr-1.5" />
-              Analyse offerte
+              Estimer mon loyer
             </Link>
           </Button>
         </div>
