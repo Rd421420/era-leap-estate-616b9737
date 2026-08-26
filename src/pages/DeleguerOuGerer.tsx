@@ -47,7 +47,7 @@ const DeleguerOuGerer = () => {
       label: "Vacance locative",
       self: "Dépend de votre réseau et de votre visibilité",
       selfScore: "neutre",
-      era: "Vivier de locataires pré-qualifiés, délais réduits",
+      era: "Vivier de locataires déjà vérifiés, délais réduits",
       eraScore: "positif",
     },
     {

@@ -43,7 +43,7 @@ const LouerDpeFG = () => {
     <>
       <SeoHead
         title="Louer un bien DPE F ou G à Perpignan | ERA Dupont Romain"
-        description="Logement classé F ou G (DPE) à Perpignan ? On fait le point sur les travaux et la mise en location, et on a déjà des locataires pré-qualifiés. Étude gratuite."
+        description="Logement classé F ou G (DPE) à Perpignan ? On fait le point sur les travaux et la mise en location, et on a déjà des locataires déjà vérifiés. Étude gratuite."
         path="/louer-bien-dpe-f-g-perpignan"
         type="article"
         faq={faq}
@@ -116,7 +116,7 @@ const LouerDpeFG = () => {
               <span className="absolute -top-3 left-6 inline-flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground text-sm font-bold">3</span>
               <h3 className="font-heading text-lg font-bold mt-4 mb-2">Mise en location avec nos candidats</h3>
               <p className="text-muted-foreground text-sm leading-relaxed">
-                Dès que votre bien est louable, on active notre base de locataires pré-qualifiés. Dossiers complets, visites ciblées, location sécurisée.
+                Dès que votre bien est louable, on active notre base de locataires déjà vérifiés. Dossiers complets, visites ciblées, location sécurisée.
               </p>
             </div>
           </div>

@@ -40,7 +40,7 @@ const GestionLocative = () => {
 
   const atouts = [
     { label: "Estimation locative offerte", icon: ClipboardCheck },
-    { label: "Locataires déjà pré-qualifiés", icon: Users },
+    { label: "Locataires déjà vérifiés", icon: Users },
   ];
 
   const services = [
@@ -107,7 +107,7 @@ const GestionLocative = () => {
       <LandingHero
         eyebrow="GESTION LOCATIVE · PERPIGNAN"
         title="Déléguez la gestion de votre bien à Perpignan. On s'occupe de tout."
-        subtitle="Quittances, états des lieux, relances, suivi, fiscalité : vous gardez la décision, on porte la charge mentale. Et on arrive avec des locataires déjà pré-qualifiés."
+        subtitle="Quittances, états des lieux, relances, suivi, fiscalité : vous gardez la décision, on porte la charge mentale. Et on arrive avec des locataires déjà vérifiés."
         image="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=900&q=80"
         imageAlt="Conseiller en gestion locative accueillant un propriétaire"
         onCta={scrollToForm}
@@ -137,7 +137,7 @@ const GestionLocative = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div className="flex flex-col items-center">
                 <Users className="h-8 w-8 text-primary mb-3" />
-                <h3 className="font-heading text-base font-bold mb-1">Locataires pré-qualifiés</h3>
+                <h3 className="font-heading text-base font-bold mb-1">Locataires déjà vérifiés</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">
                   Dossiers complets, revenus vérifiés, garanties validées avant même la première visite.
                 </p>
