@@ -22,7 +22,7 @@ const Footer = () => {
           <a href="/mentions-legales" className="hover:underline ml-1">Mentions légales</a> |
           <a href="/confidentialite" className="hover:underline ml-1">Politique de confidentialité</a> |
           <button type="button" onClick={openCookieBanner} className="hover:underline ml-1 underline-offset-2">Gérer mes cookies</button> |
-          <a href="https://media.immo-facile.com/segments/immo/catalog/images/manufacturers_bareme/265286.pdf" className="hover:underline ml-1" target="_blank" rel="noopener noreferrer">Honoraires</a>
+          <a href="https://v2.immo-facile.com/segments/immo/catalog/images/manufacturers_bareme/265286.pdf?v=1761291503" className="hover:underline ml-1" target="_blank" rel="noopener noreferrer">Honoraires</a>
         </p>
 
         <div className="flex flex-wrap justify-center gap-x-3 gap-y-1 text-xs opacity-75">
