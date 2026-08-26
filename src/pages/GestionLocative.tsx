@@ -40,7 +40,6 @@ const GestionLocative = () => {
 
   const atouts = [
     { label: "Estimation locative offerte", icon: ClipboardCheck },
-    { label: "GLI remboursée 12 mois", icon: Calculator },
     { label: "Locataires déjà pré-qualifiés", icon: Users },
   ];
 
