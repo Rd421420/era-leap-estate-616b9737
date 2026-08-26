@@ -14,17 +14,18 @@ const TrustBar = () => {
       <div className="container mx-auto flex flex-wrap items-center justify-between gap-6 px-4 py-6">
         {/* Note Google */}
         <div className="flex items-center gap-3">
-          <span className="font-heading text-3xl text-primary">4,6/5</span>
+          <span className="font-heading text-3xl text-primary">{GOOGLE_RATING}/5</span>
           <div className="flex flex-col">
-            <div className="flex gap-0.5" aria-label="Note 4,6 sur 5">
+            <div className="flex gap-0.5" aria-label={`Note ${GOOGLE_RATING} sur 5`}>
               {[0, 1, 2, 3, 4].map((i) => (
                 <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
               ))}
             </div>
             <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground">
-              136 avis Google
+              {GOOGLE_REVIEW_COUNT} avis Google
             </span>
           </div>
+
         </div>
 
         <span className="hidden h-8 w-px bg-border md:block" />
