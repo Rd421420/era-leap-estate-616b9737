@@ -22,7 +22,6 @@ import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/
 import EstimationForm from "@/components/EstimationForm";
 import LandingHero from "@/components/LandingHero";
 import LocalAgencySection from "@/components/LocalAgencySection";
-import GoogleReviews from "@/components/GoogleReviews";
 import TrustBar from "@/components/TrustBar";
 import SectionHeading from "@/components/SectionHeading";
 import { trackEvent } from "@/lib/analytics";
@@ -163,8 +162,6 @@ const GestionLocative = () => {
           </div>
         </div>
       </section>
-
-      <GoogleReviews />
 
       <LocalAgencySection onCta={scrollToForm} />
 

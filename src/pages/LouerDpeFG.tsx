@@ -7,7 +7,7 @@ import EstimationForm from "@/components/EstimationForm";
 import LandingHero from "@/components/LandingHero";
 import TrustBar from "@/components/TrustBar";
 import SectionHeading from "@/components/SectionHeading";
-import GoogleReviews from "@/components/GoogleReviews";
+
 import { trackEvent } from "@/lib/analytics";
 import CtaBand from "@/components/CtaBand";
 import RelatedLinks from "@/components/RelatedLinks";
@@ -132,8 +132,6 @@ const LouerDpeFG = () => {
           </div>
         </div>
       </section>
-
-      <GoogleReviews />
 
       <section className="py-16 md:py-20">
         <div className="container mx-auto px-4 max-w-3xl">
