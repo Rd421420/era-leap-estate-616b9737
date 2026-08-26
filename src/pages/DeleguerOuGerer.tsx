@@ -192,7 +192,7 @@ const DeleguerOuGerer = () => {
           <SectionHeading title="Le coût caché de l'autogestion" />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {coutsCaches.map((c) => (
-              <Card key={c.title} className="border-l-4 border-l-primary">
+              <Card key={c.title} className="h-full rounded-none border border-border bg-card shadow-sm transition-all group-hover:border-primary">
                 <CardContent className="p-6">
                   <c.icon className="h-6 w-6 text-primary mb-4" />
                   <h3 className="font-heading text-lg font-bold mb-2">{c.title}</h3>
