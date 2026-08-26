@@ -41,9 +41,10 @@ const App = () => (
             <Route path="/confidentialite" element={<PolitiqueConfidentialite />} />
             <Route path="/blog" element={<BlogIndex />} />
             <Route path="/blog/:slug" element={<BlogArticle />} />
+            <Route path="*" element={<NotFound />} />
           </Route>
           <Route path="/merci" element={<ThankYou />} />
-          <Route path="*" element={<NotFound />} />
+
         </Routes>
         <CookieConsent />
 
