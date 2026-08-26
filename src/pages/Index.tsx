@@ -27,6 +27,7 @@ const Index = () => {
         title="Agence immobilière Perpignan | ERA Dupont Romain"
         description="Estimation locative offerte à Perpignan et dans le 66. Gestion locative, location et conseil patrimoine par ERA Dupont Romain."
         path="/"
+        faq={faqData}
       />
       <LandingHero
         eyebrow="ESTIMATION LOCATIVE GRATUITE · PERPIGNAN ET LE 66"
