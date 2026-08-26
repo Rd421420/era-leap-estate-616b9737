@@ -78,6 +78,7 @@ const RecentEstimations = () => {
               pieces: values[3] ?? '',
               surface: values[4] ?? '',
               loyer: values[5] ?? '',
+              parsedDate: parseFrenchDate(values[0] ?? ''),
             };
           })
           // On n'affiche que les lignes réellement complètes du CSV
@@ -86,7 +87,17 @@ const RecentEstimations = () => {
               e.date && e.ville && e.type && e.pieces && e.surface && e.loyer &&
               /\d/.test(e.loyer) && /\d/.test(e.surface)
           )
-          .slice(0, 5);
+          // Les plus récentes en premier ; dates invalides repoussées en fin
+          .sort((a, b) => {
+            if (a.parsedDate && b.parsedDate) {
+              return b.parsedDate.getTime() - a.parsedDate.getTime();
+            }
+            if (a.parsedDate) return -1;
+            if (b.parsedDate) return 1;
+            return 0;
+          })
+          .slice(0, 5)
+          .map(({ parsedDate, ...rest }) => rest);
 
         setEstimations(parsed);
       } catch (error) {
