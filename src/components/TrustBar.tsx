@@ -1,4 +1,6 @@
 import { ClipboardCheck, Users, Star, Phone, CalendarOff } from "lucide-react";
+import { GOOGLE_RATING, GOOGLE_REVIEW_COUNT } from "@/lib/agency";
+
 
 const items = [
   { label: "Estimation offerte", Icon: ClipboardCheck },
