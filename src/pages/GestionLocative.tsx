@@ -91,7 +91,7 @@ const GestionLocative = () => {
     {
       question: "Que comprend la garantie loyers impayés ?",
       answer:
-        "La Garantie Loyers Impayés (GLI) couvre vos loyers en cas de défaut de paiement du locataire. Elle prend généralement en charge les loyers impayés, les charges locatives et parfois les frais juridiques liés à une procédure d'expulsion. Chez ERA DUPONT ROMAIN IMMOBILIER, cette garantie est remboursée pendant 12 mois sur tout nouveau mandat de gestion. C'est une tranquillité d'esprit essentielle pour tout propriétaire bailleur.",
+        "La Garantie Loyers Impayés (GLI) couvre vos loyers en cas de défaut de paiement du locataire. Elle prend généralement en charge les loyers impayés, les charges locatives et parfois les frais juridiques liés à une procédure d'expulsion. C'est une tranquillité d'esprit essentielle pour tout propriétaire bailleur.",
     },
   ];
 
@@ -135,19 +135,12 @@ const GestionLocative = () => {
       <section className="py-10 bg-primary/5">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto rounded-lg border-2 border-primary/20 bg-card p-8 text-center shadow-sm">
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div className="flex flex-col items-center">
                 <Users className="h-8 w-8 text-primary mb-3" />
                 <h3 className="font-heading text-base font-bold mb-1">Locataires pré-qualifiés</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">
                   Dossiers complets, revenus vérifiés, garanties validées avant même la première visite.
-                </p>
-              </div>
-              <div className="flex flex-col items-center">
-                <Shield className="h-8 w-8 text-primary mb-3" />
-                <h3 className="font-heading text-base font-bold mb-1">GLI remboursée 12 mois</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  La garantie loyers impayés est remboursée pendant 12 mois sur tout nouveau mandat de gestion.
                 </p>
               </div>
               <div className="flex flex-col items-center">
