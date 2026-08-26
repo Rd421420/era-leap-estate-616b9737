@@ -8,6 +8,8 @@ import EstimationForm from "@/components/EstimationForm";
 import RecentEstimations from "@/components/RecentEstimations";
 import FAQ from "@/components/FAQ";
 import SeoHead from "@/components/SeoHead";
+import AgencyProof from "@/components/AgencyProof";
+
 
 const Index = () => {
   const formRef = useRef<HTMLDivElement>(null);
@@ -145,6 +147,8 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      <AgencyProof />
 
       {/* ACTION */}
       <div className="bg-navy py-14 text-center text-navy-foreground">
