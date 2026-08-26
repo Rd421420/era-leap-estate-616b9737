@@ -5,7 +5,7 @@ interface SectionHeadingProps {
   align?: "center" | "left";
 }
 
-const SectionHeading = ({ eyebrow, title, subtitle, align = "center" }: SectionHeadingProps) => {
+const SectionHeading = ({ eyebrow, title, subtitle, align = "left" }: SectionHeadingProps) => {
   const alignment = align === "center" ? "text-center mx-auto items-center" : "text-left items-start";
   return (
     <div className={`flex max-w-3xl flex-col ${alignment} mb-10 md:mb-12`}>

@@ -178,6 +178,7 @@ const EstimationForm = ({
   const [validationErrors, setValidationErrors] = useState<Record<string, string>>({});
   const [startedTracked, setStartedTracked] = useState(false);
   const stepTitleRef = useRef<HTMLHeadingElement>(null);
+  const isFirstRender = useRef(true);
 
   // Attribution tracking (lues une seule fois au montage)
   const [attribution, setAttribution] = useState({
@@ -207,7 +208,13 @@ const EstimationForm = ({
 
   // Focus automatique sur le titre à chaque changement d'étape (accessibilité)
   useEffect(() => {
-    stepTitleRef.current?.focus();
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
+    stepTitleRef.current?.focus({ preventScroll: true });
+    const section = stepTitleRef.current?.closest("section") ?? stepTitleRef.current;
+    section?.scrollIntoView({ behavior: "smooth", block: "start" });
   }, [step]);
 
   const {

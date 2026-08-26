@@ -121,7 +121,7 @@ const GestionLocative = () => {
           <SectionHeading title="Ce qu'on prend en charge" />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {services.map((s) => (
-              <Card key={s.title} className="border-l-4 border-l-primary">
+              <Card key={s.title} className="h-full rounded-none border border-border bg-card shadow-sm transition-all group-hover:border-primary">
                 <CardContent className="p-6">
                   <s.icon className="h-6 w-6 text-primary mb-4" />
                   <h3 className="font-heading text-lg font-bold mb-2">{s.title}</h3>

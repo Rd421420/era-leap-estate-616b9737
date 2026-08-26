@@ -65,7 +65,7 @@ const LoyersImpayes = () => {
         <div className="container mx-auto px-4">
           <SectionHeading title="Vous êtes peut-être dans ce cas" />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            <Card className="border-l-4 border-l-primary">
+            <Card className="h-full rounded-none border border-border bg-card shadow-sm transition-all group-hover:border-primary">
               <CardContent className="p-6">
                 <MessageCircle className="h-6 w-6 text-primary mb-4" />
                 <h3 className="font-heading text-lg font-bold mb-2">Les relances ne suffisent plus</h3>
@@ -75,7 +75,7 @@ const LoyersImpayes = () => {
                 </p>
               </CardContent>
             </Card>
-            <Card className="border-l-4 border-l-primary">
+            <Card className="h-full rounded-none border border-border bg-card shadow-sm transition-all group-hover:border-primary">
               <CardContent className="p-6">
                 <Shield className="h-6 w-6 text-primary mb-4" />
                 <h3 className="font-heading text-lg font-bold mb-2">La procédure m'angoisse</h3>
@@ -85,7 +85,7 @@ const LoyersImpayes = () => {
                 </p>
               </CardContent>
             </Card>
-            <Card className="border-l-4 border-l-primary">
+            <Card className="h-full rounded-none border border-border bg-card shadow-sm transition-all group-hover:border-primary">
               <CardContent className="p-6">
                 <RefreshCw className="h-6 w-6 text-primary mb-4" />
                 <h3 className="font-heading text-lg font-bold mb-2">Je veux éviter que ça recommence</h3>

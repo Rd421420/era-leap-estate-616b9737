@@ -65,7 +65,7 @@ const VacanceLocative = () => {
         <div className="container mx-auto px-4">
           <SectionHeading title="Vous êtes peut-être dans ce cas" />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            <Card className="border-l-4 border-l-primary">
+            <Card className="h-full rounded-none border border-border bg-card shadow-sm transition-all group-hover:border-primary">
               <CardContent className="p-6">
                 <SearchX className="h-6 w-6 text-primary mb-4" />
                 <h3 className="font-heading text-lg font-bold mb-2">Peu de visites, aucun dossier sérieux</h3>
@@ -74,7 +74,7 @@ const VacanceLocative = () => {
                 </p>
               </CardContent>
             </Card>
-            <Card className="border-l-4 border-l-primary">
+            <Card className="h-full rounded-none border border-border bg-card shadow-sm transition-all group-hover:border-primary">
               <CardContent className="p-6">
                 <TrendingDown className="h-6 w-6 text-primary mb-4" />
                 <h3 className="font-heading text-lg font-bold mb-2">Le loyer est peut-être mal positionné</h3>
@@ -83,7 +83,7 @@ const VacanceLocative = () => {
                 </p>
               </CardContent>
             </Card>
-            <Card className="border-l-4 border-l-primary">
+            <Card className="h-full rounded-none border border-border bg-card shadow-sm transition-all group-hover:border-primary">
               <CardContent className="p-6">
                 <Megaphone className="h-6 w-6 text-primary mb-4" />
                 <h3 className="font-heading text-lg font-bold mb-2">L'annonce ne ressort pas</h3>

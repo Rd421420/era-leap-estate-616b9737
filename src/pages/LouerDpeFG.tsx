@@ -65,7 +65,7 @@ const LouerDpeFG = () => {
         <div className="container mx-auto px-4">
           <SectionHeading title="Vous êtes peut-être dans ce cas" />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            <Card className="border-l-4 border-l-primary">
+            <Card className="h-full rounded-none border border-border bg-card shadow-sm transition-all group-hover:border-primary">
               <CardContent className="p-6">
                 <AlertTriangle className="h-6 w-6 text-primary mb-4" />
                 <h3 className="font-heading text-lg font-bold mb-2">Je ne pourrai bientôt plus le louer</h3>
@@ -74,7 +74,7 @@ const LouerDpeFG = () => {
                 </p>
               </CardContent>
             </Card>
-            <Card className="border-l-4 border-l-primary">
+            <Card className="h-full rounded-none border border-border bg-card shadow-sm transition-all group-hover:border-primary">
               <CardContent className="p-6">
                 <Wallet className="h-6 w-6 text-primary mb-4" />
                 <h3 className="font-heading text-lg font-bold mb-2">Les travaux coûtent trop cher</h3>
@@ -83,7 +83,7 @@ const LouerDpeFG = () => {
                 </p>
               </CardContent>
             </Card>
-            <Card className="border-l-4 border-l-primary">
+            <Card className="h-full rounded-none border border-border bg-card shadow-sm transition-all group-hover:border-primary">
               <CardContent className="p-6">
                 <Home className="h-6 w-6 text-primary mb-4" />
                 <h3 className="font-heading text-lg font-bold mb-2">Je pense tout revendre</h3>
