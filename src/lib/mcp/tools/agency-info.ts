@@ -15,7 +15,7 @@ const AGENCY = {
     "Mise en location",
     "Accompagnement propriétaires (DPE F/G, loyers impayés, vacance locative)",
   ],
-  googleReviews: { rating: 4.6, count: 136 },
+  googleReviews: { rating: 4.6, count: 139 },
 };
 
 export default defineTool({

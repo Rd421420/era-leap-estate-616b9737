@@ -3,6 +3,8 @@ import { Phone, ChevronRight, Star, Lock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { CommuneAutocomplete } from "@/components/CommuneAutocomplete";
+import { GOOGLE_RATING, GOOGLE_REVIEW_COUNT, GOOGLE_REVIEW_URL } from "@/lib/agency";
+
 
 interface LandingHeroProps {
   eyebrow: string;
@@ -20,19 +22,20 @@ interface LandingHeroProps {
 
 const SocialProof = () => (
   <div className="flex flex-wrap items-center justify-center gap-2 text-sm">
-    <div className="flex items-center gap-0.5" aria-label="Note 4,6 sur 5">
+    <div className="flex items-center gap-0.5" aria-label={`Note ${GOOGLE_RATING} sur 5`}>
       {[0, 1, 2, 3, 4].map((i) => (
         <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
       ))}
     </div>
     <a
-      href="https://g.page/r/Cf4uH0jFPZDSEBM/review"
+      href={GOOGLE_REVIEW_URL}
       target="_blank"
       rel="noopener noreferrer"
       className="font-semibold text-navy-foreground hover:text-primary transition-colors"
     >
-      4,6/5 · 136 avis Google
+      {GOOGLE_RATING}/5 · {GOOGLE_REVIEW_COUNT} avis Google
     </a>
+
     <span className="text-navy-muted">· sans engagement de durée</span>
   </div>
 );

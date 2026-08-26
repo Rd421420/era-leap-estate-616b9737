@@ -1,4 +1,6 @@
 import romainDupont from "@/assets/romain-dupont.jpg";
+import { GOOGLE_RATING, GOOGLE_REVIEW_COUNT, GOOGLE_REVIEW_URL } from "@/lib/agency";
+
 
 const AgencyProof = () => {
   return (
@@ -41,18 +43,19 @@ const AgencyProof = () => {
             </span>
           </div>
           <a
-            href="https://g.page/r/Cf4uH0jFPZDSEBM/review"
+            href={GOOGLE_REVIEW_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="p-6 text-center group"
           >
             <span className="block font-heading text-4xl text-primary group-hover:text-primary-dark transition-colors">
-              4,6/5
+              {GOOGLE_RATING}/5
             </span>
             <span className="block mt-1 text-sm text-muted-foreground group-hover:text-foreground transition-colors">
-              sur 136 avis Google
+              sur {GOOGLE_REVIEW_COUNT} avis Google
             </span>
           </a>
+
         </div>
 
         <p className="mt-8 text-base md:text-lg leading-relaxed text-muted-foreground max-w-4xl">
