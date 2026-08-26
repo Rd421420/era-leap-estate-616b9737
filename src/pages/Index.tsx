@@ -7,6 +7,7 @@ import TrustBar from "@/components/TrustBar";
 import EstimationForm from "@/components/EstimationForm";
 import RecentEstimations from "@/components/RecentEstimations";
 import FAQ from "@/components/FAQ";
+import { faqData } from "@/components/FAQ";
 import SeoHead from "@/components/SeoHead";
 import AgencyProof from "@/components/AgencyProof";
 
