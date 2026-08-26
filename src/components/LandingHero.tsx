@@ -75,7 +75,7 @@ const DefaultAside = ({
             Estimez le loyer de votre bien
           </h2>
           <p className="text-sm text-muted-foreground mt-1">
-            Gratuit · réponse sous 24 h
+            Gratuit · réponse par email en quelques minutes
           </p>
         </div>
         <form onSubmit={handleSubmit} className="space-y-3">
@@ -94,7 +94,7 @@ const DefaultAside = ({
         </form>
         <p className="flex items-center gap-1.5 text-xs text-muted-foreground">
           <Lock className="h-3 w-3" />
-          Données non revendues · 100% offert
+          Vos données ne sont jamais revendues · sans engagement
         </p>
       </CardContent>
     </Card>
@@ -131,21 +131,13 @@ const LandingHero = ({
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Button
               size="lg"
-              onClick={onCta}
-              className="min-h-[48px] px-8 text-base font-bold uppercase tracking-wide shadow-era"
-            >
-              Estimer mon loyer gratuitement
-              <ChevronRight className="ml-2 h-4 w-4" />
-            </Button>
-            <Button
-              size="lg"
               variant="outline"
               asChild
               className="min-h-[48px] border-white/30 bg-transparent text-navy-foreground hover:bg-white/10 hover:text-navy-foreground"
             >
               <a href="tel:+33468665718" className="gap-2">
                 <Phone className="h-4 w-4" />
-                04 68 66 57 18
+                Parler à un conseiller - 04 68 66 57 18
               </a>
             </Button>
           </div>

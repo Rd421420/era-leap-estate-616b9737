@@ -25,7 +25,7 @@ const VacanceLocative = () => {
     {
       question: "En combien de temps pouvez-vous trouver un locataire ?",
       answer:
-        "Grâce à notre vivier de candidats déjà pré-qualifiés, nous pouvons souvent présenter un dossier solide en moins d'une semaine. La mise en location complète se déroule généralement en quelques jours à quelques semaines, selon le bien et la période. Chaque situation est unique : faites une analyse offerte pour obtenir une estimation réaliste pour votre logement.",
+        "Grâce à notre vivier de candidats déjà vérifiés, nous pouvons souvent présenter un dossier solide en moins d'une semaine. La mise en location complète se déroule généralement en quelques jours à quelques semaines, selon le bien et la période. Chaque situation est unique : faites une analyse offerte pour obtenir une estimation réaliste pour votre logement.",
     },
     {
       question: "Comment sont vérifiés les candidats ?",
@@ -43,7 +43,7 @@ const VacanceLocative = () => {
     <>
       <SeoHead
         title="Votre appartement ne se loue pas ? | ERA Dupont Romain"
-        description="Des semaines sans locataire sérieux à Perpignan ? On active notre vivier de locataires déjà pré-qualifiés. Estimation locative offerte, mise en location rapide."
+        description="Des semaines sans locataire sérieux à Perpignan ? On active notre vivier de locataires déjà vérifiés. Estimation locative offerte, mise en location rapide."
         path="/logement-ne-se-loue-pas-perpignan"
         type="article"
         faq={faq}
@@ -100,7 +100,7 @@ const VacanceLocative = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             <div className="relative rounded-lg border bg-card p-6 shadow-sm">
               <span className="absolute -top-3 left-6 inline-flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground text-sm font-bold">1</span>
-              <h3 className="font-heading text-lg font-bold mt-4 mb-2">Vivier de locataires pré-qualifiés</h3>
+              <h3 className="font-heading text-lg font-bold mt-4 mb-2">Vivier de locataires déjà vérifiés</h3>
               <Users className="h-5 w-5 text-primary mb-3" />
               <p className="text-muted-foreground text-sm leading-relaxed">
                 Nous avons un vivier de candidats dont les revenus, les garanties et les dossiers ont déjà été vérifiés. Dès qu'un bien correspond, on contacte immédiatement les profils adaptés.

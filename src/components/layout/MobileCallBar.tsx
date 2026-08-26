@@ -8,7 +8,7 @@ const MobileCallBar = () => {
       aria-label="Demander mon estimation locative offerte"
     >
       <ClipboardCheck className="h-5 w-5" />
-      <span>Demander mon estimation offerte</span>
+      <span>Estimer mon loyer - gratuit</span>
     </a>
   );
 };

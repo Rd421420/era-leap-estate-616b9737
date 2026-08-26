@@ -1,8 +1,9 @@
-import { ClipboardCheck, Users, Star, Phone } from "lucide-react";
+import { ClipboardCheck, Users, Star, Phone, CalendarOff } from "lucide-react";
 
 const items = [
   { label: "Estimation offerte", Icon: ClipboardCheck },
-  { label: "Locataires pré-qualifiés", Icon: Users },
+  { label: "Candidats déjà vérifiés", Icon: Users },
+  { label: "Sans engagement de durée", Icon: CalendarOff },
 ];
 
 const TrustBar = () => {
