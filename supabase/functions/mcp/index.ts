@@ -22,7 +22,7 @@ var AGENCY = {
     "Mise en location",
     "Accompagnement propri\xE9taires (DPE F/G, loyers impay\xE9s, vacance locative)"
   ],
-  googleReviews: { rating: 4.6, count: 136 }
+  googleReviews: { rating: 4.6, count: 139 }
 };
 var agency_info_default = defineTool({
   name: "get_agency_info",
