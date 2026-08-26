@@ -166,7 +166,7 @@ const RecentEstimations = () => {
                     <div className="flex items-center gap-2">
                       <MapPin className="w-4 h-4 text-primary flex-shrink-0" />
                       <span className="font-semibold text-sm text-foreground truncate">
-                        {est.ville}
+                        {normalizeCityName(est.ville)}
                       </span>
                     </div>
 
@@ -180,7 +180,7 @@ const RecentEstimations = () => {
                     <div className="flex items-center gap-4 text-xs">
                       <div className="flex items-center gap-1">
                         <BedDouble className="w-3 h-3 text-muted-foreground" />
-                        <span>{est.pieces}</span>
+                        <span>{formatPieces(est.pieces)}</span>
                       </div>
                       <div className="flex items-center gap-1">
                         <Maximize2 className="w-3 h-3 text-muted-foreground" />
