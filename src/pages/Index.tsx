@@ -11,7 +11,6 @@ import { faqData } from "@/components/FAQ";
 import SeoHead from "@/components/SeoHead";
 import AgencyProof from "@/components/AgencyProof";
 
-
 const Index = () => {
   const formRef = useRef<HTMLDivElement>(null);
   const [ville, setVille] = useState("");
@@ -24,8 +23,8 @@ const Index = () => {
   return (
     <>
       <SeoHead
-        title="Agence immobilière Perpignan | ERA Dupont Romain"
-        description="Estimation locative offerte à Perpignan et dans le 66. Gestion locative, location et conseil patrimoine par ERA Dupont Romain."
+        title="Estimation locative gratuite Perpignan 66 | ERA Dupont Romain"
+        description="Quel loyer pour votre bien à Perpignan ou dans le 66 ? Estimation gratuite basée sur les loyers réellement pratiqués près de chez vous. Réponse par email."
         path="/"
         faq={faqData}
       />
@@ -158,7 +157,10 @@ const Index = () => {
           <h2 className="font-heading text-2xl md:text-4xl uppercase tracking-tight">
             Votre estimation en <span className="text-primary">3 minutes</span>
           </h2>
-          <p className="mt-4 text-navy-muted">Pas de visite obligatoire, pas d'engagement. Vous recevez votre fourchette de loyer par email, et vous décidez de la suite.</p>
+          <p className="mt-4 text-navy-muted">
+            Pas de visite obligatoire, pas d'engagement. Vous recevez votre fourchette de loyer par email, et vous
+            décidez de la suite.
+          </p>
           <div className="mt-8 flex justify-center gap-3" aria-hidden>
             <span className="h-2 w-12 bg-primary" />
             <span className="h-2 w-12 bg-white/20" />
