@@ -9,6 +9,8 @@ import TrustBar from "@/components/TrustBar";
 import SectionHeading from "@/components/SectionHeading";
 import GoogleReviews from "@/components/GoogleReviews";
 import { trackEvent } from "@/lib/analytics";
+import CtaBand from "@/components/CtaBand";
+import RelatedLinks from "@/components/RelatedLinks";
 
 const VacanceLocative = () => {
   const formRef = useRef<HTMLDivElement>(null);
@@ -149,6 +151,21 @@ const VacanceLocative = () => {
               </AccordionItem>
             ))}
           </Accordion>
+        </div>
+      </section>
+
+      <section className="pb-16 md:pb-20">
+        <div className="container mx-auto px-4 max-w-3xl">
+          <CtaBand
+            title="Chaque semaine de vacance vous coûte un loyer. Voyons d'abord si le prix est le bon."
+            ctaText="Savoir à quel loyer mon bien partira"
+          />
+          <RelatedLinks
+            links={[
+              { label: "Louer un bien classé F ou G", to: "/louer-bien-dpe-f-g-perpignan" },
+              { label: "Confier la mise en location à une agence", to: "/gestion-locative-perpignan" },
+            ]}
+          />
         </div>
       </section>
     </>
