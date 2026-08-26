@@ -19,6 +19,42 @@ interface Estimation {
   loyer: string;
 }
 
+const parseFrenchDate = (dateStr: string): Date | null => {
+  if (!dateStr) return null;
+  const parts = dateStr.trim().split('/');
+  if (parts.length !== 3) return null;
+  const [day, month, year] = parts.map((p) => parseInt(p, 10));
+  if (!day || !month || !year) return null;
+  const date = new Date(year, month - 1, day);
+  if (
+    date.getFullYear() !== year ||
+    date.getMonth() !== month - 1 ||
+    date.getDate() !== day
+  ) {
+    return null;
+  }
+  return date;
+};
+
+const normalizeCityName = (city: string): string => {
+  return city
+    .toLowerCase()
+    .split(/([\s'-]+)/)
+    .map((part) =>
+      /[\s'-]+/.test(part) ? part : part.charAt(0).toUpperCase() + part.slice(1)
+    )
+    .join('');
+};
+
+const formatPieces = (pieces: string): string => {
+  const value = pieces.trim();
+  if (!value) return value;
+  if (/^T?\d+$/i.test(value)) {
+    return value.toUpperCase().startsWith('T') ? value.toUpperCase() : `T${value}`;
+  }
+  return value;
+};
+
 const RecentEstimations = () => {
   const [estimations, setEstimations] = useState<Estimation[]>([]);
   const [loading, setLoading] = useState(true);
@@ -42,6 +78,7 @@ const RecentEstimations = () => {
               pieces: values[3] ?? '',
               surface: values[4] ?? '',
               loyer: values[5] ?? '',
+              parsedDate: parseFrenchDate(values[0] ?? ''),
             };
           })
           // On n'affiche que les lignes réellement complètes du CSV
@@ -50,7 +87,17 @@ const RecentEstimations = () => {
               e.date && e.ville && e.type && e.pieces && e.surface && e.loyer &&
               /\d/.test(e.loyer) && /\d/.test(e.surface)
           )
-          .slice(0, 5);
+          // Les plus récentes en premier ; dates invalides repoussées en fin
+          .sort((a, b) => {
+            if (a.parsedDate && b.parsedDate) {
+              return b.parsedDate.getTime() - a.parsedDate.getTime();
+            }
+            if (a.parsedDate) return -1;
+            if (b.parsedDate) return 1;
+            return 0;
+          })
+          .slice(0, 5)
+          .map(({ parsedDate, ...rest }) => rest);
 
         setEstimations(parsed);
       } catch (error) {
@@ -119,7 +166,7 @@ const RecentEstimations = () => {
                     <div className="flex items-center gap-2">
                       <MapPin className="w-4 h-4 text-primary flex-shrink-0" />
                       <span className="font-semibold text-sm text-foreground truncate">
-                        {est.ville}
+                        {normalizeCityName(est.ville)}
                       </span>
                     </div>
 
@@ -133,7 +180,7 @@ const RecentEstimations = () => {
                     <div className="flex items-center gap-4 text-xs">
                       <div className="flex items-center gap-1">
                         <BedDouble className="w-3 h-3 text-muted-foreground" />
-                        <span>{est.pieces}</span>
+                        <span>{formatPieces(est.pieces)}</span>
                       </div>
                       <div className="flex items-center gap-1">
                         <Maximize2 className="w-3 h-3 text-muted-foreground" />
