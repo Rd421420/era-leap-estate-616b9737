@@ -1,5 +1,5 @@
 import { useState, type ReactNode } from "react";
-import { Phone, Star, Lock } from "lucide-react";
+import { Phone, ChevronRight, Star, Lock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { CommuneAutocomplete } from "@/components/CommuneAutocomplete";
