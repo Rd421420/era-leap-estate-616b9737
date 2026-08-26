@@ -30,7 +30,7 @@ const LoyersImpayes = () => {
     {
       question: "C'est quoi la garantie loyers impayés (GLI) ?",
       answer:
-        "La Garantie Loyers Impayés (GLI) est une assurance qui couvre vos loyers en cas de défaut de paiement du locataire. Elle prend généralement en charge les loyers impayés, les charges et parfois les frais juridiques. Chez ERA DUPONT ROMAIN IMMOBILIER, on vous offre le remboursement de cette garantie pendant 12 mois sur tout nouveau mandat de gestion. C'est la tranquillité d'esprit pour votre rentrée locative.",
+        "La Garantie Loyers Impayés (GLI) est une assurance qui couvre vos loyers en cas de défaut de paiement du locataire. Elle prend généralement en charge les loyers impayés, les charges et parfois les frais juridiques. C'est la tranquillité d'esprit pour votre rentrée locative.",
     },
     {
       question: "Pouvez-vous reprendre un dossier déjà en cours ?",
@@ -135,18 +135,6 @@ const LoyersImpayes = () => {
         </div>
       </section>
 
-      <section className="py-10 bg-primary/5">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto rounded-lg border-2 border-primary/20 bg-card p-8 text-center shadow-sm">
-            <BadgeCheck className="h-8 w-8 text-primary mx-auto mb-4" />
-            <h3 className="font-heading text-xl font-bold mb-2">GLI remboursée pendant 12 mois</h3>
-            <p className="text-muted-foreground leading-relaxed">
-              Pour tout nouveau mandat de gestion signé chez ERA DUPONT ROMAIN IMMOBILIER, la garantie loyers impayés
-              est remboursée pendant 12 mois. Sans engagement de durée, sans surprise.
-            </p>
-          </div>
-        </div>
-      </section>
 
       <section id="estimation-form" className="py-16 md:py-20 bg-muted/20">
         <div className="container mx-auto px-4">

@@ -48,15 +48,6 @@ const Hero = ({ onScrollToForm }: HeroProps) => {
               </a>
             </div>
 
-            {/* Special Offer Banner */}
-            <div className="bg-gradient-to-r from-primary/10 to-primary/5 border-l-4 border-primary rounded-lg p-4 max-w-2xl mx-auto lg:mx-0">
-              <p className="text-sm md:text-base font-semibold text-foreground flex items-center gap-2">
-                🎁{" "}
-                <span>
-                  Offre spéciale : Remboursement de la prime GLI sur 6 mois pour tout mandat de gestion, sans engagement
-                </span>
-              </p>
-            </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Button

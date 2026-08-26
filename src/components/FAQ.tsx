@@ -30,7 +30,7 @@ const FAQ = () => {
     },
     {
       question: "Qu'est-ce que la garantie loyers impayés (GLI) ?",
-      answer: "La GLI est une assurance qui vous protège contre les impayés de loyers. Elle couvre également les dégradations locatives et les frais de contentieux. ERA propose cette garantie pour sécuriser votre investissement locatif et vous offre actuellement un remboursement sur 12 mois."
+      answer: "La GLI est une assurance qui vous protège contre les impayés de loyers. Elle couvre également les dégradations locatives et les frais de contentieux. ERA propose cette garantie pour sécuriser votre investissement locatif."
     },
     {
       question: "Comment fixer le bon loyer pour mon bien à Perpignan ?",
