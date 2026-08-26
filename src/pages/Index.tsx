@@ -7,6 +7,7 @@ import TrustBar from "@/components/TrustBar";
 import EstimationForm from "@/components/EstimationForm";
 import RecentEstimations from "@/components/RecentEstimations";
 import FAQ from "@/components/FAQ";
+import { faqData } from "@/components/FAQ";
 import SeoHead from "@/components/SeoHead";
 import AgencyProof from "@/components/AgencyProof";
 
@@ -26,6 +27,7 @@ const Index = () => {
         title="Agence immobilière Perpignan | ERA Dupont Romain"
         description="Estimation locative offerte à Perpignan et dans le 66. Gestion locative, location et conseil patrimoine par ERA Dupont Romain."
         path="/"
+        faq={faqData}
       />
       <LandingHero
         eyebrow="ESTIMATION LOCATIVE GRATUITE · PERPIGNAN ET LE 66"
