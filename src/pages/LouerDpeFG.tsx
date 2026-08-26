@@ -133,8 +133,6 @@ const LouerDpeFG = () => {
         </div>
       </section>
 
-      <GoogleReviews />
-
       <section className="py-16 md:py-20">
         <div className="container mx-auto px-4 max-w-3xl">
           <SectionHeading title="Questions fréquentes" />
