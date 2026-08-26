@@ -7,10 +7,12 @@ const Layout = () => {
   return (
     <>
       <Header />
-      <main className="min-h-screen pb-[52px] md:pb-0">
-        <Outlet />
-      </main>
-      <Footer />
+      <div className="pb-[52px] md:pb-0">
+        <main className="min-h-screen">
+          <Outlet />
+        </main>
+        <Footer />
+      </div>
       <MobileCallBar />
     </>
   );
