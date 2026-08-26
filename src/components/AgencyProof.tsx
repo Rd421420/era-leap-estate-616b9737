@@ -1,4 +1,6 @@
 import romainDupont from "@/assets/romain-dupont.jpg";
+import { GOOGLE_RATING, GOOGLE_REVIEW_COUNT, GOOGLE_REVIEW_URL } from "@/lib/agency";
+
 
 const AgencyProof = () => {
   return (
