@@ -3,6 +3,8 @@ import { Phone, ChevronRight, Star, Lock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { CommuneAutocomplete } from "@/components/CommuneAutocomplete";
+import { GOOGLE_RATING, GOOGLE_REVIEW_COUNT, GOOGLE_REVIEW_URL } from "@/lib/agency";
+
 
 interface LandingHeroProps {
   eyebrow: string;
