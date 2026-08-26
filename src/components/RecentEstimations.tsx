@@ -19,6 +19,42 @@ interface Estimation {
   loyer: string;
 }
 
+const parseFrenchDate = (dateStr: string): Date | null => {
+  if (!dateStr) return null;
+  const parts = dateStr.trim().split('/');
+  if (parts.length !== 3) return null;
+  const [day, month, year] = parts.map((p) => parseInt(p, 10));
+  if (!day || !month || !year) return null;
+  const date = new Date(year, month - 1, day);
+  if (
+    date.getFullYear() !== year ||
+    date.getMonth() !== month - 1 ||
+    date.getDate() !== day
+  ) {
+    return null;
+  }
+  return date;
+};
+
+const normalizeCityName = (city: string): string => {
+  return city
+    .toLowerCase()
+    .split(/([\s'-]+)/)
+    .map((part) =>
+      /[\s'-]+/.test(part) ? part : part.charAt(0).toUpperCase() + part.slice(1)
+    )
+    .join('');
+};
+
+const formatPieces = (pieces: string): string => {
+  const value = pieces.trim();
+  if (!value) return value;
+  if (/^T?\d+$/i.test(value)) {
+    return value.toUpperCase().startsWith('T') ? value.toUpperCase() : `T${value}`;
+  }
+  return value;
+};
+
 const RecentEstimations = () => {
   const [estimations, setEstimations] = useState<Estimation[]>([]);
   const [loading, setLoading] = useState(true);
