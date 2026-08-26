@@ -9,6 +9,8 @@ import TrustBar from "@/components/TrustBar";
 import SectionHeading from "@/components/SectionHeading";
 import GoogleReviews from "@/components/GoogleReviews";
 import { trackEvent } from "@/lib/analytics";
+import CtaBand from "@/components/CtaBand";
+import RelatedLinks from "@/components/RelatedLinks";
 
 const LouerDpeFG = () => {
   const formRef = useRef<HTMLDivElement>(null);
@@ -146,6 +148,21 @@ const LouerDpeFG = () => {
               </AccordionItem>
             ))}
           </Accordion>
+        </div>
+      </section>
+
+      <section className="pb-16 md:pb-20">
+        <div className="container mx-auto px-4 max-w-3xl">
+          <CtaBand
+            title="Avant d'engager des travaux, sachez ce que votre bien peut rapporter une fois louable."
+            ctaText="Estimer mon loyer après travaux"
+          />
+          <RelatedLinks
+            links={[
+              { label: "Mon logement ne trouve pas preneur", to: "/logement-ne-se-loue-pas-perpignan" },
+              { label: "Déléguer la gestion de mon bien", to: "/gestion-locative-perpignan" },
+            ]}
+          />
         </div>
       </section>
     </>

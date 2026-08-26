@@ -9,6 +9,8 @@ import TrustBar from "@/components/TrustBar";
 import SectionHeading from "@/components/SectionHeading";
 import GoogleReviews from "@/components/GoogleReviews";
 import { trackEvent } from "@/lib/analytics";
+import CtaBand from "@/components/CtaBand";
+import RelatedLinks from "@/components/RelatedLinks";
 
 const LoyersImpayes = () => {
   const formRef = useRef<HTMLDivElement>(null);
@@ -159,6 +161,21 @@ const LoyersImpayes = () => {
               </AccordionItem>
             ))}
           </Accordion>
+        </div>
+      </section>
+
+      <section className="pb-16 md:pb-20">
+        <div className="container mx-auto px-4 max-w-3xl">
+          <CtaBand
+            title="Vous ne savez pas par où commencer ? Envoyez-nous la situation de votre bien, on vous rappelle sous 24 h avec les étapes concrètes, et le loyer auquel il se relouerait."
+            ctaText="Faire le point sur mon dossier"
+          />
+          <RelatedLinks
+            links={[
+              { label: "Comment nous sélectionnons les locataires", to: "/gestion-locative-perpignan" },
+              { label: "Faut-il déléguer ou gérer soi-même ?", to: "/deleguer-ou-gerer-soi-meme" },
+            ]}
+          />
         </div>
       </section>
     </>

@@ -9,6 +9,8 @@ import TrustBar from "@/components/TrustBar";
 import SectionHeading from "@/components/SectionHeading";
 import GoogleReviews from "@/components/GoogleReviews";
 import { trackEvent } from "@/lib/analytics";
+import CtaBand from "@/components/CtaBand";
+import RelatedLinks from "@/components/RelatedLinks";
 
 const DeleguerOuGerer = () => {
   const formRef = useRef<HTMLDivElement>(null);
@@ -225,6 +227,21 @@ const DeleguerOuGerer = () => {
               </AccordionItem>
             ))}
           </Accordion>
+        </div>
+      </section>
+
+      <section className="pb-16 md:pb-20">
+        <div className="container mx-auto px-4 max-w-3xl">
+          <CtaBand
+            title="Le calcul dépend de votre loyer. Commençons par le connaître."
+            ctaText="Faire le calcul sur mon bien"
+          />
+          <RelatedLinks
+            links={[
+              { label: "Ce que comprend la gestion locative", to: "/gestion-locative-perpignan" },
+              { label: "Le risque d'impayé quand on gère seul", to: "/loyers-impayes-perpignan" },
+            ]}
+          />
         </div>
       </section>
     </>

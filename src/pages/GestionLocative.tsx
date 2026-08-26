@@ -26,6 +26,8 @@ import GoogleReviews from "@/components/GoogleReviews";
 import TrustBar from "@/components/TrustBar";
 import SectionHeading from "@/components/SectionHeading";
 import { trackEvent } from "@/lib/analytics";
+import CtaBand from "@/components/CtaBand";
+import RelatedLinks from "@/components/RelatedLinks";
 
 const GestionLocative = () => {
   const formRef = useRef<HTMLDivElement>(null);
@@ -179,6 +181,21 @@ const GestionLocative = () => {
               </AccordionItem>
             ))}
           </Accordion>
+        </div>
+      </section>
+
+      <section className="pb-16 md:pb-20">
+        <div className="container mx-auto px-4 max-w-3xl">
+          <CtaBand
+            title="Combien vous coûterait la gestion de votre bien, et combien il peut rapporter ? Les deux chiffres en une fois."
+            ctaText="Recevoir mon estimation de loyer"
+          />
+          <RelatedLinks
+            links={[
+              { label: "Que faire en cas de loyers impayés", to: "/loyers-impayes-perpignan" },
+              { label: "Combien coûte la gestion locative à Perpignan ?", to: "/blog/frais-gestion-locative-perpignan-prix" },
+            ]}
+          />
         </div>
       </section>
     </>
