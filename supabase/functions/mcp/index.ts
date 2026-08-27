@@ -3,7 +3,7 @@
 // supabase function: mcp
 // Bundled from src/lib/mcp/index.ts by @lovable.dev/mcp-js.
 // src/lib/mcp/index.ts
-import { defineMcp } from "npm:@lovable.dev/mcp-js@0.24.0";
+import { auth, defineMcp } from "npm:@lovable.dev/mcp-js@0.24.0";
 
 // src/lib/mcp/tools/agency-info.ts
 import { defineTool } from "npm:@lovable.dev/mcp-js@0.24.0";
@@ -145,7 +145,12 @@ var mcp_default = defineMcp({
   name: "era-dupont-romain-mcp",
   title: "ERA Dupont Romain \u2014 Estimation locative",
   version: "0.1.0",
-  instructions: "Outils publics de l'agence ERA Dupont Romain (Perpignan, Pyr\xE9n\xE9es-Orientales). Utilise `get_agency_info` pour obtenir les coordonn\xE9es et prestations, et `submit_estimation` pour transmettre une demande d'estimation locative \xE0 l'agence (r\xE9ponse sous 24 h).",
+  instructions: "Outils de l'agence ERA Dupont Romain (Perpignan, Pyr\xE9n\xE9es-Orientales). Utilise `get_agency_info` pour obtenir les coordonn\xE9es et prestations, et `submit_estimation` pour transmettre une demande d'estimation locative \xE0 l'agence (r\xE9ponse sous 24 h). Acc\xE8s r\xE9serv\xE9 aux clients authentifi\xE9s.",
+  auth: auth.oauth.issuer({
+    issuer: "https://ticlsjtqihljeixwzeqx.supabase.co/auth/v1",
+    acceptedAudiences: "authenticated",
+    resourceName: "ERA Dupont Romain \u2014 MCP"
+  }),
   tools: [agency_info_default, submit_estimation_default]
 });
 
