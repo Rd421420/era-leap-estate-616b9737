@@ -466,6 +466,20 @@ const EstimationForm = ({
 
 
           <form onSubmit={handleSubmit} className="space-y-6">
+            {/* Piège à robots — invisible et inaccessible aux humains */}
+            <div aria-hidden="true" className="absolute w-px h-px overflow-hidden opacity-0 -left-[9999px] pointer-events-none">
+              <label htmlFor="website">Site web</label>
+              <input
+                type="text"
+                id="website"
+                name="website"
+                autoComplete="off"
+                tabIndex={-1}
+                value={honeypot}
+                onChange={(e) => setHoneypot(e.target.value)}
+              />
+            </div>
+
             {/* ÉTAPE 1 — Essentiels */}
             {step === 1 && (
               <div className="space-y-5 animate-fade-in">
