@@ -181,6 +181,11 @@ const EstimationForm = ({
   const stepTitleRef = useRef<HTMLHeadingElement>(null);
   const isFirstRender = useRef(true);
 
+  // Anti-robot : piège (honeypot) + horodatage du premier rendu du formulaire
+  const [honeypot, setHoneypot] = useState("");
+  const formStartedAt = useRef(new Date().toISOString());
+
+
   // Attribution tracking (lues une seule fois au montage)
   const [attribution, setAttribution] = useState({
     gclid: "",
