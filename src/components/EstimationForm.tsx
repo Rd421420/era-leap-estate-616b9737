@@ -338,6 +338,8 @@ const EstimationForm = ({
         referrer: attribution.referrer,
         timestamp: new Date().toISOString(),
         source_form: "estimation-form",
+        website: honeypot,
+        form_started_at: formStartedAt.current,
       };
 
       const { data: fnData, error: fnError } = await supabase.functions.invoke(
@@ -355,8 +357,19 @@ const EstimationForm = ({
         });
         navigate("/merci", { state: { prenom: formData.prenom } });
       } else {
+        const status = (fnError as { context?: { status?: number } } | null)?.context?.status;
+        if (status === 429) {
+          toast({
+            title: "Trop de demandes",
+            description:
+              "Vous avez déjà envoyé plusieurs demandes. Merci de nous appeler au 04 68 66 57 18.",
+            variant: "destructive",
+          });
+          return;
+        }
         throw new Error("Erreur serveur");
       }
+
     } catch (error) {
       console.error("Erreur:", error);
       toast({
