@@ -140,7 +140,7 @@ const LandingHero = ({
             >
               <a href="tel:+33468665718" className="gap-2">
                 <Phone className="h-4 w-4" />
-                Parler à un conseiller - 04 68 66 57 18
+                Parler à un conseiller — 04 68 66 57 18
               </a>
             </Button>
           </div>

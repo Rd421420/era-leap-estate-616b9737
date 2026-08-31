@@ -24,7 +24,7 @@ export const faqData = [
   },
   {
     question: "Combien coûte la gestion locative à Perpignan ?",
-    answer: "Nos honoraires de gestion varient selon le type de bien et les services choisis, généralement entre 6% et 8% HT des loyers encaissés. Contactez-nous pour un devis personnalisé adapté à votre situation."
+    answer: "Nos honoraires de gestion varient selon le type de bien et les services choisis, généralement entre 6 % et 9 % HT des loyers encaissés. Contactez-nous pour un devis personnalisé adapté à votre situation."
   },
   {
     question: "Qu'est-ce que la garantie loyers impayés (GLI) ?",
@@ -56,7 +56,7 @@ export const faqData = [
   },
   {
     question: "Comment se déroule la sélection des locataires ?",
-    answer: "Nous vérifions les revenus (taux d'effort inférieur à 33%), l'identité, les justificatifs professionnels et réalisons une enquête de solvabilité. Seuls les dossiers solides vous sont présentés pour validation finale."
+    answer: "Nous vérifions les revenus (taux d'effort inférieur à 33 %), l'identité, les justificatifs professionnels et réalisons une enquête de solvabilité. Seuls les dossiers solides vous sont présentés pour validation finale."
   },
   {
     question: "Quel est le prix moyen au m² pour la location à Perpignan ?",
@@ -147,8 +147,12 @@ const FAQ = () => {
 
         <Card className="p-6 shadow-md">
           <Accordion type="single" collapsible className="w-full">
-            {(showAll ? faqData : faqData.slice(0, 5)).map((faq, index) => (
-              <AccordionItem key={index} value={`item-${index}`}>
+            {faqData.map((faq, index) => (
+              <AccordionItem
+                key={index}
+                value={`item-${index}`}
+                className={!showAll && index >= 5 ? "hidden" : undefined}
+              >
                 <AccordionTrigger className="text-left text-base font-semibold hover:text-primary">
                   {faq.question}
                 </AccordionTrigger>

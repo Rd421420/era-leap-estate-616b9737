@@ -5,7 +5,7 @@ const N8N_WEBHOOK_URL =
   "https://n8n.srv864634.hstgr.cloud/webhook/c15fe03b-332b-405e-b285-3c660fb06c0e";
 
 // Allow-list of fields forwarded to n8n (defense-in-depth)
-// NB: "website" (honeypot) et "form_started_at" servent uniquement au contrôle
+// NB: "website" (honeypot) et "form_elapsed_ms" servent uniquement au contrôle
 // anti-robot et ne sont JAMAIS transmis à n8n.
 const ALLOWED_FIELDS = new Set([
   "adresse", "type", "surface", "pieces", "chambres", "etat", "annee",
@@ -76,10 +76,10 @@ Deno.serve(async (req) => {
     }
 
     // ---- Délai minimal de remplissage ----------------------------------
-    const startedAt = typeof body.form_started_at === "string"
-      ? Date.parse(body.form_started_at)
+    const elapsed = typeof body.form_elapsed_ms === "number"
+      ? body.form_elapsed_ms
       : NaN;
-    if (!Number.isFinite(startedAt) || Date.now() - startedAt < MIN_FILL_MS) {
+    if (!Number.isFinite(elapsed) || elapsed < MIN_FILL_MS) {
       return json({ error: "Requête invalide" }, 400);
     }
 

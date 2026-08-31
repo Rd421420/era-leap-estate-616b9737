@@ -8,7 +8,7 @@ import { hasConsent } from "@/lib/consent";
 
 const ThankYou = () => {
   const location = useLocation();
-  const prenom = location.state?.prenom || "Cher propriétaire";
+  const prenom = location.state?.prenom || "cher propriétaire";
 
   useEffect(() => {
     window.scrollTo(0, 0);

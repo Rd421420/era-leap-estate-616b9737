@@ -37,12 +37,21 @@ const parseFrenchDate = (dateStr: string): Date | null => {
 };
 
 const normalizeCityName = (city: string): string => {
+  const LOWER = new Set([
+    'de', 'du', 'des', 'd', 'le', 'la', 'les', 'l', 'en', 'sur', 'sous',
+    'lès', 'aux', 'au', 'et', 'del',
+  ]);
+  let isFirstWord = true;
   return city
     .toLowerCase()
     .split(/([\s'-]+)/)
-    .map((part) =>
-      /[\s'-]+/.test(part) ? part : part.charAt(0).toUpperCase() + part.slice(1)
-    )
+    .map((part) => {
+      if (/[\s'-]+/.test(part) || !part) return part;
+      const capitalized = part.charAt(0).toUpperCase() + part.slice(1);
+      const result = !isFirstWord && LOWER.has(part) ? part : capitalized;
+      isFirstWord = false;
+      return result;
+    })
     .join('');
 };
 

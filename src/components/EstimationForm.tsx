@@ -183,7 +183,7 @@ const EstimationForm = ({
 
   // Anti-robot : piège (honeypot) + horodatage du premier rendu du formulaire
   const [honeypot, setHoneypot] = useState("");
-  const formStartedAt = useRef(new Date().toISOString());
+  const formStartedAt = useRef(Date.now());
 
 
   // Attribution tracking (lues une seule fois au montage)
@@ -339,7 +339,7 @@ const EstimationForm = ({
         timestamp: new Date().toISOString(),
         source_form: "estimation-form",
         website: honeypot,
-        form_started_at: formStartedAt.current,
+        form_elapsed_ms: Date.now() - formStartedAt.current,
       };
 
       const { data: fnData, error: fnError } = await supabase.functions.invoke(
@@ -384,7 +384,7 @@ const EstimationForm = ({
 
 
   const stepTitle =
-    step === 1 ? "Votre bien en 30s" : step === 2 ? "Quelques détails" : "Vos coordonnées";
+    step === 1 ? "Votre bien en 30 secondes" : step === 2 ? "Quelques détails" : "Vos coordonnées";
   const StepIcon = step === 3 ? Building2 : Home;
 
   return (
@@ -394,7 +394,7 @@ const EstimationForm = ({
         <div className="mb-6 grid grid-cols-2 md:grid-cols-4 gap-3 text-sm">
           <div className="flex items-center gap-2 bg-card border border-border rounded-lg px-3 py-2 shadow-sm">
             <Gift className="h-4 w-4 text-primary shrink-0" />
-            <span className="font-medium">100% offert</span>
+            <span className="font-medium">100 % offert</span>
           </div>
           <div className="flex items-center gap-2 bg-card border border-border rounded-lg px-3 py-2 shadow-sm">
             <Clock className="h-4 w-4 text-primary shrink-0" />
