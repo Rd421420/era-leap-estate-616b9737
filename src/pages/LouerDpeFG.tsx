@@ -70,7 +70,8 @@ const LouerDpeFG = () => {
                 <AlertTriangle className="h-6 w-6 text-primary mb-4" />
                 <h3 className="font-heading text-lg font-bold mb-2">Je ne pourrai bientôt plus le louer</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">
-                  Les interdictions de location avancent année après année. Un bien G est déjà concerné, un F le sera bientôt. On vous aide à anticiper sans paniquer.
+                  Les interdictions de location avancent année après année. Un bien G est déjà concerné, un F le sera
+                  bientôt. On vous aide à anticiper sans paniquer.
                 </p>
               </CardContent>
             </Card>
@@ -79,7 +80,8 @@ const LouerDpeFG = () => {
                 <Wallet className="h-6 w-6 text-primary mb-4" />
                 <h3 className="font-heading text-lg font-bold mb-2">Les travaux coûtent trop cher</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">
-                  Isolation, fenêtres, chauffage… les devis s'accumulent vite. On vous aide à prioriser les travaux à fort impact et à identifier les aides disponibles.
+                  Isolation, fenêtres, chauffage… les devis s'accumulent vite. On vous aide à prioriser les travaux à
+                  fort impact et à identifier les aides disponibles.
                 </p>
               </CardContent>
             </Card>
@@ -88,7 +90,8 @@ const LouerDpeFG = () => {
                 <Home className="h-6 w-6 text-primary mb-4" />
                 <h3 className="font-heading text-lg font-bold mb-2">Je pense tout revendre</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">
-                  Revendre est une option, mais pas la seule. Avant de vous décider, on fait le point sur la valeur après travaux et sur la rentabilité locative possible.
+                  Revendre est une option, mais pas la seule. Avant de vous décider, on fait le point sur la valeur
+                  après travaux et sur la rentabilité locative possible.
                 </p>
               </CardContent>
             </Card>
@@ -101,24 +104,33 @@ const LouerDpeFG = () => {
           <SectionHeading title="Notre méthode pour les passoires thermiques" />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             <div className="relative rounded-lg border bg-card p-6 shadow-sm">
-              <span className="absolute -top-3 left-6 inline-flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground text-sm font-bold">1</span>
+              <span className="absolute -top-3 left-6 inline-flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground text-sm font-bold">
+                1
+              </span>
               <h3 className="font-heading text-lg font-bold mt-4 mb-2">Diagnostic de situation</h3>
               <p className="text-muted-foreground text-sm leading-relaxed">
-                On établit la classe réelle de votre bien, les échéances qui vous concernent et la marge d'amélioration réaliste avec un budget maîtrisé.
+                On établit la classe réelle de votre bien, les échéances qui vous concernent et la marge d'amélioration
+                réaliste avec un budget maîtrisé.
               </p>
             </div>
             <div className="relative rounded-lg border bg-card p-6 shadow-sm">
-              <span className="absolute -top-3 left-6 inline-flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground text-sm font-bold">2</span>
+              <span className="absolute -top-3 left-6 inline-flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground text-sm font-bold">
+                2
+              </span>
               <h3 className="font-heading text-lg font-bold mt-4 mb-2">Plan d'action chiffré</h3>
               <p className="text-muted-foreground text-sm leading-relaxed">
-                On privilégie les travaux à fort impact (isolation, ventilation, chauffage) et on recense les aides mobilisables : MaPrimeRénov', éco-prêt, aides locales.
+                On privilégie les travaux à fort impact (isolation, ventilation, chauffage) et on recense les aides
+                mobilisables : MaPrimeRénov', éco-prêt, aides locales.
               </p>
             </div>
             <div className="relative rounded-lg border bg-card p-6 shadow-sm">
-              <span className="absolute -top-3 left-6 inline-flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground text-sm font-bold">3</span>
+              <span className="absolute -top-3 left-6 inline-flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground text-sm font-bold">
+                3
+              </span>
               <h3 className="font-heading text-lg font-bold mt-4 mb-2">Mise en location avec nos candidats</h3>
               <p className="text-muted-foreground text-sm leading-relaxed">
-                Dès que votre bien est louable, on active notre base de locataires déjà vérifiés. Dossiers complets, visites ciblées, location sécurisée.
+                Dès que votre bien est louable, on active notre base de locataires déjà vérifiés. Dossiers complets,
+                visites ciblées, location sécurisée.
               </p>
             </div>
           </div>
