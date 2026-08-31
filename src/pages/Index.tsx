@@ -31,7 +31,7 @@ const Index = () => {
       <LandingHero
         eyebrow="ESTIMATION LOCATIVE GRATUITE · PERPIGNAN ET LE 66"
         title="Combien votre logement peut-il se louer à Perpignan ou dans le 66 ?"
-        subtitle="Un loyer trop haut, et votre appartement reste vide plusieurs semaines. Trop bas, et vous laissez des centaines d'euros par an sur la table. Recevez le loyer réellement pratiqué dans votre quartier, par email en quelques minutes, puis un point avec votre expert ERA sous 24 h."
+        subtitle="Un loyer trop haut, et votre appartement ou votre maison reste vide plusieurs semaines. Trop bas, et vous laissez des centaines d'euros par an sur la table. Recevez le loyer réellement pratiqué dans votre quartier, par email en quelques minutes, puis un point avec votre expert ERA sous 24 h."
         onCta={scrollToForm}
         ville={ville}
         codePostal={codePostal}
