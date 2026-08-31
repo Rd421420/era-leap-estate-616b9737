@@ -14,16 +14,16 @@ const Footer = () => {
             loading="lazy"
           />
         </div>
-        <p className="text-sm mb-2">ERA DUPONT ROMAIN IMMOBILIER - Votre expert en gestion locative à Perpignan</p>
+        <p className="text-sm mb-2">ERA DUPONT ROMAIN IMMOBILIER — Votre expert en gestion locative à Perpignan</p>
         <p className="text-xs opacity-75 mb-3">
           © {new Date().getFullYear()} Tous droits réservés |
-          <a href="/mentions-legales" className="hover:underline ml-1">
+          <Link to="/mentions-legales" className="hover:underline ml-1">
             Mentions légales
-          </a>{" "}
+          </Link>{" "}
           |
-          <a href="/confidentialite" className="hover:underline ml-1">
+          <Link to="/confidentialite" className="hover:underline ml-1">
             Politique de confidentialité
-          </a>{" "}
+          </Link>{" "}
           |
           <button type="button" onClick={openCookieBanner} className="hover:underline ml-1 underline-offset-2">
             Gérer mes cookies

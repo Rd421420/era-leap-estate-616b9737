@@ -37,7 +37,7 @@ const AgencyProof = () => {
             </span>
           </div>
           <div className="p-6 text-center">
-            <span className="block font-heading text-4xl text-primary">près de 3 000</span>
+            <span className="block font-heading text-4xl text-primary">près de 3 000</span>
             <span className="block mt-1 text-sm text-muted-foreground">
               références de loyers analysées
             </span>
