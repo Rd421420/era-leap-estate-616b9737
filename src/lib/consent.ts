@@ -3,6 +3,14 @@ export const CONSENT_KEY = "era_cookie_consent";
 export const GA_MEASUREMENT_ID = "G-JD27BBNDM5";
 const SIX_MONTHS_MS = 1000 * 60 * 60 * 24 * 182;
 
+declare global {
+  interface Window {
+    dataLayer?: unknown[];
+    fbq?: (...args: unknown[]) => void;
+    _fbq?: unknown;
+  }
+}
+
 export type ConsentValue = "granted" | "denied";
 type StoredConsent = { value: ConsentValue; date: string };
 
