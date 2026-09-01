@@ -12,12 +12,15 @@ const ThankYou = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    // Track GA4 conversion — uniquement si le consentement est accordé
-    if (typeof window !== 'undefined' && hasConsent() && (window as any).gtag) {
-      (window as any).gtag('event', 'conversion', {
-        'send_to': 'G-JD27BBNDM5',
-        'value': 1.0,
-        'currency': 'EUR'
+    // Conversion — uniquement si le consentement est accordé
+    if (typeof window !== 'undefined' && hasConsent()) {
+      window.gtag?.('event', 'generate_lead', {
+        value: 1.0,
+        currency: 'EUR',
+      });
+      window.fbq?.('track', 'Lead', {
+        value: 1.0,
+        currency: 'EUR',
       });
     }
   }, []);
