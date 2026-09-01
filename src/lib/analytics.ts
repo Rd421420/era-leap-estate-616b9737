@@ -25,6 +25,12 @@ export const trackEvent = (
     } else if (Array.isArray(window.dataLayer)) {
       window.dataLayer.push({ event: name, ...params });
     }
+
+    // Meta : uniquement les deux événements de conversion suivis
+    if (typeof window.fbq === "function") {
+      if (name === "form_start") window.fbq("trackCustom", "FormStart");
+      else if (name === "form_submit") window.fbq("track", "Lead");
+    }
   } catch {
     // silent
   }
