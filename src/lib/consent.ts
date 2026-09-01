@@ -43,7 +43,7 @@ export const saveConsent = (value: ConsentValue) => {
 export const META_PIXEL_ID = "842356093139027";
 
 // Forme canonique Google : fonction classique pour disposer de `arguments`.
-function gtag() {
+function gtag(..._args: unknown[]) {
   window.dataLayer = window.dataLayer || [];
   // eslint-disable-next-line prefer-rest-params
   window.dataLayer.push(arguments);
