@@ -4,7 +4,9 @@ import { Button } from "@/components/ui/button";
 import {
   CONSENT_EVENT,
   denyAnalytics,
+  denyMetaPixel,
   loadAnalytics,
+  loadMetaPixel,
   readConsent,
   saveConsent,
 } from "@/lib/consent";
