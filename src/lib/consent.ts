@@ -40,10 +40,14 @@ export const saveConsent = (value: ConsentValue) => {
   window.dispatchEvent(new CustomEvent(CONSENT_EVENT, { detail: value }));
 };
 
-const gtag = (...args: unknown[]) => {
+export const META_PIXEL_ID = "842356093139027";
+
+// Forme canonique Google : fonction classique pour disposer de `arguments`.
+function gtag() {
   window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push(args);
-};
+  // eslint-disable-next-line prefer-rest-params
+  window.dataLayer.push(arguments);
+}
 
 let analyticsLoaded = false;
 
