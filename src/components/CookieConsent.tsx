@@ -4,7 +4,9 @@ import { Button } from "@/components/ui/button";
 import {
   CONSENT_EVENT,
   denyAnalytics,
+  denyMetaPixel,
   loadAnalytics,
+  loadMetaPixel,
   readConsent,
   saveConsent,
 } from "@/lib/consent";
@@ -19,7 +21,10 @@ const CookieConsent = () => {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    if (readConsent() === "granted") loadAnalytics();
+    if (readConsent() === "granted") {
+      loadAnalytics();
+      loadMetaPixel();
+    }
     if (readConsent() === null) setVisible(true);
 
     const open = () => setVisible(true);
@@ -30,8 +35,13 @@ const CookieConsent = () => {
   useEffect(() => {
     const onChange = (e: Event) => {
       const value = (e as CustomEvent).detail;
-      if (value === "granted") loadAnalytics();
-      else denyAnalytics();
+      if (value === "granted") {
+        loadAnalytics();
+        loadMetaPixel();
+      } else {
+        denyAnalytics();
+        denyMetaPixel();
+      }
     };
     window.addEventListener(CONSENT_EVENT, onChange);
     return () => window.removeEventListener(CONSENT_EVENT, onChange);

@@ -40,10 +40,14 @@ export const saveConsent = (value: ConsentValue) => {
   window.dispatchEvent(new CustomEvent(CONSENT_EVENT, { detail: value }));
 };
 
-const gtag = (...args: unknown[]) => {
+export const META_PIXEL_ID = "842356093139027";
+
+// Forme canonique Google : fonction classique pour disposer de `arguments`.
+function gtag(..._args: unknown[]) {
   window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push(args);
-};
+  // eslint-disable-next-line prefer-rest-params
+  window.dataLayer.push(arguments);
+}
 
 let analyticsLoaded = false;
 
@@ -89,4 +93,49 @@ export const denyAnalytics = () => {
     ad_personalization: "denied",
     analytics_storage: "denied",
   });
+};
+
+let metaPixelLoaded = false;
+
+/** Injecte le pixel Meta uniquement après consentement explicite. */
+export const loadMetaPixel = () => {
+  if (typeof window === "undefined") return;
+  if (!hasConsent()) {
+    denyMetaPixel();
+    return;
+  }
+
+  if (!metaPixelLoaded) {
+    metaPixelLoaded = true;
+
+    /* eslint-disable */
+    (function (f: any, b: Document, e: string, v: string) {
+      if (f.fbq) return;
+      const n: any = (f.fbq = function () {
+        n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+      });
+      if (!f._fbq) f._fbq = n;
+      n.push = n;
+      n.loaded = true;
+      n.version = "2.0";
+      n.queue = [];
+      const t = b.createElement(e) as HTMLScriptElement;
+      t.async = true;
+      t.src = v;
+      const s = b.getElementsByTagName(e)[0];
+      s.parentNode?.insertBefore(t, s);
+    })(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+    /* eslint-enable */
+
+    window.fbq?.("consent", "revoke");
+    window.fbq?.("init", META_PIXEL_ID);
+  }
+
+  window.fbq?.("consent", "grant");
+  window.fbq?.("track", "PageView");
+};
+
+export const denyMetaPixel = () => {
+  if (typeof window === "undefined") return;
+  window.fbq?.("consent", "revoke");
 };

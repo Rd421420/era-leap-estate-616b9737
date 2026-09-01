@@ -333,7 +333,15 @@ const PolitiqueConfidentialite = () => {
                 </ul>
               </div>
               <div>
-                <p className="font-semibold text-foreground">2. Cookies YouTube</p>
+                <p className="font-semibold text-foreground">2. Meta (Facebook) — pixel (identifiant 842356093139027)</p>
+                <ul className="list-disc pl-6 space-y-1 mt-1">
+                  <li>Finalité : mesure d'audience et suivi des conversions publicitaires.</li>
+                  <li>Durée de vie des cookies : jusqu'à 13 mois.</li>
+                  <li>Déposés uniquement après votre consentement.</li>
+                </ul>
+              </div>
+              <div>
+                <p className="font-semibold text-foreground">3. Cookies YouTube</p>
                 <ul className="list-disc pl-6 space-y-1 mt-1">
                   <li>Déposés uniquement si vous lancez volontairement la lecture de la vidéo de présentation.</li>
                 </ul>
