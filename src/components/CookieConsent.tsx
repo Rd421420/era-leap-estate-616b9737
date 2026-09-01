@@ -21,7 +21,10 @@ const CookieConsent = () => {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    if (readConsent() === "granted") loadAnalytics();
+    if (readConsent() === "granted") {
+      loadAnalytics();
+      loadMetaPixel();
+    }
     if (readConsent() === null) setVisible(true);
 
     const open = () => setVisible(true);
