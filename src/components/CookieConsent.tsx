@@ -35,8 +35,13 @@ const CookieConsent = () => {
   useEffect(() => {
     const onChange = (e: Event) => {
       const value = (e as CustomEvent).detail;
-      if (value === "granted") loadAnalytics();
-      else denyAnalytics();
+      if (value === "granted") {
+        loadAnalytics();
+        loadMetaPixel();
+      } else {
+        denyAnalytics();
+        denyMetaPixel();
+      }
     };
     window.addEventListener(CONSENT_EVENT, onChange);
     return () => window.removeEventListener(CONSENT_EVENT, onChange);
