@@ -31,6 +31,7 @@ import {
   RotateCcw,
 } from "lucide-react";
 import { CommuneAutocomplete } from "@/components/CommuneAutocomplete";
+import { getConfirmedCommune } from "@/lib/communesData";
 import {
   Select,
   SelectContent,
