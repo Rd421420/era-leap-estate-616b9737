@@ -81,6 +81,7 @@ interface FormData extends Record<string, unknown> {
   gestion: string;
   source: string;
   rgpd: boolean;
+  optinMarketing: boolean;
 }
 
 const INITIAL: FormData = {
@@ -109,6 +110,7 @@ const INITIAL: FormData = {
   gestion: "",
   source: "",
   rgpd: false,
+  optinMarketing: false,
 };
 
 const RATE_LIMIT_CONFIG = {
@@ -354,6 +356,9 @@ const EstimationForm = ({
         referrer: attribution.referrer,
         timestamp: new Date().toISOString(),
         source_form: "estimation-form",
+        consentement_contact: "oui",
+        optin_marketing: formData.optinMarketing ? "oui" : "non",
+        consentement_version: "2026-09-24",
         website: honeypot,
         form_elapsed_ms: Date.now() - formStartedAt.current,
       };
@@ -935,19 +940,57 @@ const EstimationForm = ({
                   </Select>
                 </div>
 
-                <div className="flex items-start space-x-2 bg-muted p-4 rounded-lg">
-                  <Checkbox
-                    id="rgpd"
-                    checked={formData.rgpd}
-                    onCheckedChange={(checked) => handleInputChange("rgpd", checked as boolean)}
-                  />
-                  <label htmlFor="rgpd" className="text-xs text-muted-foreground leading-relaxed cursor-pointer">
-                    J'accepte que mes données soient utilisées par ERA DUPONT ROMAIN IMMOBILIER pour me recontacter au sujet de ma demande d'estimation. Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression de vos données. * Vos données sont conservées 3 ans maximum. En savoir plus dans notre{" "}
-                    <a href="/confidentialite" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">
-                      Politique de confidentialité
-                    </a>.
-                  </label>
+                <div className="rounded-lg border-2 border-primary bg-card p-5 space-y-4">
+                  <p className="text-sm font-bold text-foreground">
+                    Vos données et votre accord
+                  </p>
 
+                  <div className="flex items-start gap-3">
+                    <Checkbox
+                      id="rgpd"
+                      className="h-5 w-5 mt-0.5 shrink-0"
+                      checked={formData.rgpd}
+                      onCheckedChange={(checked) => handleInputChange("rgpd", checked as boolean)}
+                    />
+                    <label htmlFor="rgpd" className="text-sm text-foreground leading-relaxed cursor-pointer">
+                      J'accepte d'être recontacté(e) par ERA Dupont Romain Immobilier au sujet de
+                      ma demande d'estimation.{" "}
+                      <span className="text-primary font-semibold">(obligatoire)</span>
+                    </label>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <Checkbox
+                      id="optinMarketing"
+                      className="h-5 w-5 mt-0.5 shrink-0"
+                      checked={formData.optinMarketing}
+                      onCheckedChange={(checked) =>
+                        handleInputChange("optinMarketing", checked as boolean)
+                      }
+                    />
+                    <label
+                      htmlFor="optinMarketing"
+                      className="text-sm text-foreground leading-relaxed cursor-pointer"
+                    >
+                      J'accepte de recevoir les conseils et actualités de l'agence (gestion
+                      locative, marché local). Désinscription possible à tout moment.{" "}
+                      <span className="text-muted-foreground">(facultatif)</span>
+                    </label>
+                  </div>
+
+                  <p className="text-xs text-muted-foreground leading-relaxed">
+                    Vos données sont conservées 3&nbsp;ans maximum. Vous disposez d'un droit
+                    d'accès, de rectification et de suppression. En savoir plus&nbsp;:{" "}
+                    <a
+                      href="/confidentialite"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline hover:text-primary"
+                    >
+                      Politique de confidentialité
+                    </a>
+                    .
+                  </p>
                 </div>
                 {validationErrors.rgpd && (
                   <p className="text-xs text-destructive mt-1">{validationErrors.rgpd}</p>
