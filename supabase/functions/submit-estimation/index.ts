@@ -14,7 +14,8 @@ const ALLOWED_FIELDS = new Set([
   "garage", "dpe", "nom", "prenom", "telephone", "email", "gestion",
   "source", "gclid", "utm_source", "utm_medium", "utm_campaign",
   "utm_term", "utm_content", "landing_page", "referrer", "timestamp",
-  "source_form", "lead_partiel",
+  "source_form", "lead_partiel", "consentement_contact", "optin_marketing",
+  "consentement_version",
 ]);
 
 const MAX_LEN: Record<string, number> = { adresse: 300 };

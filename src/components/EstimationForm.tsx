@@ -81,6 +81,7 @@ interface FormData extends Record<string, unknown> {
   gestion: string;
   source: string;
   rgpd: boolean;
+  optinMarketing: boolean;
 }
 
 const INITIAL: FormData = {
@@ -109,6 +110,7 @@ const INITIAL: FormData = {
   gestion: "",
   source: "",
   rgpd: false,
+  optinMarketing: false,
 };
 
 const RATE_LIMIT_CONFIG = {
@@ -354,6 +356,9 @@ const EstimationForm = ({
         referrer: attribution.referrer,
         timestamp: new Date().toISOString(),
         source_form: "estimation-form",
+        consentement_contact: "oui",
+        optin_marketing: formData.optinMarketing ? "oui" : "non",
+        consentement_version: "2026-09-24",
         website: honeypot,
         form_elapsed_ms: Date.now() - formStartedAt.current,
       };
