@@ -366,6 +366,12 @@ const PolitiqueConfidentialite = () => {
                   <li>Finalité : mesure d'audience et suivi des conversions publicitaires.</li>
                   <li>Durée de vie des cookies : jusqu'à 13 mois.</li>
                   <li>Déposés uniquement après votre consentement.</li>
+                  <li>
+                    Si vous acceptez les cookies, les événements de mesure (visite, demande
+                    d'estimation) peuvent aussi être transmis à Meta depuis notre serveur&nbsp;; vos
+                    coordonnées sont alors envoyées sous forme chiffrée (hachage), uniquement pour
+                    mesurer l'efficacité de nos publicités.
+                  </li>
                 </ul>
               </div>
               <div>

@@ -51,6 +51,7 @@ import {
 import { GOOGLE_RATING, GOOGLE_REVIEW_COUNT } from "@/lib/agency";
 import { trackEvent } from "@/lib/analytics";
 import { supabase } from "@/integrations/supabase/client";
+import { getMetaIds, hasConsent } from "@/lib/consent";
 
 interface FormData extends Record<string, unknown> {
   // Étape 1
@@ -321,6 +322,7 @@ const EstimationForm = ({
 
     setLoading(true);
     try {
+      const leadEventId = crypto.randomUUID();
       const sanitizedData = {
         adresse: sanitizeString(formData.adresse),
         type: formData.type,
@@ -361,6 +363,10 @@ const EstimationForm = ({
         consentement_version: "2026-09-24b",
         website: honeypot,
         form_elapsed_ms: Date.now() - formStartedAt.current,
+        meta_consent: hasConsent() ? "granted" : "denied",
+        meta_event_id: leadEventId,
+        event_source_url: window.location.href,
+        ...getMetaIds(),
       };
 
       const { data: fnData, error: fnError } = await supabase.functions.invoke(
@@ -376,7 +382,7 @@ const EstimationForm = ({
           title: "✅ Demande envoyée !",
           description: "Votre estimation arrive par email dans quelques minutes.",
         });
-        navigate("/merci", { state: { prenom: formData.prenom } });
+        navigate("/merci", { state: { prenom: formData.prenom, leadEventId } });
       } else {
         const status = (fnError as { context?: { status?: number } } | null)?.context?.status;
         if (status === 429) {

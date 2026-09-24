@@ -1,5 +1,6 @@
 import { corsHeaders } from "npm:@supabase/supabase-js@2/cors";
 import { createClient } from "npm:@supabase/supabase-js@2";
+import { sendMetaEvent } from "../_shared/metaCapi.ts";
 
 const N8N_WEBHOOK_URL =
   "https://n8n.srv864634.hstgr.cloud/webhook/c15fe03b-332b-405e-b285-3c660fb06c0e";
@@ -174,6 +175,34 @@ Deno.serve(async (req) => {
     }
 
     await admin.from("submission_rate_limit").insert({ ip_hash: ipHash });
+
+    // ---- API Conversions Meta (uniquement si consentement) -------------
+    try {
+      const metaStr = (v: unknown) => (typeof v === "string" ? v.slice(0, 200) : "");
+      const metaConsent = metaStr(body.meta_consent);
+      const metaEventId = metaStr(body.meta_event_id);
+      if (metaConsent === "granted" && metaEventId) {
+        await sendMetaEvent({
+          eventName: "Lead",
+          eventId: metaEventId,
+          eventSourceUrl: metaStr(body.event_source_url) || undefined,
+          customData: { value: 1, currency: "EUR" },
+          userData: {
+            email: payload.email,
+            telephone: payload.telephone,
+            prenom: payload.prenom,
+            nom: payload.nom,
+            ville: payload.ville,
+            codePostal: payload.codePostal,
+            fbp: metaStr(body.fbp) || undefined,
+            fbc: metaStr(body.fbc) || undefined,
+          },
+          req,
+        });
+      }
+    } catch (metaErr) {
+      console.error("meta lead error:", metaErr);
+    }
 
     return json({ ok: true }, 200);
   } catch (err) {
