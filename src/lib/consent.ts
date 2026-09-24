@@ -1,4 +1,5 @@
 // Gestion du consentement cookies (RGPD/CNIL) + chargement conditionnel de GA4/Ads
+import { supabase } from "@/integrations/supabase/client";
 export const CONSENT_KEY = "era_cookie_consent";
 export const GA_MEASUREMENT_ID = "G-JD27BBNDM5";
 const SIX_MONTHS_MS = 1000 * 60 * 60 * 24 * 182;
@@ -140,10 +141,57 @@ export const loadMetaPixel = () => {
   }
 
   window.fbq?.("consent", "grant");
-  window.fbq?.("track", "PageView");
+  const eventId = crypto.randomUUID();
+  window.fbq?.("track", "PageView", {}, { eventID: eventId });
+  try {
+    supabase.functions
+      .invoke("meta-event", {
+        body: {
+          event_name: "PageView",
+          event_id: eventId,
+          event_source_url: window.location.href,
+          ...getMetaIds(),
+        },
+      })
+      .catch(() => {});
+  } catch {
+    // silencieux
+  }
 };
 
 export const denyMetaPixel = () => {
   if (typeof window === "undefined") return;
   window.fbq?.("consent", "revoke");
+};
+
+// ---- Identifiants Meta (fbp / fbc) --------------------------------------
+const FBCLID_KEY = "era_fbclid";
+
+if (typeof window !== "undefined") {
+  try {
+    const fbclid = new URLSearchParams(window.location.search).get("fbclid");
+    if (fbclid) window.sessionStorage.setItem(FBCLID_KEY, fbclid);
+  } catch {
+    // silencieux
+  }
+}
+
+const readCookie = (name: string): string | undefined => {
+  if (typeof document === "undefined") return undefined;
+  const m = document.cookie.match(new RegExp(`(?:^|; )${name}=([^;]*)`));
+  return m ? decodeURIComponent(m[1]) : undefined;
+};
+
+export const getMetaIds = (): { fbp?: string; fbc?: string } => {
+  const fbp = readCookie("_fbp");
+  let fbc = readCookie("_fbc");
+  if (!fbc) {
+    try {
+      const fbclid = window.sessionStorage.getItem(FBCLID_KEY);
+      if (fbclid) fbc = `fb.1.${Date.now()}.${fbclid}`;
+    } catch {
+      // silencieux
+    }
+  }
+  return { ...(fbp ? { fbp } : {}), ...(fbc ? { fbc } : {}) };
 };

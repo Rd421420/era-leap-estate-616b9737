@@ -18,10 +18,12 @@ const ThankYou = () => {
         value: 1.0,
         currency: 'EUR',
       });
-      window.fbq?.('track', 'Lead', {
-        value: 1.0,
-        currency: 'EUR',
-      });
+      window.fbq?.(
+        'track',
+        'Lead',
+        { value: 1.0, currency: 'EUR' },
+        { eventID: location.state?.leadEventId },
+      );
     }
   }, []);
 
