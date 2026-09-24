@@ -103,10 +103,8 @@ export const step2Schema = z.object({
     .regex(emailRegex, "Veuillez entrer une adresse email valide")
     .transform((val) => val.toLowerCase().trim()),
   gestion: z.string().optional(),
+  consentTelephone: z.boolean().optional(),
   optinMarketing: z.boolean().optional(),
-  rgpd: z.literal(true, {
-    errorMap: () => ({ message: "Vous devez accepter la politique de confidentialité" }),
-  }),
 });
 
 // Full form schema

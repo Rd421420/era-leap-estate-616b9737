@@ -80,7 +80,7 @@ interface FormData extends Record<string, unknown> {
   email: string;
   gestion: string;
   source: string;
-  rgpd: boolean;
+  consentTelephone: boolean;
   optinMarketing: boolean;
 }
 
@@ -109,7 +109,7 @@ const INITIAL: FormData = {
   email: "",
   gestion: "",
   source: "",
-  rgpd: false,
+  consentTelephone: false,
   optinMarketing: false,
 };
 
@@ -356,9 +356,9 @@ const EstimationForm = ({
         referrer: attribution.referrer,
         timestamp: new Date().toISOString(),
         source_form: "estimation-form",
-        consentement_contact: "oui",
+        consentement_telephone: formData.consentTelephone ? "oui" : "non",
         optin_marketing: formData.optinMarketing ? "oui" : "non",
-        consentement_version: "2026-09-24",
+        consentement_version: "2026-09-24b",
         website: honeypot,
         form_elapsed_ms: Date.now() - formStartedAt.current,
       };
@@ -945,17 +945,31 @@ const EstimationForm = ({
                     Vos données et votre accord
                   </p>
 
+                  <p className="text-sm text-foreground leading-relaxed">
+                    En envoyant ce formulaire, vous acceptez qu'ERA Dupont Romain Immobilier utilise
+                    vos coordonnées pour vous transmettre votre estimation et vous recontacter à son
+                    sujet.
+                  </p>
+
                   <div className="flex items-start gap-3">
                     <Checkbox
-                      id="rgpd"
+                      id="consentTelephone"
                       className="h-5 w-5 mt-0.5 shrink-0"
-                      checked={formData.rgpd}
-                      onCheckedChange={(checked) => handleInputChange("rgpd", checked as boolean)}
+                      checked={formData.consentTelephone}
+                      onCheckedChange={(checked) =>
+                        handleInputChange("consentTelephone", checked as boolean)
+                      }
                     />
-                    <label htmlFor="rgpd" className="text-sm text-foreground leading-relaxed cursor-pointer">
-                      J'accepte d'être recontacté(e) par ERA Dupont Romain Immobilier au sujet de
-                      ma demande d'estimation.{" "}
-                      <span className="text-primary font-semibold">(obligatoire)</span>
+                    <label
+                      htmlFor="consentTelephone"
+                      className="text-sm text-foreground leading-relaxed cursor-pointer"
+                    >
+                      J'accepte d'être rappelé(e) par téléphone par ERA Dupont Romain Immobilier au
+                      sujet de la mise en location ou de la gestion de mon bien, pendant 1&nbsp;an.
+                      Je peux retirer cet accord à tout moment au 04&nbsp;68&nbsp;66&nbsp;57&nbsp;18
+                      ou à dupontimmobilier@erafrance.com, et obtenir gratuitement la preuve de cet
+                      accord.{" "}
+                      <span className="text-muted-foreground">(facultatif)</span>
                     </label>
                   </div>
 
@@ -972,8 +986,8 @@ const EstimationForm = ({
                       htmlFor="optinMarketing"
                       className="text-sm text-foreground leading-relaxed cursor-pointer"
                     >
-                      J'accepte de recevoir les conseils et actualités de l'agence (gestion
-                      locative, marché local). Désinscription possible à tout moment.{" "}
+                      J'accepte de recevoir par e-mail les conseils et actualités de l'agence
+                      (gestion locative, marché local). Désinscription possible à tout moment.{" "}
                       <span className="text-muted-foreground">(facultatif)</span>
                     </label>
                   </div>
@@ -992,9 +1006,7 @@ const EstimationForm = ({
                     .
                   </p>
                 </div>
-                {validationErrors.rgpd && (
-                  <p className="text-xs text-destructive mt-1">{validationErrors.rgpd}</p>
-                )}
+
 
                 <div className="flex gap-3">
                   <Button type="button" onClick={handleBack} variant="outline" size="lg" className="flex-1">

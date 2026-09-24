@@ -305,6 +305,34 @@ const PolitiqueConfidentialite = () => {
             </div>
           </Card>
 
+          {/* Rappels téléphoniques */}
+          <Card className="p-6">
+            <h2 className="text-xl font-semibold mb-4">Rappels téléphoniques</h2>
+            <div className="space-y-3 text-muted-foreground">
+              <p>
+                L'agence vous contacte pour le traitement de votre demande d'estimation. Au-delà,
+                elle ne vous rappelle que si vous avez accepté d'être rappelé(e) par téléphone en
+                cochant la case prévue à cet effet dans le formulaire.
+              </p>
+              <p>Cet accord est valable 1&nbsp;an.</p>
+              <p>
+                Il peut être retiré à tout moment en appelant le 04 68 66 57 18 ou en écrivant à{" "}
+                <a
+                  href="mailto:dupontimmobilier@erafrance.com"
+                  className="text-primary hover:underline"
+                >
+                  dupontimmobilier@erafrance.com
+                </a>
+                .
+              </p>
+              <p>
+                La preuve de votre accord est conservée 3&nbsp;ans et vous est transmise gratuitement
+                sur simple demande.
+              </p>
+            </div>
+          </Card>
+
+
           {/* Données des mineurs */}
           <Card className="p-6">
             <h2 className="text-xl font-semibold mb-4">Données des mineurs</h2>
