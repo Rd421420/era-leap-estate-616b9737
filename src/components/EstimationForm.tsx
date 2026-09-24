@@ -322,6 +322,7 @@ const EstimationForm = ({
 
     setLoading(true);
     try {
+      const leadEventId = crypto.randomUUID();
       const sanitizedData = {
         adresse: sanitizeString(formData.adresse),
         type: formData.type,
