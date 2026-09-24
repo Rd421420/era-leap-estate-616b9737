@@ -10,7 +10,7 @@ const Footer = () => {
           <img
             src={eraLogo}
             alt="ERA DUPONT ROMAIN IMMOBILIER logo"
-            className="h-12 mx-auto opacity-80 invert"
+            className="h-12 mx-auto"
             loading="lazy"
           />
         </div>

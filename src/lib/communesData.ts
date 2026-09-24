@@ -122,8 +122,17 @@
  export const findExactCommune = (name: string): Commune | undefined => {
    const normalizedSearch = normalizeString(name);
    
-   return communes.find((c) => {
-     if (normalizeString(c.nom) === normalizedSearch) return true;
-     return c.variantes.some((v) => normalizeString(v) === normalizedSearch);
-   });
- };
+  return communes.find((c) => {
+    if (normalizeString(c.nom) === normalizedSearch) return true;
+    return c.variantes.some((v) => normalizeString(v) === normalizedSearch);
+  });
+};
+
+// Confirme qu'un couple ville + code postal correspond bien à une commune connue
+export const getConfirmedCommune = (nom: string, codePostal: string): Commune | undefined => {
+  const cp = codePostal.trim();
+  const commune = findExactCommune(nom);
+  if (!commune) return undefined;
+  const cpOk = commune.codePostal === cp || commune.variantes.includes(cp);
+  return cpOk ? commune : undefined;
+};

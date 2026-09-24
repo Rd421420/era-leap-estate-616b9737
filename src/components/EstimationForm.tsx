@@ -31,6 +31,7 @@ import {
   RotateCcw,
 } from "lucide-react";
 import { CommuneAutocomplete } from "@/components/CommuneAutocomplete";
+import { getConfirmedCommune } from "@/lib/communesData";
 import {
   Select,
   SelectContent,
@@ -279,6 +280,21 @@ const EstimationForm = ({
 
   const handleNext = () => {
     if (step === 1 && runValidation(validateStepA)) {
+      const commune = getConfirmedCommune(formData.ville, formData.codePostal);
+      if (!commune) {
+        setValidationErrors((prev) => ({
+          ...prev,
+          ville:
+            "Sélectionnez votre commune dans la liste : ce couple ville + code postal ne correspond à aucune commune que nous couvrons.",
+        }));
+        toast({
+          title: "Champs invalides",
+          description: "Veuillez corriger les erreurs dans le formulaire.",
+          variant: "destructive",
+        });
+        return;
+      }
+      setFormData((prev) => ({ ...prev, ville: commune.nom.toUpperCase() }));
       trackEvent("form_step_complete", { step: 1 });
       setStep(2);
     } else if (step === 2 && runValidation(validateStepB)) {
