@@ -625,11 +625,12 @@ const EstimationForm = ({
                     <MapPin className="h-4 w-4 text-primary" />
                     Adresse complète *
                   </Label>
-                  <Input
+                  <AddressAutocomplete
                     value={formData.adresse}
-                    onChange={(e) => handleInputChange("adresse", e.target.value)}
-                    placeholder="12 rue de la République"
-                    className={validationErrors.adresse ? "border-destructive" : ""}
+                    onAdresseChange={(v) => handleInputChange("adresse", v)}
+                    onCodePostalChange={(v) => handleInputChange("codePostal", v)}
+                    onVilleChange={(v) => handleInputChange("ville", v)}
+                    error={validationErrors.adresse}
                   />
                   {validationErrors.adresse && (
                     <p className="text-xs text-destructive mt-1">{validationErrors.adresse}</p>
