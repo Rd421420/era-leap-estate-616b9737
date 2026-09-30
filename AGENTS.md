@@ -1,0 +1,1 @@
+- Pré-rendu statique au build (entry-server.tsx + scripts/prerender.mjs, routes dans AppRoutes.tsx) ; createRoot conservé côté client — pour que robots et réseaux sociaux lisent chaque page sans JS.
