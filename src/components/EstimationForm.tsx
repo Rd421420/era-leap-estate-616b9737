@@ -1036,7 +1036,6 @@ const EstimationForm = ({
           </form>
         </Card>
 
-        {/* Mini-témoignage social proof */}
       </div>
     </section>
   );
