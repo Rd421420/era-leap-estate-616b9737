@@ -156,7 +156,7 @@ const FAQ = () => {
                 <AccordionTrigger className="text-left text-base font-semibold hover:text-primary">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-sm text-muted-foreground leading-relaxed">
+                <AccordionContent forceMount className="text-sm text-muted-foreground leading-relaxed">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>

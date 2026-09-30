@@ -11,6 +11,7 @@
    onCodePostalChange: (value: string) => void;
    villeError?: string;
    codePostalError?: string;
+   idPrefix?: string;
  }
  
  export const CommuneAutocomplete = ({
@@ -20,6 +21,7 @@
    onCodePostalChange,
    villeError,
    codePostalError,
+   idPrefix = "",
  }: CommuneAutocompleteProps) => {
    const [villeSuggestions, setVilleSuggestions] = useState<Commune[]>([]);
    const [codePostalSuggestions, setCodePostalSuggestions] = useState<Commune[]>([]);
@@ -109,12 +111,12 @@
      <>
        {/* Ville with autocomplete */}
        <div className="group relative" ref={villeRef}>
-         <label htmlFor="ville" className="text-sm font-semibold flex items-center gap-2 mb-2">
+         <label htmlFor={`${idPrefix}ville`} className="text-sm font-semibold flex items-center gap-2 mb-2">
            <MapPin className="h-4 w-4 text-primary" />
            Ville *
          </label>
          <Input
-           id="ville"
+           id={`${idPrefix}ville`}
            value={ville}
            onChange={(e) => handleVilleChange(e.target.value)}
            onFocus={() => ville.length >= 2 && setShowVilleSuggestions(villeSuggestions.length > 0)}
@@ -148,12 +150,12 @@
  
        {/* Code postal with autocomplete */}
        <div className="group relative" ref={codePostalRef}>
-         <label htmlFor="codePostal" className="text-sm font-semibold flex items-center gap-2 mb-2">
+         <label htmlFor={`${idPrefix}codePostal`} className="text-sm font-semibold flex items-center gap-2 mb-2">
            <MapPin className="h-4 w-4 text-primary" />
            Code postal *
          </label>
          <Input
-           id="codePostal"
+           id={`${idPrefix}codePostal`}
            type="text"
            inputMode="numeric"
            value={codePostal}

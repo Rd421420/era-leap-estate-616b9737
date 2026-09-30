@@ -1036,19 +1036,6 @@ const EstimationForm = ({
           </form>
         </Card>
 
-        {/* Mini-témoignage social proof */}
-        <div className="mt-6 text-center text-sm text-muted-foreground italic">
-          <span className="inline-flex items-center gap-1">
-            <Star className="h-3.5 w-3.5 text-yellow-500 fill-yellow-500" />
-            <Star className="h-3.5 w-3.5 text-yellow-500 fill-yellow-500" />
-            <Star className="h-3.5 w-3.5 text-yellow-500 fill-yellow-500" />
-            <Star className="h-3.5 w-3.5 text-yellow-500 fill-yellow-500" />
-            <Star className="h-3.5 w-3.5 text-yellow-500 fill-yellow-500" />
-          </span>
-          <span className="ml-2">
-            « Estimation précise et équipe ultra-réactive » — un propriétaire à Perpignan
-          </span>
-        </div>
       </div>
     </section>
   );

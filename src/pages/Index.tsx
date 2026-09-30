@@ -169,7 +169,7 @@ const Index = () => {
         </div>
       </div>
 
-      <div ref={formRef} id="estimation-form">
+      <div ref={formRef}>
         <EstimationForm initialVille={ville} initialCodePostal={codePostal} />
       </div>
       <RecentEstimations />

@@ -137,7 +137,7 @@ const LouerDpeFG = () => {
         </div>
       </section>
 
-      <section id="estimation-form" className="py-16 md:py-20 bg-muted/20">
+      <section className="py-16 md:py-20 bg-muted/20">
         <div className="container mx-auto px-4">
           <div ref={formRef}>
             <EstimationForm />
@@ -152,7 +152,7 @@ const LouerDpeFG = () => {
             {faq.map((f, i) => (
               <AccordionItem key={i} value={`q${i + 1}`}>
                 <AccordionTrigger>{f.question}</AccordionTrigger>
-                <AccordionContent>
+                <AccordionContent forceMount>
                   <p className="text-muted-foreground leading-relaxed">{f.answer}</p>
                 </AccordionContent>
               </AccordionItem>
@@ -164,6 +164,7 @@ const LouerDpeFG = () => {
       <section className="pb-16 md:pb-20">
         <div className="container mx-auto px-4 max-w-3xl">
           <CtaBand
+            href="#estimation-form"
             title="Avant d'engager des travaux, sachez ce que votre bien peut rapporter une fois louable."
             ctaText="Estimer mon loyer après travaux"
           />
