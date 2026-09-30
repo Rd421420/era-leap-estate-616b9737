@@ -115,7 +115,7 @@ const BlogArticle = () => {
               {post.faq.map((f, i) => (
                 <AccordionItem key={i} value={`item-${i}`}>
                   <AccordionTrigger className="text-left">{f.question}</AccordionTrigger>
-                  <AccordionContent>{f.answer}</AccordionContent>
+                  <AccordionContent forceMount>{f.answer}</AccordionContent>
                 </AccordionItem>
               ))}
             </Accordion>

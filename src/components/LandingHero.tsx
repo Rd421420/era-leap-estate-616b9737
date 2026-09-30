@@ -88,6 +88,7 @@ const DefaultAside = ({
               codePostal={cpValue}
               onVilleChange={setVille}
               onCodePostalChange={setCp}
+              idPrefix="hero-"
             />
           </div>
           <Button type="submit" size="lg" className="w-full shadow-era min-h-[44px]">

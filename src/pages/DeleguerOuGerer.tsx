@@ -204,7 +204,7 @@ const DeleguerOuGerer = () => {
         </div>
       </section>
 
-      <section id="estimation-form" className="py-16 md:py-20 bg-muted/20">
+      <section className="py-16 md:py-20 bg-muted/20">
         <div className="container mx-auto px-4">
           <div ref={formRef}>
             <EstimationForm />
@@ -219,7 +219,7 @@ const DeleguerOuGerer = () => {
             {faq.map((f, i) => (
               <AccordionItem key={i} value={`q${i + 1}`}>
                 <AccordionTrigger>{f.question}</AccordionTrigger>
-                <AccordionContent>
+                <AccordionContent forceMount>
                   <p className="text-muted-foreground leading-relaxed">{f.answer}</p>
                 </AccordionContent>
               </AccordionItem>
@@ -231,6 +231,7 @@ const DeleguerOuGerer = () => {
       <section className="pb-16 md:pb-20">
         <div className="container mx-auto px-4 max-w-3xl">
           <CtaBand
+            href="#estimation-form"
             title="Le calcul dépend de votre loyer. Commençons par le connaître."
             ctaText="Faire le calcul sur mon bien"
           />
