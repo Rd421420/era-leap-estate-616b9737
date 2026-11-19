@@ -10,6 +10,7 @@ import {
   readConsent,
   saveConsent,
 } from "@/lib/consent";
+import { clarityConsent } from "@/lib/clarity";
 
 export const OPEN_COOKIE_BANNER_EVENT = "era-open-cookie-banner";
 
@@ -24,6 +25,9 @@ const CookieConsent = () => {
     if (readConsent() === "granted") {
       loadAnalytics();
       loadMetaPixel();
+      clarityConsent(true);
+    } else {
+      clarityConsent(false);
     }
     if (readConsent() === null) setVisible(true);
 
@@ -38,9 +42,11 @@ const CookieConsent = () => {
       if (value === "granted") {
         loadAnalytics();
         loadMetaPixel();
+        clarityConsent(true);
       } else {
         denyAnalytics();
         denyMetaPixel();
+        clarityConsent(false);
       }
     };
     window.addEventListener(CONSENT_EVENT, onChange);

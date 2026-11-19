@@ -51,6 +51,7 @@ import {
 } from "@/lib/formValidation";
 import { GOOGLE_RATING, GOOGLE_REVIEW_COUNT } from "@/lib/agency";
 import { trackEvent } from "@/lib/analytics";
+import { clarityEvent } from "@/lib/clarity";
 import { supabase } from "@/integrations/supabase/client";
 import { getMetaIds, hasConsent } from "@/lib/consent";
 
@@ -249,6 +250,7 @@ const EstimationForm = ({
 
     if (!startedTracked) {
       trackEvent("form_start", { form_id: "estimation" });
+      clarityEvent("etape_1_debut");
       setStartedTracked(true);
     }
 
@@ -300,9 +302,12 @@ const EstimationForm = ({
       }
       setFormData((prev) => ({ ...prev, ville: commune.nom.toUpperCase() }));
       trackEvent("form_step_complete", { step: 1 });
+      clarityEvent("etape_1_validee");
       setStep(2);
     } else if (step === 2 && runValidation(validateStepB)) {
       trackEvent("form_step_complete", { step: 2 });
+      clarityEvent("etape_2_validee");
+      clarityEvent("etape_3_affichee");
       setStep(3);
     }
   };
@@ -378,6 +383,7 @@ const EstimationForm = ({
       if (!fnError && fnData?.ok) {
         recordAttempt();
         trackEvent("form_submit", { form_id: "estimation" });
+        clarityEvent("estimation_envoyee");
         clear();
         toast({
           title: "✅ Demande envoyée !",

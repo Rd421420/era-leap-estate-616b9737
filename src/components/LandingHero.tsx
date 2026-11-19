@@ -3,6 +3,7 @@ import { Phone, ChevronRight, Star, Lock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { CommuneAutocomplete } from "@/components/CommuneAutocomplete";
+import { clarityEvent } from "@/lib/clarity";
 import { GOOGLE_RATING, GOOGLE_REVIEW_COUNT, GOOGLE_REVIEW_URL } from "@/lib/agency";
 
 
@@ -62,11 +63,27 @@ const DefaultAside = ({
 
   const villeValue = ville ?? localVille;
   const cpValue = codePostal ?? localCp;
-  const setVille = onVilleChange ?? setLocalVille;
-  const setCp = onCodePostalChange ?? setLocalCp;
+  const [started, setStarted] = useState(false);
+  const markStarted = (v: string) => {
+    if (!started && v.trim()) {
+      setStarted(true);
+      clarityEvent("haut_debut");
+    }
+  };
+  const setVilleRaw = onVilleChange ?? setLocalVille;
+  const setCpRaw = onCodePostalChange ?? setLocalCp;
+  const setVille = (v: string) => {
+    markStarted(v);
+    setVilleRaw(v);
+  };
+  const setCp = (v: string) => {
+    markStarted(v);
+    setCpRaw(v);
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    clarityEvent("haut_envoye");
     onCta();
   };
 

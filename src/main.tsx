@@ -8,6 +8,9 @@ import "@fontsource/hind/500.css";
 import "@fontsource/hind/600.css";
 import "@fontsource/hind/700.css";
 import "./index.css";
+import { initClarity } from "./lib/clarity";
+
+initClarity();
 
 createRoot(document.getElementById("root")!).render(
   <HelmetProvider>
