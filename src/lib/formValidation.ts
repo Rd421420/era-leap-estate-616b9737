@@ -25,7 +25,7 @@ const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 // Étape A : champs essentiels (type, localisation, surface, pièces)
 export const stepASchema = z.object({
   type: z.enum(["appartement", "maison", "immeuble", "studio", "local"], {
-    errorMap: () => ({ message: "Veuillez sélectionner un type de bien" }),
+    error: "Veuillez sélectionner un type de bien",
   }),
   ville: z
     .string()

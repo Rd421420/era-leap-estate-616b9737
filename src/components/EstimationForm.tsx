@@ -264,12 +264,12 @@ const EstimationForm = ({
   };
 
   const runValidation = (
-    runner: (data: Record<string, unknown>) => { success: boolean; error?: { errors: Array<{ path: (string | number)[]; message: string }> } },
+    runner: (data: Record<string, unknown>) => { success: boolean; error?: { issues: Array<{ path: PropertyKey[]; message: string }> } },
   ) => {
     const result = runner(formData as unknown as Record<string, unknown>);
     if (!result.success && result.error) {
       const errors: Record<string, string> = {};
-      result.error.errors.forEach((err) => {
+      result.error.issues.forEach((err) => {
         if (err.path[0]) errors[err.path[0] as string] = err.message;
       });
       setValidationErrors(errors);
